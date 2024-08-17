@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://58rftb00ctwn"]
+
+[ext_resource type="Script" path="res://scripts/Abilities/BasicHeal.gd" id="1_5opu8"]
+
+[resource]
+script = ExtResource("1_5opu8")
+name = "Heal"

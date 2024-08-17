@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi7vq88fswns3"]
+
+[ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
+[ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_60mrf"]
+[ext_resource type="Resource" uid="uid://c5akdojtihmw4" path="res://Bowser.tres" id="2_tns1u"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_cvj56"]
+[ext_resource type="Script" path="res://scripts/Body.gd" id="4_k0fem"]
+[ext_resource type="Script" path="res://PlayerControl.gd" id="5_c8v7s"]
+[ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="6_knrm4"]
+
+[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_control")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sj1wd")
+enemy = NodePath("Enemy")
+player_control = NodePath("ControlPanel")
+
+[node name="Enemy" type="Control" parent="." node_paths=PackedStringArray("body")]
+anchors_preset = 0
+offset_left = 365.0
+offset_top = 72.0
+offset_right = 405.0
+offset_bottom = 112.0
+script = ExtResource("3_cvj56")
+base_stats = ExtResource("2_tns1u")
+body = NodePath("EnemyBody")
+
+[node name="EnemyBody" type="Control" parent="Enemy" node_paths=PackedStringArray("health_bar", "health_label")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_k0fem")
+health_bar = NodePath("../EnemyPicture/EnemyHealth")
+health_label = NodePath("../EnemyPicture/EnemyHealth/Label")
+
+[node name="EnemyPicture" type="TextureRect" parent="Enemy"]
+layout_mode = 0
+offset_right = 377.0
+offset_bottom = 498.0
+expand_mode = 1
+
+[node name="EnemyHealth" type="ProgressBar" parent="Enemy/EnemyPicture"]
+modulate = Color(0.210772, 0.549891, 0.300151, 1)
+self_modulate = Color(0.918426, 0.883841, 0.992613, 1)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 12.0
+offset_right = 324.0
+offset_bottom = 49.0
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Enemy/EnemyPicture/EnemyHealth"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP: 50/100
+"
+horizontal_alignment = 1
+
+[node name="ControlPanel" type="Panel" parent="." node_paths=PackedStringArray("buttons")]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 478.0
+offset_right = 1154.0
+offset_bottom = 649.0
+script = ExtResource("5_c8v7s")
+buttons = [NodePath("Arms"), NodePath("Legs"), NodePath("Chest")]
+abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf")])
+
+[node name="Arms" type="Button" parent="ControlPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 6.0
+offset_right = 273.0
+offset_bottom = 163.0
+text = "ATTACK
+"
+
+[node name="Legs" type="Button" parent="ControlPanel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 10.0
+offset_right = 624.0
+offset_bottom = 161.0
+text = "DEFEND
+"
+
+[node name="Chest" type="Button" parent="ControlPanel"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 14.0
+offset_right = 1020.0
+offset_bottom = 165.0
+text = "Special
+
+"

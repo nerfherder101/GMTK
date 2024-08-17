@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c5akdojtihmw4"]
+
+[ext_resource type="Script" path="res://scripts/BaseEnemy.gd" id="1_7534b"]
+[ext_resource type="Texture2D" uid="uid://biajprujf6num" path="res://programmer art/bowser.png" id="2_o5o4p"]
+
+[resource]
+script = ExtResource("1_7534b")
+name = "Enemy"
+texture = ExtResource("2_o5o4p")
+max_health = 100
+health = 100
+damage = 25
