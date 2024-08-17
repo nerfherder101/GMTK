@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=9 format=3 uid="uid://bi7vq88fswns3"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
 [ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_60mrf"]
@@ -7,8 +7,9 @@
 [ext_resource type="Script" path="res://scripts/Body.gd" id="4_k0fem"]
 [ext_resource type="Script" path="res://PlayerControl.gd" id="5_c8v7s"]
 [ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="6_knrm4"]
+[ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="8_tdk3j"]
 
-[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_control")]
+[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +18,45 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sj1wd")
 enemy = NodePath("Enemy")
+player_body = NodePath("Player Body")
 player_control = NodePath("ControlPanel")
+
+[node name="Player Body" type="Control" parent="." node_paths=PackedStringArray("health_bar", "health_label")]
+anchors_preset = 0
+offset_left = 103.0
+offset_top = 349.0
+offset_right = 382.0
+offset_bottom = 389.0
+script = ExtResource("4_k0fem")
+health_bar = NodePath("Player Health")
+health_label = NodePath("Player Health/Label")
+metadata/_edit_lock_ = true
+
+[node name="Player Health" type="ProgressBar" parent="Player Body"]
+modulate = Color(0.210772, 0.549891, 0.300151, 1)
+self_modulate = Color(0.918426, 0.883841, 0.992613, 1)
+offset_left = 54.0
+offset_top = 24.0
+offset_right = 351.0
+offset_bottom = 61.0
+step = 1.0
+value = 100.0
+show_percentage = false
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Player Body/Player Health"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP: 50/100
+"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Enemy" type="Control" parent="." node_paths=PackedStringArray("body")]
 anchors_preset = 0
@@ -76,7 +115,7 @@ offset_right = 1154.0
 offset_bottom = 649.0
 script = ExtResource("5_c8v7s")
 buttons = [NodePath("Arms"), NodePath("Legs"), NodePath("Chest")]
-abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf")])
+abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf"), ExtResource("8_tdk3j")])
 
 [node name="Arms" type="Button" parent="ControlPanel"]
 layout_mode = 0

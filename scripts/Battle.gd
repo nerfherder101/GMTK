@@ -1,6 +1,7 @@
 extends Control
 
 @export var enemy: Enemy = null
+@export var player_body: Body = null
 @export var player_control: PlayerControl = null
 
 
@@ -9,7 +10,10 @@ func _ready() -> void:
 	pass
 
 func player_turn_end():
-	print("enemy went")
+	enemy.execute_ability()
+	pass
+
+func enemy_turn_end():
 	player_control.toggle_selection()
 	pass
 
