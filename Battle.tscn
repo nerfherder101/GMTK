@@ -1,115 +1,26 @@
-[gd_scene load_steps=27 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=17 format=3 uid="uid://bi7vq88fswns3"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
 [ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_60mrf"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_cvj56"]
 [ext_resource type="Script" path="res://scripts/Body.gd" id="4_k0fem"]
-[ext_resource type="Resource" uid="uid://3uao7qhuu1wf" path="res://RedDead.tres" id="5_65fen"]
+[ext_resource type="Resource" uid="uid://3uao7qhuu1wf" path="res://resources/enemies/Red Dead/RedDead.tres" id="5_65fen"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="5_c8v7s"]
+[ext_resource type="FontFile" uid="uid://buuplwb7wk55" path="res://art/ui/Jersey10-Regular.ttf" id="6_36tl2"]
 [ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="6_knrm4"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/RedDeadSpritesheet.png" id="6_xles2"]
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_ac1w2"]
 [ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="8_tdk3j"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="9_jli3d"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="10_xfawu"]
 [ext_resource type="Texture2D" uid="uid://dtjotswbnjcbh" path="res://art/background art/western background.png" id="12_k3xlr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_icbnx"]
-atlas = ExtResource("6_xles2")
-region = Rect2(256, 0, 64, 64)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w56oc"]
+blend_mode = 4
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggb0d"]
-atlas = ExtResource("6_xles2")
-region = Rect2(320, 0, 64, 64)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic4td"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqfxu"]
-atlas = ExtResource("6_xles2")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aurqj"]
-atlas = ExtResource("6_xles2")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4fcnh"]
-atlas = ExtResource("6_xles2")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovxqg"]
-atlas = ExtResource("6_xles2")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yy4ad"]
-atlas = ExtResource("6_xles2")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_23o11"]
-atlas = ExtResource("6_xles2")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xo83"]
-atlas = ExtResource("6_xles2")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wgvot"]
-atlas = ExtResource("6_xles2")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_asde7"]
-atlas = ExtResource("6_xles2")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_raoif"]
-atlas = ExtResource("6_xles2")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ypn5p"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_icbnx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ggb0d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jqfxu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aurqj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4fcnh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ovxqg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yy4ad")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_23o11")
-}],
-"loop": true,
-"name": &"attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5xo83")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wgvot")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_asde7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_raoif")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2w1j"]
+bg_color = Color(0.0705882, 0.709804, 0.25098, 1)
 
 [node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame")]
 layout_mode = 3
@@ -147,17 +58,18 @@ health_label = NodePath("Player Health/Label")
 metadata/_edit_lock_ = true
 
 [node name="Player Health" type="ProgressBar" parent="Player Body"]
-modulate = Color(0.210772, 0.549891, 0.300151, 1)
 self_modulate = Color(0.918426, 0.883841, 0.992613, 1)
+material = SubResource("CanvasItemMaterial_w56oc")
 layout_mode = 0
-offset_left = 54.0
-offset_top = 24.0
-offset_right = 351.0
-offset_bottom = 61.0
+offset_left = -22.0
+offset_top = -257.0
+offset_right = 275.0
+offset_bottom = -220.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ic4td")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w2w1j")
 step = 1.0
 value = 100.0
 show_percentage = false
-metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Player Body/Player Health"]
 modulate = Color(0, 0, 0, 1)
@@ -168,6 +80,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_36tl2")
+theme_override_font_sizes/font_size = 50
 text = "HP: 50/100
 "
 horizontal_alignment = 1
@@ -193,13 +107,15 @@ health_bar = NodePath("../EnemyHealth")
 health_label = NodePath("../EnemyHealth/Label")
 
 [node name="EnemyHealth" type="ProgressBar" parent="Enemy"]
-modulate = Color(0.210772, 0.549891, 0.300151, 1)
 self_modulate = Color(0.918426, 0.883841, 0.992613, 1)
+material = SubResource("CanvasItemMaterial_w56oc")
 layout_mode = 0
 offset_left = 373.0
 offset_top = 16.0
 offset_right = 670.0
 offset_bottom = 53.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ic4td")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w2w1j")
 step = 1.0
 value = 100.0
 show_percentage = false
@@ -213,18 +129,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_36tl2")
+theme_override_font_sizes/font_size = 50
 text = "HP: 50/100
 "
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
-
-[node name="EnemySprite" type="AnimatedSprite2D" parent="Enemy"]
-z_index = -3
-position = Vector2(519, 249)
-scale = Vector2(3.60547, 3.60547)
-sprite_frames = SubResource("SpriteFrames_ypn5p")
-animation = &"idle"
-speed_scale = 1.5
 
 [node name="Timing Game Panel" type="TextureRect" parent="."]
 visible = false

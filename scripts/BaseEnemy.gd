@@ -5,6 +5,6 @@ class_name BaseEnemy
 @export var texture: Texture = null
 @export var max_health := 100
 
-@export var idle_animation: Animation = null
+@export var sprite_scene: PackedScene
 
 @export var abilities: Array[Ability] 

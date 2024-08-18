@@ -4,25 +4,29 @@ class_name Enemy
 @export var base_stats: BaseEnemy
 @export var body: Body
 
-@onready var anim : AnimatedSprite2D = $EnemySprite
+var anim : AnimatedSprite2D = null
 
+
+@onready var timing_mg: TimingGame = get_parent().timing_minigame
 
 func _ready() -> void: 
-	#$EnemySprite.texture = base_stats.texture
-	$EnemySprite.play()
+	var anim_sprite_rec = load("res://resources/enemies/" + base_stats.name + "/Sprite.tscn")
+	var anim_sprite_inst = anim_sprite_rec.instantiate()
+	add_child(anim_sprite_inst)
+	
+	anim = $Sprite/EnemySprite	
+	
+	anim.play()
 	# confligure healthbar
 	body.max_health = base_stats.max_health
 	body.health = base_stats.max_health
 	body.update_healthbar()
 
 	for ab in base_stats.abilities:
-		ab.timing_mg = get_parent().timing_minigame
+		ab.timing_mg = timing_mg
 
 func do_damage(dmg: int):
 	body.do_damage(dmg)
-	await get_tree().create_timer(1).timeout
-
-
 	
 	var c = anim.modulate
 	c.r += 50
@@ -36,14 +40,30 @@ func do_damage(dmg: int):
 	
 
 func execute_ability(): 
-	var rng = RandomNumberGenerator.new()
-	var ability_i = rng.randi_range(0, base_stats.abilities.size() - 1)
-	var ability = base_stats.abilities[ability_i]
-	ability.trigger_ability(get_parent().player_body, body)
 	
-	await ability.ability_complete
+	# right now the only ability is attack, so I will hardcode that in
+	# I will keep the ability system around in case we have time to add special
+	
+	#var rng = RandomNumberGenerator.new()
+	#var ability_i = rng.randi_range(0, base_stats.abilities.size() - 1)
+	#var ability = base_stats.abilities[ability_i]
+	#ability.trigger_ability(get_parent().player_body, body)
+	
+	#await ability.ability_complete
+	
+	timing_mg.start_game(10, 100)	
+	await timing_mg.timing_game_ended
+	
+	var success = timing_mg.get_success()
+	var dmg = 1
+	if not success:
+		dmg += 1
+	
+	
 	await get_tree().create_timer(1).timeout
 	anim.play("attack")
+	get_parent().player_body.do_damage(dmg)
+
 	await get_tree().create_timer(1).timeout
 	anim.play("idle")
 	

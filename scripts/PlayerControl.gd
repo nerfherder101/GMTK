@@ -32,9 +32,10 @@ func attack():
 	if success:
 		dmg += 1
 	
+	await get_tree().create_timer(1).timeout
 	get_parent().enemy.do_damage(dmg)
 	# insert animation here
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	
 	on_select()
 	
