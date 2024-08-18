@@ -12,11 +12,14 @@ func _ready() -> void:
 	body.health = base_stats.max_health
 	body.update_healthbar()
 
-
+	for ab in base_stats.abilities:
+		ab.timing_mg = get_parent().timing_minigame
 
 func execute_ability(): 
+	print("enemy turn callsed")
 	var rng = RandomNumberGenerator.new()
-	var ability = rng.randi_range(0, base_stats.abilities.size() - 1)
-	base_stats.abilities[ability].trigger_ability(get_parent().player_body, body)
-	
+	var ability_i = rng.randi_range(0, base_stats.abilities.size() - 1)
+	var ability = base_stats.abilities[ability_i]
+	ability.trigger_ability(get_parent().player_body, body)
+	await ability.ability_complete
 	get_parent().enemy_turn_end()

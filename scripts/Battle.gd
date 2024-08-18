@@ -3,7 +3,7 @@ extends Control
 @export var enemy: Enemy = null
 @export var player_body: Body = null
 @export var player_control: PlayerControl = null
-
+@export var timing_minigame: TimingGame = null
 
 func _ready() -> void:
 	player_control.toggle_selection()

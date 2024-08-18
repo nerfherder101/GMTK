@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="BaseEnemy" load_steps=6 format=3 uid="uid://c5akdojtihmw4"]
+[gd_resource type="Resource" script_class="BaseEnemy" load_steps=5 format=3 uid="uid://c5akdojtihmw4"]
 
 [ext_resource type="Script" path="res://scripts/BaseEnemy.gd" id="1_7534b"]
 [ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="1_yq8yk"]
 [ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_dw2qt"]
 [ext_resource type="Texture2D" uid="uid://biajprujf6num" path="res://programmer art/bowser.png" id="2_o5o4p"]
-[ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="3_ooh32"]
 
 [resource]
 script = ExtResource("1_7534b")
 name = "Enemy"
 texture = ExtResource("2_o5o4p")
-max_health = 100
-abilities = Array[ExtResource("1_yq8yk")]([ExtResource("2_dw2qt"), ExtResource("3_ooh32")])
+max_health = 10
+abilities = Array[ExtResource("1_yq8yk")]([ExtResource("2_dw2qt")])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=11 format=3 uid="uid://bi7vq88fswns3"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
 [ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_60mrf"]
@@ -7,12 +7,11 @@
 [ext_resource type="Script" path="res://scripts/Body.gd" id="4_k0fem"]
 [ext_resource type="Script" path="res://PlayerControl.gd" id="5_c8v7s"]
 [ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="6_knrm4"]
-[ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_ac1w2"]
 [ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="8_tdk3j"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="9_jli3d"]
 [ext_resource type="Script" path="res://TimingGame.gd" id="10_xfawu"]
 
-[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame")]
+[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +22,6 @@ script = ExtResource("1_sj1wd")
 enemy = NodePath("Enemy")
 player_body = NodePath("Player Body")
 player_control = NodePath("ControlPanel")
-timing_minigame = NodePath("Timing Game Panel/Timing Game Bar")
 
 [node name="Player Body" type="Control" parent="." node_paths=PackedStringArray("health_bar", "health_label")]
 anchors_preset = 0
@@ -187,18 +185,17 @@ text = "SUCCESS!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ControlPanel" type="Panel" parent="." node_paths=PackedStringArray("attack_button")]
+[node name="ControlPanel" type="Panel" parent="." node_paths=PackedStringArray("buttons")]
 layout_mode = 0
 offset_left = -2.0
 offset_top = 478.0
 offset_right = 1154.0
 offset_bottom = 649.0
 script = ExtResource("5_c8v7s")
-attack_button = NodePath("Attack")
-data = ExtResource("8_ac1w2")
+buttons = [NodePath("Arms"), NodePath("Legs"), NodePath("Chest")]
 abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf"), ExtResource("8_tdk3j")])
 
-[node name="Attack" type="Button" parent="ControlPanel"]
+[node name="Arms" type="Button" parent="ControlPanel"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 6.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://c7m75poinxlcf"]
+
+[ext_resource type="Script" path="res://scripts/PlayerData.gd" id="1_w0tan"]
+
+[resource]
+script = ExtResource("1_w0tan")
+def = 0
+atk = 1
+agi = 0
+luck = 0.05
