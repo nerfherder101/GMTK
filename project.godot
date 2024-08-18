@@ -15,6 +15,13 @@ run/main_scene="res://Battle.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://GMTK2024/icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1152
+window/size/window_height_override=648
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
