@@ -18,7 +18,6 @@ var x_max = 0
 var running = false
 
 func _ready () -> void:
-	start_game(ptr_speed, success_size)
 	attempt_button.pressed.connect(attempt)
 
 func start_game(speed: int, success_sz: int):

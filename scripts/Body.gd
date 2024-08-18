@@ -11,7 +11,6 @@ func _ready() -> void:
 	await get_tree().physics_frame
 	health_bar.max_value = max_health
 	update_healthbar()
-	pass	
 
 func do_damage(dmg: int):
 	health -= dmg

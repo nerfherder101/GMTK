@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=13 format=3 uid="uid://bi7vq88fswns3"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
 [ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_60mrf"]
 [ext_resource type="Resource" uid="uid://c5akdojtihmw4" path="res://Bowser.tres" id="2_tns1u"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_cvj56"]
 [ext_resource type="Script" path="res://scripts/Body.gd" id="4_k0fem"]
-[ext_resource type="Script" path="res://PlayerControl.gd" id="5_c8v7s"]
+[ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="5_c8v7s"]
 [ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="6_knrm4"]
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_ac1w2"]
 [ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="8_tdk3j"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="9_jli3d"]
-[ext_resource type="Script" path="res://TimingGame.gd" id="10_xfawu"]
+[ext_resource type="Script" path="res://scripts/TimingGame.gd" id="10_xfawu"]
+[ext_resource type="Texture2D" uid="uid://dtjotswbnjcbh" path="res://art/background art/western background.png" id="12_k3xlr"]
 
 [node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame")]
 layout_mode = 3
@@ -25,6 +26,16 @@ player_body = NodePath("Player Body")
 player_control = NodePath("ControlPanel")
 timing_minigame = NodePath("Timing Game Panel/Timing Game Bar")
 
+[node name="background" type="TextureRect" parent="."]
+z_index = -10
+z_as_relative = false
+layout_mode = 0
+offset_left = -21.0
+offset_top = -52.0
+offset_right = 1192.0
+offset_bottom = 670.0
+texture = ExtResource("12_k3xlr")
+
 [node name="Player Body" type="Control" parent="." node_paths=PackedStringArray("health_bar", "health_label")]
 anchors_preset = 0
 offset_left = 103.0
@@ -32,6 +43,7 @@ offset_top = 349.0
 offset_right = 382.0
 offset_bottom = 389.0
 script = ExtResource("4_k0fem")
+max_health = 10
 health_bar = NodePath("Player Health")
 health_label = NodePath("Player Health/Label")
 metadata/_edit_lock_ = true
@@ -115,6 +127,7 @@ text = "HP: 50/100
 horizontal_alignment = 1
 
 [node name="Timing Game Panel" type="TextureRect" parent="."]
+visible = false
 self_modulate = Color(0.122252, 0.122252, 0.122252, 1)
 z_index = -3
 layout_mode = 0
@@ -200,27 +213,18 @@ abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf"), ExtResource("
 
 [node name="Attack" type="Button" parent="ControlPanel"]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 6.0
-offset_right = 273.0
-offset_bottom = 163.0
+offset_left = 96.0
+offset_top = 8.0
+offset_right = 461.0
+offset_bottom = 165.0
 text = "ATTACK
-"
-
-[node name="Legs" type="Button" parent="ControlPanel"]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 10.0
-offset_right = 624.0
-offset_bottom = 161.0
-text = "DEFEND
 "
 
 [node name="Chest" type="Button" parent="ControlPanel"]
 layout_mode = 0
-offset_left = 780.0
+offset_left = 518.0
 offset_top = 14.0
-offset_right = 1020.0
+offset_right = 909.0
 offset_bottom = 165.0
 text = "Special
 
