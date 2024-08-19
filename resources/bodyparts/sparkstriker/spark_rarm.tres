@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Body_Part" load_steps=2 format=3 uid="uid://ceaemrr0645ft"]
+
+[ext_resource type="Script" path="res://resources/bodyparts/body_part.gd" id="1_1xmos"]
+
+[resource]
+script = ExtResource("1_1xmos")
+name = "Base Arms"
+body_part_id = 3
+character_base = 0
+joint_location = Vector2(-11, 68)
+visible = true
+strength = 0
+defense = 0
+agility = 0
+crit_change = 0.0

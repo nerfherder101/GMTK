@@ -1,39 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://do558elrtu8kw"]
+[gd_scene load_steps=16 format=3 uid="uid://coabno8t3hu8h"]
 
-[ext_resource type="Script" path="res://scripts/player_body.gd" id="1_ghoeb"]
-[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="2_578u5"]
-[ext_resource type="Texture2D" uid="uid://786dgihy7jge" path="res://art/character art/BoxerStill.png" id="2_daweh"]
-[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="3_qjqvo"]
-[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="4_cke6x"]
-[ext_resource type="Texture2D" uid="uid://bjhrb70wv76v7" path="res://art/character art/Individual Pieces/MODBase.png" id="4_f7f3s"]
-[ext_resource type="Texture2D" uid="uid://ulgy8a7cxm84" path="res://art/character art/Individual Pieces/MODSparkStriker.png" id="7_jx40y"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_belfh"]
-load_path = "res://.godot/imported/RedDeadSpritesheet.png-4a31ea024a09ace8298a7dedafebaa8a.ctex"
+[ext_resource type="Script" path="res://animation_player_test.gd" id="1_aq35j"]
+[ext_resource type="Texture2D" uid="uid://ulgy8a7cxm84" path="res://art/character art/Individual Pieces/MODSparkStriker.png" id="3_ib3le"]
+[ext_resource type="Texture2D" uid="uid://bjhrb70wv76v7" path="res://art/character art/Individual Pieces/MODBase.png" id="4_j2fj2"]
+[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="5_kfyas"]
+[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="6_e5g2y"]
+[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="7_sjdkw"]
 
 [sub_resource type="Animation" id="Animation_6erjv"]
 resource_name = "Attack"
 length = 1.2
 step = 0.15
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [4, 5, 6, 7, 8, 9, 10, 11]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(1.14286),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -47,33 +31,9 @@ resource_name = "Idle"
 length = 0.6
 loop_mode = 1
 step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4]
-}
 
 [sub_resource type="Animation" id="Animation_pdl5p"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ua0bx"]
 _data = {
@@ -83,7 +43,7 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1gb5"]
-atlas = ExtResource("2_578u5")
+atlas = ExtResource("5_kfyas")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="Gradient" id="Gradient_kkc4u"]
@@ -91,97 +51,90 @@ offsets = PackedFloat32Array(0, 0.631148, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6myxw"]
-atlas = ExtResource("2_578u5")
+atlas = ExtResource("5_kfyas")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3n7d"]
-atlas = ExtResource("2_578u5")
+atlas = ExtResource("5_kfyas")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m167p"]
-atlas = ExtResource("2_578u5")
+atlas = ExtResource("5_kfyas")
 region = Rect2(96, 0, 32, 32)
 
 [node name="Player_Body" type="Node2D"]
-script = ExtResource("1_ghoeb")
+script = ExtResource("1_aq35j")
 metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 3
-scale = Vector2(5, 5)
-texture = SubResource("CompressedTexture2D_belfh")
-flip_h = true
-hframes = 12
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(5, 5)
-texture = ExtResource("2_daweh")
 
 [node name="Bodyparts" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="Larm_Joint" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
 position = Vector2(27, -15)
 metadata/_edit_lock_ = true
 
 [node name="Larm" type="Sprite2D" parent="Bodyparts/Larm_Joint"]
 position = Vector2(9, 68)
 scale = Vector2(5, 5)
-texture = ExtResource("7_jx40y")
+texture = ExtResource("3_ib3le")
 hframes = 4
 frame = 2
 
 [node name="Torso_Location" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
 position = Vector2(-9, 23)
 metadata/_edit_lock_ = true
 
 [node name="BaseTorso" type="Sprite2D" parent="Bodyparts/Torso_Location"]
 scale = Vector2(5, 5)
-texture = ExtResource("4_f7f3s")
+texture = ExtResource("4_j2fj2")
 hframes = 4
 frame = 1
 
 [node name="Torso_Joint" type="Marker2D" parent="Bodyparts/Torso_Location"]
+unique_name_in_owner = true
 metadata/_edit_lock_ = true
 
 [node name="Torso" type="Sprite2D" parent="Bodyparts/Torso_Location/Torso_Joint"]
 position = Vector2(-10, -35)
 scale = Vector2(5, 5)
-texture = ExtResource("7_jx40y")
+texture = ExtResource("3_ib3le")
 hframes = 4
 frame = 1
 
 [node name="Legs_Joint" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
 position = Vector2(-9, 78)
 metadata/_edit_lock_ = true
 
 [node name="Legs" type="Sprite2D" parent="Bodyparts/Legs_Joint"]
 position = Vector2(4, 30)
 scale = Vector2(5, 5)
-texture = ExtResource("7_jx40y")
+texture = ExtResource("3_ib3le")
 hframes = 4
 frame = 3
 
 [node name="Head_Joint" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
 position = Vector2(-6, -30)
 metadata/_edit_lock_ = true
 
 [node name="Head" type="Sprite2D" parent="Bodyparts/Head_Joint"]
 position = Vector2(-8, -57)
 scale = Vector2(5, 5)
-texture = ExtResource("7_jx40y")
+texture = ExtResource("3_ib3le")
 hframes = 4
 
 [node name="RArm_Joint" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
 position = Vector2(-43, -15)
 metadata/_edit_lock_ = true
 
 [node name="Rarm" type="Sprite2D" parent="Bodyparts/RArm_Joint"]
 position = Vector2(-11, 68)
 scale = Vector2(5, 5)
-texture = ExtResource("7_jx40y")
+texture = ExtResource("3_ib3le")
 hframes = 4
 frame = 2
 
@@ -286,11 +239,11 @@ anim_offset_max = 1.0
 [node name="Audio" type="Node" parent="."]
 
 [node name="Explode" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("3_qjqvo")
+stream = ExtResource("6_e5g2y")
 volume_db = 4.0
 bus = &"Reverb"
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("4_cke6x")
+stream = ExtResource("7_sjdkw")
 volume_db = 3.0
 bus = &"SFX"
