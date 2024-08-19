@@ -6,7 +6,7 @@
 script = ExtResource("1_26u0t")
 name = "Base Legs"
 body_part_id = 4
-character_base = 0
+character_base = 4
 joint_location = Vector2(4, 30)
 visible = true
 strength = 0

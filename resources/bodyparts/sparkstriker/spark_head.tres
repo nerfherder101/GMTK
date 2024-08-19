@@ -6,7 +6,7 @@
 script = ExtResource("1_366wf")
 name = "Base Head"
 body_part_id = 1
-character_base = 0
+character_base = 4
 joint_location = Vector2(-5, -57)
 visible = true
 strength = 0

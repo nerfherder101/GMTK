@@ -6,7 +6,7 @@
 script = ExtResource("1_f6clv")
 name = "Base Torso"
 body_part_id = 0
-character_base = 0
+character_base = 4
 joint_location = Vector2(-10, -35)
 visible = true
 strength = 0

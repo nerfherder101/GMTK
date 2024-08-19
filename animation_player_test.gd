@@ -13,7 +13,44 @@ preload("res://resources/bodyparts/sparkstriker/spark_torso.tres"), preload("res
 @onready var torso_joint = %Torso_Joint
 @onready var legs_joint = %Legs_Joint
 @onready var head_joint = %Head_Joint
+@onready var current_body_parts: Array[Body_Part]
 
 func _ready() -> void:
-	
-	pass
+	current_body_parts.clear()
+	current_body_parts.append(all_profiles[0])
+	current_body_parts.append(all_profiles[1])
+	current_body_parts.append(all_profiles[2])
+	current_body_parts.append(all_profiles[3])
+	current_body_parts.append(all_profiles[4])
+	_update_appearance()
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		var rng = RandomNumberGenerator.new()
+		var _c: int = current_body_parts.size()
+		current_body_parts.clear()
+		for n in _c:
+			current_body_parts.append(all_profiles[n + (rng.randi_range(0,4) * 5)])
+		_update_appearance()
+		
+func _update_appearance():
+	for n in current_body_parts.size():
+		var _location_in_array = all_profiles[current_body_parts[n].body_part_id + (5 * current_body_parts[n].character_base)]
+		var _bodypart_sprite = null
+		match current_body_parts[n].body_part_id:
+			0:
+				_bodypart_sprite = torso_joint.get_child(0)
+			1:
+				_bodypart_sprite = head_joint.get_child(0)
+			2:
+				_bodypart_sprite = larm_joint.get_child(0)
+			3:
+				_bodypart_sprite = rarm_joint.get_child(0)
+			4:
+				_bodypart_sprite = legs_joint.get_child(0)
+		if _bodypart_sprite  == null:
+			continue
+		_bodypart_sprite.visible = current_body_parts[n].visible
+		_bodypart_sprite.texture = all_textures[current_body_parts[n].character_base]
+		print(current_body_parts[n].character_base)
+		_bodypart_sprite.position = current_body_parts[n].joint_location

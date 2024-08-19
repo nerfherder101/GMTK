@@ -6,7 +6,7 @@
 script = ExtResource("1_jjnnu")
 name = "Base Head"
 body_part_id = 1
-character_base = 0
+character_base = 3
 joint_location = Vector2(-4, -47)
 visible = true
 strength = 0

@@ -6,7 +6,7 @@
 script = ExtResource("1_1xmos")
 name = "Base Arms"
 body_part_id = 3
-character_base = 0
+character_base = 4
 joint_location = Vector2(-11, 68)
 visible = true
 strength = 0

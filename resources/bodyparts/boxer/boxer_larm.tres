@@ -6,7 +6,7 @@
 script = ExtResource("1_0gdhr")
 name = "Base Arms"
 body_part_id = 2
-character_base = 0
+character_base = 1
 joint_location = Vector2(34, 33)
 visible = true
 strength = 1

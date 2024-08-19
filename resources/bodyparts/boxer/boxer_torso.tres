@@ -6,7 +6,7 @@
 script = ExtResource("1_j3rs3")
 name = "Base Torso"
 body_part_id = 0
-character_base = 0
+character_base = 1
 joint_location = Vector2(0, -5)
 visible = true
 strength = 0

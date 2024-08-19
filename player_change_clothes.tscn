@@ -63,8 +63,8 @@ atlas = ExtResource("5_kfyas")
 region = Rect2(96, 0, 32, 32)
 
 [node name="Player_Body" type="Node2D"]
+position = Vector2(917, 518)
 script = ExtResource("1_aq35j")
-metadata/_edit_lock_ = true
 
 [node name="Bodyparts" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

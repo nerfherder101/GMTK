@@ -6,7 +6,7 @@
 script = ExtResource("1_mlmr5")
 name = "Base Arms"
 body_part_id = 3
-character_base = 0
+character_base = 2
 joint_location = Vector2(-15, 53)
 visible = false
 strength = 0
