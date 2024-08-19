@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Body_Part" load_steps=2 format=3 uid="uid://cyfsfmsnjtym7"]
+
+[ext_resource type="Script" path="res://resources/bodyparts/body_part.gd" id="1_jjnnu"]
+
+[resource]
+script = ExtResource("1_jjnnu")
+name = "Base Head"
+body_part_id = 1
+character_base = 3
+joint_location = Vector2(-4, -47)
+visible = true
+strength = 0
+defense = 0
+agility = 0
+crit_change = 0.0

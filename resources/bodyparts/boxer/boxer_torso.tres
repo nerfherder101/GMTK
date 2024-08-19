@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Body_Part" load_steps=2 format=3 uid="uid://cg2ss2a8rng5r"]
+
+[ext_resource type="Script" path="res://resources/bodyparts/body_part.gd" id="1_j3rs3"]
+
+[resource]
+script = ExtResource("1_j3rs3")
+name = "Base Torso"
+body_part_id = 0
+character_base = 1
+joint_location = Vector2(0, -5)
+visible = true
+strength = 0
+defense = 1
+agility = 0
+crit_change = 0.0
