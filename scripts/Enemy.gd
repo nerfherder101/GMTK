@@ -11,6 +11,7 @@ signal attack_finished()
 
 func _ready() -> void: 
 	# confligure healthbar
+	await get_tree().create_timer(0.1).timeout
 	body.max_health = base_stats.max_health
 	body.health = base_stats.max_health
 	body.update_healthbar()
