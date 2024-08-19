@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://coabno8t3hu8h"]
 
-[ext_resource type="Script" path="res://animation_player_test.gd" id="1_aq35j"]
+[ext_resource type="Script" path="res://scripts/player_body.gd" id="1_xaxha"]
 [ext_resource type="Texture2D" uid="uid://ulgy8a7cxm84" path="res://art/character art/Individual Pieces/MODSparkStriker.png" id="3_ib3le"]
 [ext_resource type="Texture2D" uid="uid://bjhrb70wv76v7" path="res://art/character art/Individual Pieces/MODBase.png" id="4_j2fj2"]
 [ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="5_kfyas"]
@@ -187,7 +187,7 @@ atlas = ExtResource("5_kfyas")
 region = Rect2(96, 0, 32, 32)
 
 [node name="Player_Body" type="Node2D"]
-script = ExtResource("1_aq35j")
+script = ExtResource("1_xaxha")
 
 [node name="Bodyparts" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

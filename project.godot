@@ -15,6 +15,11 @@ run/main_scene="res://Scenes/bedroom.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://GMTK2024/icon.svg"
 
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Global_Player_Information="*res://scripts/Global/Global_Player_Information.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -22,6 +27,10 @@ window/size/viewport_height=1080
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [file_customization]
 
