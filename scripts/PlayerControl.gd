@@ -48,11 +48,11 @@ func _on_parry_pressed() -> void:
 		return
 	parry_selected = true
 	parrying = true
-	battle_screen.player_body.modulate = Color.BLUE
-	await get_tree().create_timer(0.5).timeout
+	battle_screen.player_body.modulate = Color(0.403, 1, 0.999)
+	await get_tree().create_timer(0.6).timeout
 	battle_screen.player_body.modulate = Color.WHITE
 	parrying = false
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.35).timeout
 	parry_selected = false
 
 func _enter_defense(): #FUNCTION CALLED BY THE BATTLE CONTROLLER WHEN THE OPPONENT IS ATTACKING

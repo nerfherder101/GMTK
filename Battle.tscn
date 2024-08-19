@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="4_q5d58"]
 [ext_resource type="Resource" uid="uid://3uao7qhuu1wf" path="res://resources/enemies/Red Dead/RedDead.tres" id="5_65fen"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="5_c8v7s"]
-[ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="6_knrm4"]
+[ext_resource type="Script" path="res://scripts/Ability.gd" id="6_knrm4"]
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_ac1w2"]
 [ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="8_tdk3j"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="9_jli3d"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="13_vyibf"]
 [ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="14_0f5xy"]
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="14_umklu"]
-[ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="15_s8umo"]
+[ext_resource type="Texture2D" uid="uid://27o54m8dvv6e" path="res://art/ui/placeholders/un9v9n3t.bmp" id="15_2acci"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll13d"]
 bg_color = Color(0.941176, 0.121569, 0.360784, 1)
@@ -228,7 +228,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_s8umo")
+texture = ExtResource("15_2acci")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Timing Game Panel" type="TextureRect" parent="UI"]
 visible = false
