@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://do558elrtu8kw"]
+[gd_scene load_steps=15 format=3 uid="uid://do558elrtu8kw"]
 
 [ext_resource type="Script" path="res://scripts/Body.gd" id="1_avort"]
 [ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="2_578u5"]
+[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="3_qjqvo"]
+[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="4_cke6x"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_belfh"]
 load_path = "res://.godot/imported/RedDeadSpritesheet.png-4a31ea024a09ace8298a7dedafebaa8a.ctex"
@@ -204,3 +206,15 @@ scale_amount_min = 5.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_kkc4u")
 anim_offset_max = 1.0
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Explode" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_qjqvo")
+volume_db = 4.0
+bus = &"Reverb"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("4_cke6x")
+volume_db = 3.0
+bus = &"SFX"

@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq2kjp6s08pbi"]
+[gd_scene load_steps=15 format=3 uid="uid://bq2kjp6s08pbi"]
 
 [ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="2_at6rh"]
 [ext_resource type="Script" path="res://scripts/Body.gd" id="2_ne475"]
 [ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/RedDeadSpritesheet.png" id="3_qktkh"]
+[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="4_hm4m7"]
+[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="5_yrreb"]
 
 [sub_resource type="Animation" id="Animation_mr5px"]
 resource_name = "Attack"
@@ -202,3 +204,15 @@ scale_amount_min = 5.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_o1sim")
 anim_offset_max = 1.0
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Explode" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("4_hm4m7")
+volume_db = 4.0
+bus = &"Reverb"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_yrreb")
+volume_db = 3.0
+bus = &"SFX"

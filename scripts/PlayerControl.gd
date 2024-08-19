@@ -17,6 +17,7 @@ class_name PlayerControl
 @onready var sfx_hover = %SFX_Hover
 @onready var sfx_accept = %SFX_Accept
 @onready var sfx_error = %SFX_Error
+@onready var sfx_success = %SFX_Success
 
 func _ready() -> void:
 	#connect buttons
@@ -33,7 +34,7 @@ func attack():
 	var dmg = data.atk
 	if success:
 		dmg += 1
-		_play_sfx(1)
+		_play_sfx(3)
 		battle_screen._simple_speech(1, 0, true)
 		battle_screen._simple_speech(2, 0, false)
 		battle_screen._call_damage(dmg, 0)
@@ -59,7 +60,7 @@ func _on_parry_pressed() -> void:
 		_play_sfx(2)
 		return
 	parry_button.disabled = true
-	_play_sfx(1)
+	_play_sfx(3)
 	parry_selected = true
 	parrying = true
 	battle_screen.player_body.modulate = Color(0.403, 1, 0.999)
@@ -82,6 +83,8 @@ func _play_sfx(_index):
 			sfx_accept.play()
 		2:
 			sfx_error.play()
+		3:
+			sfx_success.play()
 
 
 func _on_attack_mouse_entered() -> void:

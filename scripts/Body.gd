@@ -17,6 +17,9 @@ var health = 0
 enum state_anim {idle, attacking, wait, on_hit, explode}
 @onready var current_state_anim: int = 0
 
+#audio
+@onready var sfx_explode = $Audio/Explode
+@onready var sfx_hurt = $Audio/Hurt
 
 func _ready() -> void:
 	await get_tree().physics_frame
@@ -47,7 +50,9 @@ func _process(delta: float) -> void:
 
 func do_damage(dmg: int):
 	health -= dmg
+	sfx_hurt.play()
 	if health <= 0:
+		sfx_explode.play()
 		current_state_anim = state_anim.explode
 	update_healthbar()
 
