@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xdmek8natl7w"
-path="res://.godot/imported/MODBoxer.png-0aed15177dbf5888835760986e10b165.ctex"
+uid="uid://d1uyriytgcge8"
+path="res://.godot/imported/boxer.png-97d90ff071ec51e688f14c81d0340d97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character art/Individual Pieces/MODBoxer.png"
-dest_files=["res://.godot/imported/MODBoxer.png-0aed15177dbf5888835760986e10b165.ctex"]
+source_file="res://art/character art/boxer.png"
+dest_files=["res://.godot/imported/boxer.png-97d90ff071ec51e688f14c81d0340d97.ctex"]
 
 [params]
 
