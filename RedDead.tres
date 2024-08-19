@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("3_8hy4w")
-name = "Enemy"
+name = "Red Dead"
 texture = ExtResource("4_j5ikp")
 max_health = 10
 abilities = Array[ExtResource("1_saxwe")]([ExtResource("2_lswd5")])
