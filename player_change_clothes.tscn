@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://coabno8t3hu8h"]
+[gd_scene load_steps=15 format=3 uid="uid://coabno8t3hu8h"]
 
 [ext_resource type="Script" path="res://animation_player_test.gd" id="1_aq35j"]
 [ext_resource type="Texture2D" uid="uid://ulgy8a7cxm84" path="res://art/character art/Individual Pieces/MODSparkStriker.png" id="3_ib3le"]
@@ -7,38 +7,162 @@
 [ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="6_e5g2y"]
 [ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="7_sjdkw"]
 
-[sub_resource type="Animation" id="Animation_6erjv"]
-resource_name = "Attack"
-length = 1.2
-step = 0.15
-tracks/0/type = "method"
+[sub_resource type="Animation" id="Animation_pdl5p"]
+length = 0.001
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("Bodyparts/Larm_Joint:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.14286),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_animation_finished"
-}]
+"update": 0,
+"values": [Vector2(27, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bodyparts/Torso_Location:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 23)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bodyparts/Legs_Joint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 78)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bodyparts/Head_Joint:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -30)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bodyparts/RArm_Joint:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-43, -15)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bodyparts/Torso_Location/Torso_Joint:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_fax1x"]
+[sub_resource type="Animation" id="Animation_7ctjf"]
 resource_name = "Idle"
-length = 0.6
-loop_mode = 1
+length = 1.2
+loop_mode = 2
 step = 0.15
-
-[sub_resource type="Animation" id="Animation_pdl5p"]
-length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bodyparts/Larm_Joint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.285714, 0.571429, 0.842857, 1.14286),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(27, -15), Vector2(27, -15), Vector2(27, -20), Vector2(27, -25), Vector2(27, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bodyparts/Torso_Location:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-9, 23)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bodyparts/Legs_Joint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-9, 78)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bodyparts/Head_Joint:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.285714, 0.714286),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-6, -30), Vector2(-6, -30), Vector2(-6, -35)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bodyparts/RArm_Joint:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.285714, 0.571429, 0.842857, 1.14286),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-43, -15), Vector2(-43, -15), Vector2(-43, -20), Vector2(-43, -25), Vector2(-43, -25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bodyparts/Torso_Location/Torso_Joint:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.285714, 0.571429),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -5)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ua0bx"]
 _data = {
-"Attack": SubResource("Animation_6erjv"),
-"Idle": SubResource("Animation_fax1x"),
+"Idle": SubResource("Animation_7ctjf"),
 "RESET": SubResource("Animation_pdl5p")
 }
 
@@ -72,7 +196,6 @@ metadata/_edit_lock_ = true
 [node name="Larm_Joint" type="Marker2D" parent="Bodyparts"]
 unique_name_in_owner = true
 position = Vector2(27, -15)
-metadata/_edit_lock_ = true
 
 [node name="Larm" type="Sprite2D" parent="Bodyparts/Larm_Joint"]
 position = Vector2(9, 68)
@@ -84,7 +207,6 @@ frame = 2
 [node name="Torso_Location" type="Marker2D" parent="Bodyparts"]
 unique_name_in_owner = true
 position = Vector2(-9, 23)
-metadata/_edit_lock_ = true
 
 [node name="BaseTorso" type="Sprite2D" parent="Bodyparts/Torso_Location"]
 scale = Vector2(5, 5)
@@ -106,7 +228,6 @@ frame = 1
 [node name="Legs_Joint" type="Marker2D" parent="Bodyparts"]
 unique_name_in_owner = true
 position = Vector2(-9, 78)
-metadata/_edit_lock_ = true
 
 [node name="Legs" type="Sprite2D" parent="Bodyparts/Legs_Joint"]
 position = Vector2(4, 30)
@@ -118,7 +239,6 @@ frame = 3
 [node name="Head_Joint" type="Marker2D" parent="Bodyparts"]
 unique_name_in_owner = true
 position = Vector2(-6, -30)
-metadata/_edit_lock_ = true
 
 [node name="Head" type="Sprite2D" parent="Bodyparts/Head_Joint"]
 position = Vector2(-8, -57)
@@ -129,7 +249,6 @@ hframes = 4
 [node name="RArm_Joint" type="Marker2D" parent="Bodyparts"]
 unique_name_in_owner = true
 position = Vector2(-43, -15)
-metadata/_edit_lock_ = true
 
 [node name="Rarm" type="Sprite2D" parent="Bodyparts/RArm_Joint"]
 position = Vector2(-11, 68)
@@ -142,6 +261,7 @@ frame = 2
 libraries = {
 "": SubResource("AnimationLibrary_ua0bx")
 }
+autoplay = "Idle"
 
 [node name="Head" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true

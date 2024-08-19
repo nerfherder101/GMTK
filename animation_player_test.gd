@@ -30,6 +30,9 @@ func _physics_process(delta: float) -> void:
 		var _c: int = current_body_parts.size()
 		current_body_parts.clear()
 		for n in _c:
+			if n == 3:
+				current_body_parts.append(all_profiles[n + (current_body_parts[2].character_base * 5)])
+				continue
 			current_body_parts.append(all_profiles[n + (rng.randi_range(0,4) * 5)])
 		_update_appearance()
 		
@@ -52,5 +55,4 @@ func _update_appearance():
 			continue
 		_bodypart_sprite.visible = current_body_parts[n].visible
 		_bodypart_sprite.texture = all_textures[current_body_parts[n].character_base]
-		print(current_body_parts[n].character_base)
 		_bodypart_sprite.position = current_body_parts[n].joint_location
