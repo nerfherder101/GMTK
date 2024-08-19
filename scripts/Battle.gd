@@ -11,6 +11,10 @@ extends Control
 @export_group("UI")
 @export var speech_bubble: Resource
 
+@onready var audio_node = $Audio
+@onready var music_i = %Music_InitialLoop
+@onready var music_c = %Music_ContinuousLoop
+
 func _ready() -> void:
 	player_control.toggle_selection()
 	pass
@@ -45,3 +49,7 @@ func _call_damage(_dmg, _color):
 	var _node = speech_bubble.instantiate()
 	_node._calling_damage(_dmg)
 	speech_bubble_player.get_child(0).add_child(_node)
+
+#SOUND CONTROL
+func _on_music_initial_loop_finished() -> void:
+	music_c.playing = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy3a3ksjynjmy"]
+[gd_scene load_steps=6 format=3 uid="uid://cy3a3ksjynjmy"]
 
 [ext_resource type="Script" path="res://scripts/UI Elements/speech_during_battle.gd" id="1_8nic8"]
 [ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="1_jecwo"]
+[ext_resource type="AudioStream" uid="uid://214pm1a265d1" path="res://art/sound/ui sfx/drop_002.ogg" id="3_pp0h5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8f5xp"]
 bg_color = Color(1, 1, 1, 1)
@@ -14,6 +15,11 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xayuf"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("3_pp0h5")
 
 [node name="SpeechBubble" type="PanelContainer"]
 visible = false
@@ -35,3 +41,10 @@ theme = ExtResource("1_jecwo")
 text = "HAHA TAKE THAT!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_xayuf")
+volume_db = 2.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"UI"

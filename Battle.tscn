@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=27 format=3 uid="uid://bi7vq88fswns3"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
 [ext_resource type="Texture2D" uid="uid://cnwmysv8q30n4" path="res://art/background art/Western.png" id="2_eqyca"]
@@ -19,6 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="14_umklu"]
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="15_s8umo"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="16_ngvtm"]
+[ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="20_6nyhb"]
+[ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="21_cbd1w"]
+[ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="22_1gauw"]
+[ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="23_wtvy1"]
+[ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="24_e834v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll13d"]
 bg_color = Color(0.941176, 0.121569, 0.360784, 1)
@@ -220,6 +225,7 @@ grow_vertical = 2
 texture_normal = ExtResource("10_oh2qu")
 texture_pressed = ExtResource("11_ws1m4")
 texture_hover = ExtResource("12_a5dgh")
+texture_disabled = ExtResource("11_ws1m4")
 
 [node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/Parry"]
 layout_mode = 1
@@ -356,4 +362,36 @@ body = NodePath("Enemy_Body")
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
 battle_screen = NodePath("../..")
 
+[node name="Audio" type="Node" parent="."]
+
+[node name="Music_InitialLoop" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("20_6nyhb")
+autoplay = true
+bus = &"Music"
+
+[node name="Music_ContinuousLoop" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("21_cbd1w")
+bus = &"Music"
+
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("22_1gauw")
+bus = &"UI"
+
+[node name="SFX_Accept" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("23_wtvy1")
+bus = &"UI"
+
+[node name="SFX_Error" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("24_e834v")
+bus = &"UI"
+
+[connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Attack" to="UI/ControlContainer/ControlPanel" method="_on_attack_mouse_entered"]
+[connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Special" to="UI/ControlContainer/ControlPanel" method="_on_special_mouse_entered"]
+[connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_mouse_entered"]
 [connection signal="pressed" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_pressed"]
+[connection signal="finished" from="Audio/Music_InitialLoop" to="." method="_on_music_initial_loop_finished"]
