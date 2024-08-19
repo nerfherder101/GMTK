@@ -5,6 +5,7 @@ extends Control
 @export var player_control: PlayerControl = null
 @export var timing_minigame: TimingGame = null
 
+
 func _ready() -> void:
 	player_control.toggle_selection()
 	pass

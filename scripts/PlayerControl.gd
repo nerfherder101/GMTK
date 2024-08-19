@@ -1,29 +1,24 @@
 extends Panel
 class_name PlayerControl
 
-@export var attack_button: Button = null
+@export var attack_button: TextureButton = null
 
 @export var data: PlayerData = null
 
 @export var abilities: Array[Ability]
+@export var battle_screen: Control
+
+@onready var parrying: bool = false
 
 
 func _ready() -> void:
 	#connect buttons
 	attack_button.pressed.connect(attack)
-	
-
-	#var i = 0
-	#for ab in abilities:
-	#	buttons[i].connect("pressed", Callable(ab, "trigger_ability").bind(get_parent().enemy.body, get_parent().player_body))
-	#	buttons[i].pressed.connect(self.on_select)
-	#	buttons[i].text = ab.name
-	#	i += 1
 
 func attack():
 	self.visible = false
 
-	var timing_mg = get_parent().timing_minigame
+	var timing_mg = battle_screen.timing_minigame
 	timing_mg.start_game(10, 100)	
 	
 	await timing_mg.timing_game_ended
@@ -32,10 +27,9 @@ func attack():
 	if success:
 		dmg += 1
 	
-	await get_tree().create_timer(1).timeout
-	get_parent().enemy.do_damage(dmg)
+	battle_screen.enemy.do_damage(dmg)
 	# insert animation here
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	
 	on_select()
 	
@@ -44,4 +38,14 @@ func toggle_selection() -> void:
 	self.visible = true
 
 func on_select() -> void:
-	get_parent().player_turn_end()
+	battle_screen.player_turn_end()
+
+
+func _on_parry_pressed() -> void:
+	if parrying:
+		return
+	parrying = true
+	battle_screen.player_body.modulate = Color.BLUE
+	await get_tree().create_timer(0.5).timeout
+	battle_screen.player_body.modulate = Color.WHITE
+	parrying = false

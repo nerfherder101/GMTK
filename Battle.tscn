@@ -1,26 +1,32 @@
-[gd_scene load_steps=17 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=24 format=3 uid="uid://bi7vq88fswns3"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
 [ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_60mrf"]
+[ext_resource type="Texture2D" uid="uid://cnwmysv8q30n4" path="res://art/background art/Western.png" id="2_eqyca"]
+[ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="3_ai4fg"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_cvj56"]
-[ext_resource type="Script" path="res://scripts/Body.gd" id="4_k0fem"]
-[ext_resource type="Resource" uid="uid://3uao7qhuu1wf" path="res://resources/enemies/Red Dead/RedDead.tres" id="5_65fen"]
+[ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="4_q5d58"]
+[ext_resource type="Resource" uid="uid://3uao7qhuu1wf" path="res://RedDead.tres" id="5_65fen"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="5_c8v7s"]
-[ext_resource type="FontFile" uid="uid://buuplwb7wk55" path="res://art/ui/Jersey10-Regular.ttf" id="6_36tl2"]
 [ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="6_knrm4"]
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_ac1w2"]
 [ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="8_tdk3j"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="9_jli3d"]
+[ext_resource type="Texture2D" uid="uid://bi4r0wc8l5xg4" path="res://art/ui/placeholders/thoughtbubble_regular.png" id="10_oh2qu"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="10_xfawu"]
-[ext_resource type="Texture2D" uid="uid://dtjotswbnjcbh" path="res://art/background art/western background.png" id="12_k3xlr"]
+[ext_resource type="PackedScene" uid="uid://do558elrtu8kw" path="res://player.tscn" id="11_1ciyk"]
+[ext_resource type="Texture2D" uid="uid://cgvjb2ecromk3" path="res://art/ui/placeholders/thoughtbubble_pressed.png" id="11_ws1m4"]
+[ext_resource type="Texture2D" uid="uid://7a5y0jx11sbo" path="res://art/ui/placeholders/thoughtbubble_hover.png" id="12_a5dgh"]
+[ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="13_vyibf"]
+[ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="14_0f5xy"]
+[ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="14_umklu"]
+[ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="15_s8umo"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w56oc"]
-blend_mode = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll13d"]
+bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic4td"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2w1j"]
-bg_color = Color(0.0705882, 0.709804, 0.25098, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4m8r"]
+bg_color = Color(0, 0, 0, 0.717647)
 
 [node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame")]
 layout_mode = 3
@@ -30,125 +36,218 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sj1wd")
-enemy = NodePath("Enemy")
-player_body = NodePath("Player Body")
-player_control = NodePath("ControlPanel")
-timing_minigame = NodePath("Timing Game Panel/Timing Game Bar")
+enemy = NodePath("Opponent")
+player_body = NodePath("Player_Body")
+player_control = NodePath("UI/ControlContainer/ControlPanel")
+timing_minigame = NodePath("UI/Timing Game Panel/Timing Game Bar")
+metadata/_edit_lock_ = true
 
-[node name="background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 z_index = -10
 z_as_relative = false
-layout_mode = 0
-offset_left = -21.0
-offset_top = -52.0
-offset_right = 1192.0
-offset_bottom = 670.0
-texture = ExtResource("12_k3xlr")
-
-[node name="Player Body" type="Control" parent="." node_paths=PackedStringArray("health_bar", "health_label")]
-anchors_preset = 0
-offset_left = 103.0
-offset_top = 349.0
-offset_right = 382.0
-offset_bottom = 389.0
-script = ExtResource("4_k0fem")
-max_health = 10
-health_bar = NodePath("Player Health")
-health_label = NodePath("Player Health/Label")
-metadata/_edit_lock_ = true
-
-[node name="Player Health" type="ProgressBar" parent="Player Body"]
-self_modulate = Color(0.918426, 0.883841, 0.992613, 1)
-material = SubResource("CanvasItemMaterial_w56oc")
-layout_mode = 0
-offset_left = -22.0
-offset_top = -257.0
-offset_right = 275.0
-offset_bottom = -220.0
-theme_override_styles/background = SubResource("StyleBoxFlat_ic4td")
-theme_override_styles/fill = SubResource("StyleBoxFlat_w2w1j")
-step = 1.0
-value = 100.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="Player Body/Player Health"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_36tl2")
-theme_override_font_sizes/font_size = 50
-text = "HP: 50/100
-"
-horizontal_alignment = 1
+texture = ExtResource("2_eqyca")
 metadata/_edit_lock_ = true
 
-[node name="Enemy" type="Control" parent="." node_paths=PackedStringArray("body")]
-z_index = -1
-anchors_preset = 0
-offset_left = 365.0
-offset_top = 72.0
-offset_right = 405.0
-offset_bottom = 112.0
-script = ExtResource("3_cvj56")
-base_stats = ExtResource("5_65fen")
-body = NodePath("EnemyBody")
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="EnemyBody" type="Control" parent="Enemy" node_paths=PackedStringArray("health_bar", "health_label")]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_k0fem")
-health_bar = NodePath("../EnemyHealth")
-health_label = NodePath("../EnemyHealth/Label")
+[node name="BarContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
 
-[node name="EnemyHealth" type="ProgressBar" parent="Enemy"]
-self_modulate = Color(0.918426, 0.883841, 0.992613, 1)
-material = SubResource("CanvasItemMaterial_w56oc")
-layout_mode = 0
-offset_left = 373.0
-offset_top = 16.0
-offset_right = 670.0
-offset_bottom = 53.0
-theme_override_styles/background = SubResource("StyleBoxFlat_ic4td")
-theme_override_styles/fill = SubResource("StyleBoxFlat_w2w1j")
-step = 1.0
-value = 100.0
-show_percentage = false
+[node name="BarHbox" type="HBoxContainer" parent="UI/BarContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
 
-[node name="Label" type="Label" parent="Enemy/EnemyHealth"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
+[node name="PlayerBar" type="MarginContainer" parent="UI/BarContainer/BarHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Layer1" type="TextureRect" parent="UI/BarContainer/BarHbox/PlayerBar"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("3_ai4fg")
+stretch_mode = 2
+flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_36tl2")
-theme_override_font_sizes/font_size = 50
-text = "HP: 50/100
-"
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
+theme_override_constants/margin_left = 130
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_bottom = 60
 
-[node name="Timing Game Panel" type="TextureRect" parent="."]
+[node name="Player Health" type="ProgressBar" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_ll13d")
+max_value = 10.0
+step = 1.0
+value = 10.0
+rounded = true
+show_percentage = false
+
+[node name="Layer2" type="TextureRect" parent="UI/BarContainer/BarHbox/PlayerBar"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("4_q5d58")
+stretch_mode = 2
+flip_h = true
+
+[node name="EnemyBar" type="MarginContainer" parent="UI/BarContainer/BarHbox"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Layer1" type="TextureRect" parent="UI/BarContainer/BarHbox/EnemyBar"]
+layout_mode = 2
+texture = ExtResource("3_ai4fg")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/BarContainer/BarHbox/EnemyBar/Layer1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 130
+theme_override_constants/margin_bottom = 60
+
+[node name="EnemyHealth" type="ProgressBar" parent="UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_ll13d")
+max_value = 10.0
+step = 1.0
+value = 10.0
+rounded = true
+fill_mode = 1
+show_percentage = false
+
+[node name="Layer2" type="TextureRect" parent="UI/BarContainer/BarHbox/EnemyBar"]
+layout_mode = 2
+texture = ExtResource("4_q5d58")
+stretch_mode = 2
+
+[node name="ControlContainer" type="MarginContainer" parent="UI"]
+custom_minimum_size = Vector2(0, 180)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="ControlPanel" type="Panel" parent="UI/ControlContainer" node_paths=PackedStringArray("attack_button", "battle_screen")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4m8r")
+script = ExtResource("5_c8v7s")
+attack_button = NodePath("HBoxContainer/Attack")
+data = ExtResource("8_ac1w2")
+abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf"), ExtResource("8_tdk3j")])
+battle_screen = NodePath("../../..")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ControlContainer/ControlPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Attack" type="TextureButton" parent="UI/ControlContainer/ControlPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_oh2qu")
+texture_pressed = ExtResource("11_ws1m4")
+texture_hover = ExtResource("12_a5dgh")
+
+[node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/HBoxContainer/Attack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_vyibf")
+
+[node name="Special" type="TextureButton" parent="UI/ControlContainer/ControlPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_oh2qu")
+texture_pressed = ExtResource("11_ws1m4")
+texture_hover = ExtResource("12_a5dgh")
+
+[node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/HBoxContainer/Special"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_0f5xy")
+
+[node name="Parry" type="TextureButton" parent="UI/ControlContainer/ControlPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_right = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_oh2qu")
+texture_pressed = ExtResource("11_ws1m4")
+texture_hover = ExtResource("12_a5dgh")
+
+[node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/Parry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_s8umo")
+
+[node name="Timing Game Panel" type="TextureRect" parent="UI"]
 visible = false
 self_modulate = Color(0.122252, 0.122252, 0.122252, 1)
 z_index = -3
-layout_mode = 0
-offset_left = 172.0
-offset_top = 125.0
-offset_right = 953.0
-offset_bottom = 352.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.5
+offset_top = -235.0
+offset_right = 390.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("9_jli3d")
 expand_mode = 1
 
-[node name="Timing Game Bar" type="TextureRect" parent="Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button", "result_label")]
+[node name="Timing Game Bar" type="TextureRect" parent="UI/Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button", "result_label")]
 z_index = 2
 z_as_relative = false
 layout_mode = 0
@@ -164,7 +263,7 @@ success_zone = NodePath("Success Zone")
 attempt_button = NodePath("../Try")
 result_label = NodePath("../Result Label")
 
-[node name="Success Zone" type="TextureRect" parent="Timing Game Panel/Timing Game Bar"]
+[node name="Success Zone" type="TextureRect" parent="UI/Timing Game Panel/Timing Game Bar"]
 modulate = Color(0.0431373, 0.701961, 0.00784314, 1)
 z_index = 3
 layout_mode = 1
@@ -178,7 +277,7 @@ grow_vertical = 2
 texture = ExtResource("9_jli3d")
 expand_mode = 1
 
-[node name="Pointer" type="TextureRect" parent="Timing Game Panel/Timing Game Bar"]
+[node name="Pointer" type="TextureRect" parent="UI/Timing Game Panel/Timing Game Bar"]
 modulate = Color(0, 0.0470588, 0.0470588, 1)
 z_index = 3
 layout_mode = 1
@@ -192,7 +291,7 @@ grow_vertical = 2
 texture = ExtResource("9_jli3d")
 expand_mode = 1
 
-[node name="Try" type="Button" parent="Timing Game Panel"]
+[node name="Try" type="Button" parent="UI/Timing Game Panel"]
 modulate = Color(0, 0.14902, 1, 1)
 layout_mode = 0
 offset_left = 302.0
@@ -200,7 +299,7 @@ offset_top = 145.0
 offset_right = 446.0
 offset_bottom = 212.0
 
-[node name="Result Label" type="Label" parent="Timing Game Panel"]
+[node name="Result Label" type="Label" parent="UI/Timing Game Panel"]
 layout_mode = 0
 offset_left = 377.0
 offset_top = 83.0
@@ -210,32 +309,18 @@ text = "SUCCESS!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ControlPanel" type="Panel" parent="." node_paths=PackedStringArray("attack_button")]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 478.0
-offset_right = 1154.0
-offset_bottom = 649.0
-script = ExtResource("5_c8v7s")
-attack_button = NodePath("Attack")
-data = ExtResource("8_ac1w2")
-abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf"), ExtResource("8_tdk3j")])
+[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("11_1ciyk")]
+position = Vector2(645, 720)
+health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
 
-[node name="Attack" type="Button" parent="ControlPanel"]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 8.0
-offset_right = 461.0
-offset_bottom = 165.0
-text = "ATTACK
-"
+[node name="Opponent" type="Node2D" parent="." node_paths=PackedStringArray("body")]
+position = Vector2(1275, 720)
+script = ExtResource("3_cvj56")
+base_stats = ExtResource("5_65fen")
+body = NodePath("Enemy_Body")
 
-[node name="Chest" type="Button" parent="ControlPanel"]
-layout_mode = 0
-offset_left = 518.0
-offset_top = 14.0
-offset_right = 909.0
-offset_bottom = 165.0
-text = "Special
+[node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar") instance=ExtResource("14_umklu")]
+max_health = 10
+health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
 
-"
+[connection signal="pressed" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_pressed"]
