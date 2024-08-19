@@ -12,7 +12,7 @@ var health = 0
 @export var defense: int = 0
 @export var agility: int = 0
 @export var hp: int = 0
-@export var luck: int = 0
+@export var critical_chance: int = 0
 
 
 #get resources

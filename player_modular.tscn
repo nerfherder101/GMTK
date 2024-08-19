@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://coabno8t3hu8h"]
 
-[ext_resource type="Script" path="res://scripts/player_body.gd" id="1_xaxha"]
-[ext_resource type="Texture2D" uid="uid://ulgy8a7cxm84" path="res://art/character art/Individual Pieces/MODSparkStriker.png" id="3_ib3le"]
-[ext_resource type="Texture2D" uid="uid://bjhrb70wv76v7" path="res://art/character art/Individual Pieces/MODBase.png" id="4_j2fj2"]
-[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="5_kfyas"]
-[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="6_e5g2y"]
-[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="7_sjdkw"]
+[ext_resource type="Script" path="res://scripts/player_body.gd" id="1_hru32"]
+[ext_resource type="Texture2D" uid="uid://ulgy8a7cxm84" path="res://art/character art/Individual Pieces/MODSparkStriker.png" id="2_66in5"]
+[ext_resource type="Texture2D" uid="uid://bjhrb70wv76v7" path="res://art/character art/Individual Pieces/MODBase.png" id="3_xkx25"]
+[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="4_qs4g6"]
+[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="5_ndv0r"]
+[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="6_1aekd"]
 
 [sub_resource type="Animation" id="Animation_7ctjf"]
 resource_name = "Idle"
@@ -167,7 +167,7 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1gb5"]
-atlas = ExtResource("5_kfyas")
+atlas = ExtResource("4_qs4g6")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="Gradient" id="Gradient_kkc4u"]
@@ -175,19 +175,19 @@ offsets = PackedFloat32Array(0, 0.631148, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6myxw"]
-atlas = ExtResource("5_kfyas")
+atlas = ExtResource("4_qs4g6")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3n7d"]
-atlas = ExtResource("5_kfyas")
+atlas = ExtResource("4_qs4g6")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m167p"]
-atlas = ExtResource("5_kfyas")
+atlas = ExtResource("4_qs4g6")
 region = Rect2(96, 0, 32, 32)
 
 [node name="Player_Body" type="Node2D"]
-script = ExtResource("1_xaxha")
+script = ExtResource("1_hru32")
 
 [node name="Bodyparts" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -199,7 +199,7 @@ position = Vector2(27, -15)
 [node name="Larm" type="Sprite2D" parent="Bodyparts/Larm_Joint"]
 position = Vector2(9, 68)
 scale = Vector2(5, 5)
-texture = ExtResource("3_ib3le")
+texture = ExtResource("2_66in5")
 hframes = 4
 frame = 2
 
@@ -209,7 +209,7 @@ position = Vector2(-9, 23)
 
 [node name="BaseTorso" type="Sprite2D" parent="Bodyparts/Torso_Location"]
 scale = Vector2(5, 5)
-texture = ExtResource("4_j2fj2")
+texture = ExtResource("3_xkx25")
 hframes = 4
 frame = 1
 
@@ -220,7 +220,7 @@ metadata/_edit_lock_ = true
 [node name="Torso" type="Sprite2D" parent="Bodyparts/Torso_Location/Torso_Joint"]
 position = Vector2(-10, -35)
 scale = Vector2(5, 5)
-texture = ExtResource("3_ib3le")
+texture = ExtResource("2_66in5")
 hframes = 4
 frame = 1
 
@@ -231,7 +231,7 @@ position = Vector2(-9, 78)
 [node name="Legs" type="Sprite2D" parent="Bodyparts/Legs_Joint"]
 position = Vector2(4, 30)
 scale = Vector2(5, 5)
-texture = ExtResource("3_ib3le")
+texture = ExtResource("2_66in5")
 hframes = 4
 frame = 3
 
@@ -242,7 +242,7 @@ position = Vector2(-6, -30)
 [node name="Head" type="Sprite2D" parent="Bodyparts/Head_Joint"]
 position = Vector2(-8, -57)
 scale = Vector2(5, 5)
-texture = ExtResource("3_ib3le")
+texture = ExtResource("2_66in5")
 hframes = 4
 
 [node name="RArm_Joint" type="Marker2D" parent="Bodyparts"]
@@ -252,7 +252,7 @@ position = Vector2(-43, -15)
 [node name="Rarm" type="Sprite2D" parent="Bodyparts/RArm_Joint"]
 position = Vector2(-11, 68)
 scale = Vector2(5, 5)
-texture = ExtResource("3_ib3le")
+texture = ExtResource("2_66in5")
 hframes = 4
 frame = 2
 
@@ -358,11 +358,11 @@ anim_offset_max = 1.0
 [node name="Audio" type="Node" parent="."]
 
 [node name="Explode" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("6_e5g2y")
+stream = ExtResource("5_ndv0r")
 volume_db = 4.0
 bus = &"Reverb"
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("7_sjdkw")
+stream = ExtResource("6_1aekd")
 volume_db = 3.0
 bus = &"SFX"

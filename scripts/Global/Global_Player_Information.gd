@@ -12,7 +12,7 @@ extends Node
 }
 
 @onready var character_attributes = {
-		"strenght" : 0,
+		"strength" : 0,
 		"defense" : 0,
 		"agility" : 0,
 		"critical chance" : 0

@@ -52,7 +52,7 @@ func execute_ability():
 	body.current_state_anim = body.state_anim.attacking	
 
 	var player_body = get_parent().player_body
-	var dmg = (base_strength + body.strength) - player_body.defense #FORMULA TO CALCULATE THE DAMAGE THE PLAYER WILL RECEIVE: BASE STRENGTH OF THE PROFILE + ANY ADDITIONAL STRENGTH - THE PLAYER'S DEFENSE
+	var dmg = base_strength + body.strength
 	if player_body.control.parrying:
 		dmg -= 1
 		player_body._success_parry() #JUST TO CONTROL SPEECH BUBBLES

@@ -12,4 +12,4 @@ class_name Body_Part
 @export var strength: int = 0
 @export var defense: int = 0
 @export var agility: int = 0
-@export var crit_change: float = 0.0
+@export var crit_chance: float = 0.0

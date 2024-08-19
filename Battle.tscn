@@ -10,13 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="9_jli3d"]
 [ext_resource type="Texture2D" uid="uid://bi4r0wc8l5xg4" path="res://art/ui/placeholders/thoughtbubble_regular.png" id="10_oh2qu"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="10_xfawu"]
-[ext_resource type="PackedScene" uid="uid://do558elrtu8kw" path="res://player.tscn" id="11_1ciyk"]
 [ext_resource type="Texture2D" uid="uid://cgvjb2ecromk3" path="res://art/ui/placeholders/thoughtbubble_pressed.png" id="11_ws1m4"]
 [ext_resource type="Texture2D" uid="uid://7a5y0jx11sbo" path="res://art/ui/placeholders/thoughtbubble_hover.png" id="12_a5dgh"]
 [ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="13_vyibf"]
 [ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="14_0f5xy"]
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="14_umklu"]
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="15_s8umo"]
+[ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="16_kx0ad"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="16_ngvtm"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="20_6nyhb"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="21_cbd1w"]
@@ -346,7 +346,7 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("11_1ciyk")]
+[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("16_kx0ad")]
 position = Vector2(630, 700)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
