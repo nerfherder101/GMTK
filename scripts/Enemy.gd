@@ -38,11 +38,11 @@ func execute_ability():
 	var anim = body.sprite
 	var _timer_to_attack = base_stats.base_attack_timer
 	anim.modulate = Color.YELLOW
-	await get_tree().create_timer(_timer_to_attack).timeout
+	await get_tree().create_timer(rng.randf_range(_timer_to_attack - 0.3,_timer_to_attack + 0.3)).timeout
 	anim.modulate = Color.ORANGE
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.4).timeout
 	anim.modulate = Color.RED
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.15).timeout
 	anim.modulate = Color.WHITE
 	body.current_state_anim = body.state_anim.attacking	
 	ability._trigger_ability_2(get_parent().player_body, body)

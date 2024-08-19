@@ -7,6 +7,7 @@ extends Control
 @export var unsuccesful_parry: Array[String] = ["Ugh!", "Nooo!", "Hey! Stop!"]
 @export var unsuccesful_attack: Array[String] = ["I'll get you next time!", "Oh no..."]
 @export var passive_charged: Array[String] = ["I'm all powerful!", "Thank you for that"]
+@export var opponent_attack: Array[String] = ["Get ready...", "Here I come..."]
 @export var on_defeat: Array[String] = ["Noooo!", "MY TOY!"]
 @export var on_victory: Array[String] = ["HAHA!", "YES!", "I'M THE BEST!"]
 @export_group("Damage speech")
@@ -53,6 +54,13 @@ func _initialize(_option):
 	_text = _current_array[rng.randi_range(0, _current_array.size() - 1)]
 	speech_label.text = _text
 
+func _ready_to_attack():
+	var rng = RandomNumberGenerator.new()
+	var _text: String
+	speech_label = $MarginContainer/Expression
+	_text = opponent_attack[rng.randi_range(0, opponent_attack.size() - 1)]
+	speech_label.text = _text
+
 func _calling_damage(_dmg):
 	var _text: String
 	speech_label = $MarginContainer/Expression
@@ -76,7 +84,7 @@ func _dissappear():
 		return
 	transitioning = true
 
-	await get_tree().create_timer(2.2).timeout
+	await get_tree().create_timer(2).timeout
 	
 	var _tween = create_tween()
 	_tween.set_ease(Tween.EASE_IN)
