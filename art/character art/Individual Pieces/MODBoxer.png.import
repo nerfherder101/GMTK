@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rqoaeuv5vo5d"
-path="res://.godot/imported/RedDeadSpritesheet.png-4a31ea024a09ace8298a7dedafebaa8a.ctex"
+uid="uid://d0vyymruwmk85"
+path="res://.godot/imported/MODBoxer.png-0aed15177dbf5888835760986e10b165.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character art/RedDeadSpritesheet.png"
-dest_files=["res://.godot/imported/RedDeadSpritesheet.png-4a31ea024a09ace8298a7dedafebaa8a.ctex"]
+source_file="res://art/character art/Individual Pieces/MODBoxer.png"
+dest_files=["res://.godot/imported/MODBoxer.png-0aed15177dbf5888835760986e10b165.ctex"]
 
 [params]
 

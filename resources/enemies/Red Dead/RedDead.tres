@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_jjxi1"]
 [ext_resource type="Script" path="res://scripts/BaseEnemy.gd" id="3_3f2ji"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="5_1qr0i"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/RedDeadSpritesheet.png" id="5_bmvt0"]
+[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="5_bmvt0"]
 
 [resource]
 script = ExtResource("3_3f2ji")

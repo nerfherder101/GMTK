@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ophymw7rbhb"
-path="res://.godot/imported/MODRedDead.png-3c9d3692710d9690f14facbf269ddf83.ctex"
+uid="uid://rqoaeuv5vo5d"
+path="res://.godot/imported/RedDeadSpritesheet.png-95cd1cc76bdaa8b08d7397ab558285f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character art/Individual Pieces/MODRedDead.png"
-dest_files=["res://.godot/imported/MODRedDead.png-3c9d3692710d9690f14facbf269ddf83.ctex"]
+source_file="res://art/character art/Individual Pieces/RedDeadSpritesheet.png"
+dest_files=["res://.godot/imported/RedDeadSpritesheet.png-95cd1cc76bdaa8b08d7397ab558285f2.ctex"]
 
 [params]
 
