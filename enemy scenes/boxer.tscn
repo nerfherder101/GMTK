@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq2kjp6s08pbi"]
+[gd_scene load_steps=15 format=3 uid="uid://c6121cxptcd5c"]
 
-[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="2_at6rh"]
-[ext_resource type="Script" path="res://scripts/Body.gd" id="2_ne475"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="3_qktkh"]
-[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="4_hm4m7"]
-[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="5_yrreb"]
+[ext_resource type="Script" path="res://scripts/Body.gd" id="1_h6514"]
+[ext_resource type="Texture2D" uid="uid://d1uyriytgcge8" path="res://art/character art/boxer.png" id="2_ho8im"]
+[ext_resource type="Texture2D" uid="uid://xdmek8natl7w" path="res://art/character art/Individual Pieces/MODBoxer.png" id="3_k0y2d"]
+[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="4_dcfca"]
+[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="5_afv6t"]
 
 [sub_resource type="Animation" id="Animation_mr5px"]
 resource_name = "Attack"
@@ -78,34 +78,32 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ot25"]
-atlas = ExtResource("2_at6rh")
+atlas = ExtResource("3_k0y2d")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="Gradient" id="Gradient_o1sim"]
 offsets = PackedFloat32Array(0, 0.631148, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1omu2"]
-atlas = ExtResource("2_at6rh")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy3l2"]
+atlas = ExtResource("3_k0y2d")
+region = Rect2(30.2564, 0, 33.8314, 31.803)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vu8kq"]
-atlas = ExtResource("2_at6rh")
+atlas = ExtResource("3_k0y2d")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_huy2x"]
-atlas = ExtResource("2_at6rh")
+atlas = ExtResource("3_k0y2d")
 region = Rect2(96, 0, 32, 32)
 
-[node name="Enemy_Body2" type="Node2D"]
-script = ExtResource("2_ne475")
+[node name="Enemy_Body" type="Node2D"]
+script = ExtResource("1_h6514")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
 scale = Vector2(5, 5)
-texture = ExtResource("3_qktkh")
-hframes = 12
-frame = 4
+texture = ExtResource("2_ho8im")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
@@ -140,13 +138,13 @@ anim_offset_max = 1.0
 [node name="Torso" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
 emitting = false
-amount = 1
+amount = 2
 lifetime = 1.25
 one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 fixed_fps = 30
-texture = SubResource("AtlasTexture_1omu2")
+texture = SubResource("AtlasTexture_fy3l2")
 direction = Vector2(0, -1)
 spread = 58.18
 initial_velocity_min = 505.37
@@ -209,11 +207,11 @@ anim_offset_max = 1.0
 [node name="Audio" type="Node" parent="."]
 
 [node name="Explode" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("4_hm4m7")
+stream = ExtResource("4_dcfca")
 volume_db = 4.0
 bus = &"Reverb"
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("5_yrreb")
+stream = ExtResource("5_afv6t")
 volume_db = 3.0
 bus = &"SFX"

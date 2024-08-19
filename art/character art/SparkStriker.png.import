@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xdmek8natl7w"
-path="res://.godot/imported/MODBoxer.png-0aed15177dbf5888835760986e10b165.ctex"
+uid="uid://3uqw2onxk6xc"
+path="res://.godot/imported/SparkStriker.png-af71cd7c2f65fb6846628d7efdd02bf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character art/Individual Pieces/MODBoxer.png"
-dest_files=["res://.godot/imported/MODBoxer.png-0aed15177dbf5888835760986e10b165.ctex"]
+source_file="res://art/character art/SparkStriker.png"
+dest_files=["res://.godot/imported/SparkStriker.png-af71cd7c2f65fb6846628d7efdd02bf9.ctex"]
 
 [params]
 

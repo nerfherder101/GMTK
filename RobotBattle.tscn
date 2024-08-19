@@ -15,9 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="11_olu64"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="12_dqc32"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="13_3benn"]
-[ext_resource type="PackedScene" uid="uid://do558elrtu8kw" path="res://player.tscn" id="14_fwjsn"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="15_0lkds"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/RedDeadSpritesheet.png" id="16_xowd7"]
+[ext_resource type="PackedScene" uid="uid://byameij4nxp2a" path="res://player_change_clothes.tscn" id="16_ncm2m"]
+[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="16_xowd7"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="17_n6ay4"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="19_ud1by"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="20_4eqwi"]
@@ -347,8 +347,8 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("14_fwjsn")]
-position = Vector2(630, 700)
+[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("16_ncm2m")]
+position = Vector2(533, 674)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("..")
