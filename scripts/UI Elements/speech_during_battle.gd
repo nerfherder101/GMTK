@@ -10,6 +10,7 @@ extends Control
 @export var opponent_attack: Array[String] = ["Get ready...", "Here I come..."]
 @export var on_defeat: Array[String] = ["Noooo!", "MY TOY!"]
 @export var on_victory: Array[String] = ["HAHA!", "YES!", "I'M THE BEST!"]
+@export var critical_hit: Array[String] = ["Yeah! Critical!", "Critical Hit!"]
 @export_group("Damage speech")
 @export var no_damage: String = "I missed!"
 @export var one_damage: String = "Punch!"
@@ -51,6 +52,8 @@ func _initialize(_option):
 			_current_array = on_defeat
 		6:
 			_current_array = on_victory
+		7:
+			_current_array = critical_hit
 	_text = _current_array[rng.randi_range(0, _current_array.size() - 1)]
 	speech_label.text = _text
 

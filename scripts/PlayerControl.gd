@@ -1,12 +1,16 @@
 extends Panel
 class_name PlayerControl
 
+@export_category("Load Resources")
+@export_group("Local Resources")
 @export var attack_button: TextureButton = null
 @export var parry_button: TextureButton = null
 @export var data: PlayerData = null
-
 @export var abilities: Array[Ability]
 @export var battle_screen: Control
+@export_category("General Info")
+@export var crit_chance: float = 0.05 #playtest
+
 
 @onready var parrying: bool = false
 @onready var parry_selected: bool = false
@@ -31,10 +35,18 @@ func attack():
 	
 	await timing_mg.timing_game_ended
 	var success = timing_mg.get_success()
+	var base_crit = 1 #to multiply later
+	var rng = RandomNumberGenerator.new()
+	var _dice = snapped(rng.randf_range(0,1), 0.01)
 	var dmg = data.atk
 	if success:
+		if crit_chance >= _dice:
+			base_crit = 2
+			battle_screen._simple_speech(7, 0, true) #speech bubble
+		dmg *= base_crit #TO CONSIDER CRIT HITS WHEN THEY LAND 
 		dmg += 1
 		_play_sfx(3)
+		#Three functions below are to call for speech bubbles, only aesthetic functions
 		battle_screen._simple_speech(1, 0, true)
 		battle_screen._simple_speech(2, 0, false)
 		battle_screen._call_damage(dmg, 0)
