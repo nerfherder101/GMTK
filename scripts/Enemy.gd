@@ -5,6 +5,7 @@ class_name Enemy
 @export var body: Body
 
 
+
 signal attack_finished()
 
 
@@ -34,11 +35,16 @@ func execute_ability():
 	var ability_i = rng.randi_range(0, base_stats.abilities.size() - 1)
 	var ability = base_stats.abilities[ability_i]
 	var anim = body.sprite
-	ability.trigger_ability(get_parent().player_body, body)
-	
-	await ability.ability_complete
-	await get_tree().create_timer(1).timeout
-	body.current_state_anim = body.state_anim.attacking
+	var _timer_to_attack = base_stats.base_attack_timer
+	anim.modulate = Color.YELLOW
+	await get_tree().create_timer(_timer_to_attack).timeout
+	anim.modulate = Color.ORANGE
+	await get_tree().create_timer(0.3).timeout
+	anim.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	anim.modulate = Color.WHITE
+	body.current_state_anim = body.state_anim.attacking	
+	ability._trigger_ability_2(get_parent().player_body, body)
 	await attack_finished
 	
 	get_parent().enemy_turn_end()

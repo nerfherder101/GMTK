@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="3_ai4fg"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_cvj56"]
 [ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="4_q5d58"]
-[ext_resource type="Resource" uid="uid://3uao7qhuu1wf" path="res://RedDead.tres" id="5_65fen"]
+[ext_resource type="Resource" uid="uid://3uao7qhuu1wf" path="res://resources/enemies/Red Dead/RedDead.tres" id="5_65fen"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="5_c8v7s"]
-[ext_resource type="Script" path="res://scripts/Abilities/Ability.gd" id="6_knrm4"]
+[ext_resource type="Script" path="res://scripts/Ability.gd" id="6_knrm4"]
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_ac1w2"]
 [ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="8_tdk3j"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="9_jli3d"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="13_vyibf"]
 [ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="14_0f5xy"]
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="14_umklu"]
-[ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="15_s8umo"]
+[ext_resource type="Texture2D" uid="uid://27o54m8dvv6e" path="res://art/ui/placeholders/un9v9n3t.bmp" id="15_2acci"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll13d"]
 bg_color = Color(0.941176, 0.121569, 0.360784, 1)
@@ -155,12 +155,13 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
 
-[node name="ControlPanel" type="Panel" parent="UI/ControlContainer" node_paths=PackedStringArray("attack_button", "battle_screen")]
+[node name="ControlPanel" type="Panel" parent="UI/ControlContainer" node_paths=PackedStringArray("attack_button", "parry_button", "battle_screen")]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g4m8r")
 script = ExtResource("5_c8v7s")
 attack_button = NodePath("HBoxContainer/Attack")
+parry_button = NodePath("Parry")
 data = ExtResource("8_ac1w2")
 abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf"), ExtResource("8_tdk3j")])
 battle_screen = NodePath("../../..")
@@ -207,15 +208,15 @@ texture = ExtResource("14_0f5xy")
 
 [node name="Parry" type="TextureButton" parent="UI/ControlContainer/ControlPanel"]
 visible = false
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -102.0
-offset_right = 102.0
+layout_mode = 2
+offset_left = 858.0
+offset_top = 15.0
+offset_right = 1062.0
+offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("10_oh2qu")
 texture_pressed = ExtResource("11_ws1m4")
 texture_hover = ExtResource("12_a5dgh")
@@ -227,7 +228,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_s8umo")
+texture = ExtResource("15_2acci")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Timing Game Panel" type="TextureRect" parent="UI"]
 visible = false
@@ -309,9 +312,10 @@ text = "SUCCESS!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("11_1ciyk")]
+[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control") instance=ExtResource("11_1ciyk")]
 position = Vector2(645, 720)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
+control = NodePath("../UI/ControlContainer/ControlPanel")
 
 [node name="Opponent" type="Node2D" parent="." node_paths=PackedStringArray("body")]
 position = Vector2(1275, 720)
@@ -320,7 +324,6 @@ base_stats = ExtResource("5_65fen")
 body = NodePath("Enemy_Body")
 
 [node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar") instance=ExtResource("14_umklu")]
-max_health = 10
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
 
 [connection signal="pressed" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_pressed"]

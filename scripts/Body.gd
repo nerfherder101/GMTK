@@ -1,10 +1,11 @@
 extends Node2D
 class_name Body
 
-@export var max_health := 100
+@export var max_health := 10
 var health = 0
 
 @export var health_bar : ProgressBar = null
+@export var control: PlayerControl = null
 
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
