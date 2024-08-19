@@ -9,9 +9,6 @@ class_name BaseEnemy
 @export var base_strength: int = 1
 @export var base_defense: int = 1
 
-@export var idle_animation: Animation = null
-
-@export var abilities: Array[Ability] 
 
 @export_category("Special Effects")
 @export var vfx: Resource

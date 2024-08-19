@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq2kjp6s08pbi"]
+[gd_scene load_steps=15 format=3 uid="uid://ddttnel5fl32b"]
 
-[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="2_at6rh"]
-[ext_resource type="Script" path="res://scripts/Body.gd" id="2_ne475"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/RedDeadSpritesheet.png" id="3_qktkh"]
-[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="4_hm4m7"]
-[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="5_yrreb"]
+[ext_resource type="Texture2D" uid="uid://pw0kiu2ngna2" path="res://art/character art/robot.png" id="1_8wu4b"]
+[ext_resource type="Texture2D" uid="uid://duwafqhkxsgj5" path="res://art/character art/Individual Pieces/MODRobot.png" id="3_8xj2c"]
+[ext_resource type="Script" path="res://scripts/Body.gd" id="3_opap3"]
+[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="4_057lq"]
+[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="5_lg6oc"]
 
 [sub_resource type="Animation" id="Animation_mr5px"]
 resource_name = "Attack"
@@ -77,35 +77,34 @@ _data = {
 "RESET": SubResource("Animation_geoxr")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ot25"]
-atlas = ExtResource("2_at6rh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgbuf"]
+atlas = ExtResource("3_8xj2c")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="Gradient" id="Gradient_o1sim"]
+[sub_resource type="Gradient" id="Gradient_smkcu"]
 offsets = PackedFloat32Array(0, 0.631148, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1omu2"]
-atlas = ExtResource("2_at6rh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt5nv"]
+atlas = ExtResource("3_8xj2c")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vu8kq"]
-atlas = ExtResource("2_at6rh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q1b4"]
+atlas = ExtResource("3_8xj2c")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_huy2x"]
-atlas = ExtResource("2_at6rh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f04l"]
+atlas = ExtResource("3_8xj2c")
 region = Rect2(96, 0, 32, 32)
 
 [node name="Enemy_Body" type="Node2D"]
-script = ExtResource("2_ne475")
+script = ExtResource("3_opap3")
+max_health = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
 scale = Vector2(5, 5)
-texture = ExtResource("3_qktkh")
-hframes = 12
-frame = 4
+texture = ExtResource("1_8wu4b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
@@ -123,7 +122,7 @@ one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 fixed_fps = 30
-texture = SubResource("AtlasTexture_8ot25")
+texture = SubResource("AtlasTexture_pgbuf")
 direction = Vector2(0, -1)
 spread = 58.18
 initial_velocity_min = 505.37
@@ -134,7 +133,7 @@ damping_min = 15.493
 damping_max = 30.986
 scale_amount_min = 5.0
 scale_amount_max = 5.0
-color_ramp = SubResource("Gradient_o1sim")
+color_ramp = SubResource("Gradient_smkcu")
 anim_offset_max = 1.0
 
 [node name="Torso" type="CPUParticles2D" parent="."]
@@ -146,7 +145,7 @@ one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 fixed_fps = 30
-texture = SubResource("AtlasTexture_1omu2")
+texture = SubResource("AtlasTexture_nt5nv")
 direction = Vector2(0, -1)
 spread = 58.18
 initial_velocity_min = 505.37
@@ -157,7 +156,7 @@ damping_min = 15.493
 damping_max = 30.986
 scale_amount_min = 5.0
 scale_amount_max = 5.0
-color_ramp = SubResource("Gradient_o1sim")
+color_ramp = SubResource("Gradient_smkcu")
 anim_offset_max = 1.0
 
 [node name="Arms" type="CPUParticles2D" parent="."]
@@ -169,7 +168,7 @@ one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 fixed_fps = 30
-texture = SubResource("AtlasTexture_vu8kq")
+texture = SubResource("AtlasTexture_3q1b4")
 direction = Vector2(0, -1)
 spread = 58.18
 initial_velocity_min = 505.37
@@ -180,7 +179,7 @@ damping_min = 15.493
 damping_max = 30.986
 scale_amount_min = 5.0
 scale_amount_max = 5.0
-color_ramp = SubResource("Gradient_o1sim")
+color_ramp = SubResource("Gradient_smkcu")
 anim_offset_max = 1.0
 
 [node name="Legs" type="CPUParticles2D" parent="."]
@@ -192,7 +191,7 @@ one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 fixed_fps = 30
-texture = SubResource("AtlasTexture_huy2x")
+texture = SubResource("AtlasTexture_1f04l")
 direction = Vector2(0, -1)
 spread = 58.18
 initial_velocity_min = 505.37
@@ -203,17 +202,17 @@ damping_min = 15.493
 damping_max = 30.986
 scale_amount_min = 5.0
 scale_amount_max = 5.0
-color_ramp = SubResource("Gradient_o1sim")
+color_ramp = SubResource("Gradient_smkcu")
 anim_offset_max = 1.0
 
 [node name="Audio" type="Node" parent="."]
 
 [node name="Explode" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("4_hm4m7")
+stream = ExtResource("4_057lq")
 volume_db = 4.0
 bus = &"Reverb"
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("5_yrreb")
+stream = ExtResource("5_lg6oc")
 volume_db = 3.0
 bus = &"SFX"
