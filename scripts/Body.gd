@@ -7,6 +7,15 @@ var health = 0
 @export var health_bar : ProgressBar = null
 @export var control: PlayerControl = null
 @export var battle_screen: Control = null
+@export_category("Additional Stats") #THIS IS ONLY TO ADD UPON THE BASE_STATS, ONLY USE IF NEEDED
+@export var strength: int = 0
+@export var defense: int = 0
+@export var agility: int = 0
+@export var hp: int = 0
+@export var luck: int = 0
+
+
+#get resources
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var head_particle = %Head

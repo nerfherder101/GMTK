@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="BaseEnemy" load_steps=5 format=3 uid="uid://3uao7qhuu1wf"]
+[gd_resource type="Resource" script_class="BaseEnemy" load_steps=6 format=3 uid="uid://3uao7qhuu1wf"]
 
 [ext_resource type="Script" path="res://scripts/Ability.gd" id="1_2q8qn"]
 [ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_jjxi1"]
 [ext_resource type="Script" path="res://scripts/BaseEnemy.gd" id="3_3f2ji"]
+[ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="5_1qr0i"]
 [ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/RedDeadSpritesheet.png" id="5_bmvt0"]
 
 [resource]
@@ -12,3 +13,4 @@ texture = ExtResource("5_bmvt0")
 max_health = 10
 base_attack_timer = 2.0
 abilities = Array[ExtResource("1_2q8qn")]([ExtResource("2_jjxi1")])
+vfx = ExtResource("5_1qr0i")

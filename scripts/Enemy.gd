@@ -45,7 +45,7 @@ func execute_ability():
 	await get_tree().create_timer(0.15).timeout
 	anim.modulate = Color.WHITE
 	body.current_state_anim = body.state_anim.attacking	
-	ability._trigger_ability_2(get_parent().player_body, body)
+	ability._trigger_ability_2(get_parent().player_body, body, base_stats)
 	await attack_finished
 	
 	get_parent().enemy_turn_end()
