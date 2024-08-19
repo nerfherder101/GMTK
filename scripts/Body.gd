@@ -6,13 +6,12 @@ var health = 0
 
 @export var health_bar : ProgressBar = null
 @export var control: PlayerControl = null
-
+@export var battle_screen: Control = null
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 
 enum state_anim {idle, attacking, wait, on_hit, explode}
 @onready var current_state_anim: int = 0
-
 
 func _ready() -> void:
 	await get_tree().physics_frame
@@ -44,3 +43,18 @@ func update_healthbar() -> void:
 func _animation_finished():
 	current_state_anim = state_anim.idle
 	get_parent()._animation_finished()
+
+
+#FOLLOWING FUNCTIONS JUST TO CONTROL SPEECH BUBBLE
+#PLAYER BODY
+func _not_parry():
+	battle_screen._simple_speech(2, 0, true)
+
+func _success_parry():
+	battle_screen._simple_speech(0, 0, true)
+#ENEMY BODY
+func _missed():
+	battle_screen._simple_speech(3, 0, false)
+
+func _successful_attack():
+	battle_screen._simple_speech(1, 0, false)

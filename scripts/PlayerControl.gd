@@ -27,7 +27,12 @@ func attack():
 	var dmg = data.atk
 	if success:
 		dmg += 1
-	
+		battle_screen._simple_speech(1, 0, true)
+		battle_screen._simple_speech(2, 0, false)
+		battle_screen._call_damage(dmg, 0)
+	else:
+		battle_screen._simple_speech(3, 0, true)
+
 	battle_screen.enemy.do_damage(dmg)
 	# insert animation here
 	await get_tree().create_timer(2).timeout

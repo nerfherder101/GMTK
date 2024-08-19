@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy3a3ksjynjmy"]
+
+[ext_resource type="Script" path="res://scripts/UI Elements/speech_during_battle.gd" id="1_8nic8"]
+[ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="1_jecwo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8f5xp"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="SpeechBubble" type="PanelContainer"]
+visible = false
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8f5xp")
+script = ExtResource("1_8nic8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="Expression" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_jecwo")
+text = "HAHA TAKE THAT!"
+horizontal_alignment = 1
+vertical_alignment = 1

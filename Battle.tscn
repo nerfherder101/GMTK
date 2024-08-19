@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=22 format=3 uid="uid://bi7vq88fswns3"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
 [ext_resource type="Texture2D" uid="uid://cnwmysv8q30n4" path="res://art/background art/Western.png" id="2_eqyca"]
@@ -17,9 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="13_vyibf"]
 [ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="14_0f5xy"]
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="14_umklu"]
-[ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="15_8xc3a"]
-[ext_resource type="Script" path="res://scripts/UI Elements/speech_during_battle.gd" id="15_ly038"]
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="15_s8umo"]
+[ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="16_ngvtm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll13d"]
 bg_color = Color(0.941176, 0.121569, 0.360784, 1)
@@ -27,19 +26,7 @@ bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4m8r"]
 bg_color = Color(0, 0, 0, 0.717647)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8f5xp"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame")]
+[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame", "speech_bubble_player", "speech_bubble_opponent")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,6 +38,9 @@ enemy = NodePath("Opponent")
 player_body = NodePath("Player_Body")
 player_control = NodePath("UI/ControlContainer/ControlPanel")
 timing_minigame = NodePath("UI/Timing Game Panel/Timing Game Bar")
+speech_bubble_player = NodePath("UI/SpeechBubble_Player")
+speech_bubble_opponent = NodePath("UI/SpeechBubble_Opponent")
+speech_bubble = ExtResource("16_ngvtm")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="."]
@@ -320,41 +310,42 @@ text = "SUCCESS!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Speech" type="Control" parent="UI"]
-layout_mode = 3
+[node name="SpeechBubble_Player" type="MarginContainer" parent="UI"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
+offset_top = -51.0
+offset_right = 394.0
+offset_bottom = 51.0
 grow_vertical = 2
-script = ExtResource("15_ly038")
+theme_override_constants/margin_left = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/Speech"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_8f5xp")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/Speech/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SpeechBubble_Player"]
 layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 10
 
-[node name="Expression" type="Label" parent="UI/Speech/PanelContainer/MarginContainer"]
+[node name="SpeechBubble_Opponent" type="MarginContainer" parent="UI"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -414.0
+offset_top = -51.0
+offset_bottom = 51.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SpeechBubble_Opponent"]
 layout_mode = 2
-theme = ExtResource("15_8xc3a")
-text = "HAHA TAKE THAT!"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 8
 
-[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control") instance=ExtResource("11_1ciyk")]
+[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("11_1ciyk")]
 position = Vector2(630, 700)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
+battle_screen = NodePath("..")
 
 [node name="Opponent" type="Node2D" parent="." node_paths=PackedStringArray("body")]
 position = Vector2(1290, 700)
@@ -362,7 +353,8 @@ script = ExtResource("3_cvj56")
 base_stats = ExtResource("5_65fen")
 body = NodePath("Enemy_Body")
 
-[node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar") instance=ExtResource("14_umklu")]
+[node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "battle_screen") instance=ExtResource("14_umklu")]
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
+battle_screen = NodePath("../..")
 
 [connection signal="pressed" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_pressed"]
