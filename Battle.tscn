@@ -1,16 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=21 format=3 uid="uid://bi7vq88fswns3"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
-[ext_resource type="Resource" uid="uid://caxo2tsdxwlf0" path="res://scripts/Abilities/BasicAttack.tres" id="2_60mrf"]
 [ext_resource type="Texture2D" uid="uid://cnwmysv8q30n4" path="res://art/background art/Western.png" id="2_eqyca"]
 [ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="3_ai4fg"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_cvj56"]
 [ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="4_q5d58"]
 [ext_resource type="Resource" uid="uid://3uao7qhuu1wf" path="res://resources/enemies/Red Dead/RedDead.tres" id="5_65fen"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="5_c8v7s"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://scripts/Ability.gd" id="6_knrm4"]
+=======
+>>>>>>> Stashed changes
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_ac1w2"]
-[ext_resource type="Resource" uid="uid://58rftb00ctwn" path="res://scripts/Abilities/BasicHeal.tres" id="8_tdk3j"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="9_jli3d"]
 [ext_resource type="Texture2D" uid="uid://bi4r0wc8l5xg4" path="res://art/ui/placeholders/thoughtbubble_regular.png" id="10_oh2qu"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="10_xfawu"]
@@ -163,7 +164,6 @@ script = ExtResource("5_c8v7s")
 attack_button = NodePath("HBoxContainer/Attack")
 parry_button = NodePath("Parry")
 data = ExtResource("8_ac1w2")
-abilities = Array[ExtResource("6_knrm4")]([ExtResource("2_60mrf"), ExtResource("8_tdk3j")])
 battle_screen = NodePath("../../..")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/ControlContainer/ControlPanel"]
