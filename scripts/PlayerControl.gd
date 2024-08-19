@@ -1,7 +1,7 @@
 extends Panel
 class_name PlayerControl
 
-@export var attack_button: Button = null
+@export var attack_button: TextureButton = null
 
 @export var data: PlayerData = null
 
@@ -9,7 +9,6 @@ class_name PlayerControl
 @export var battle_screen: Control
 
 @onready var parrying: bool = false
-
 
 
 func _ready() -> void:
