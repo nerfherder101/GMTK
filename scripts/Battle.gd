@@ -18,6 +18,10 @@ func _ready() -> void:
 func player_turn_end():
 	enemy.execute_ability()
 	player_control._enter_defense() #THIS IS SO THE PLAYER CAN HAVE THE BUTTON TO PARRY AVAILABLE TO THEM
+	#only for spawning a speech bubble
+	var _node = speech_bubble.instantiate()
+	_node._ready_to_attack()
+	speech_bubble_opponent.get_child(0).add_child(_node)
 
 func enemy_turn_end():
 	player_control.toggle_selection()
