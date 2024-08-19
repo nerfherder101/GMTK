@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func player_turn_end():
 	enemy.execute_ability()
-	pass
+	player_control._enter_defense() #THIS IS SO THE PLAYER CAN HAVE THE BUTTON TO PARRY AVAILABLE TO THEM
 
 func enemy_turn_end():
 	player_control.toggle_selection()
