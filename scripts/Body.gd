@@ -9,9 +9,14 @@ var health = 0
 @export var battle_screen: Control = null
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
+@onready var head_particle = %Head
+@onready var torso_particle = %Torso
+@onready var arms_particle = %Arms
+@onready var legs_particle = %Legs
 
 enum state_anim {idle, attacking, wait, on_hit, explode}
 @onready var current_state_anim: int = 0
+
 
 func _ready() -> void:
 	await get_tree().physics_frame
@@ -28,12 +33,22 @@ func _process(delta: float) -> void:
 			animation_player.animation_set_next("Attack", "Idle")
 			animation_player.play("Attack")
 			current_state_anim = state_anim.wait
+		state_anim.explode:
+			animation_player.clear_queue()
+			sprite.hide()
+			head_particle.emitting = true
+			torso_particle.emitting = true
+			arms_particle.emitting = true
+			legs_particle.emitting = true
+			current_state_anim = state_anim.wait
 		state_anim.wait:
 			pass
 	pass
 
 func do_damage(dmg: int):
 	health -= dmg
+	if health <= 0:
+		current_state_anim = state_anim.explode
 	update_healthbar()
 
 func update_healthbar() -> void:

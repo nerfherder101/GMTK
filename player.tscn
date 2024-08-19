@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://do558elrtu8kw"]
+[gd_scene load_steps=13 format=3 uid="uid://do558elrtu8kw"]
 
 [ext_resource type="Script" path="res://scripts/Body.gd" id="1_avort"]
+[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="2_578u5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_belfh"]
 load_path = "res://.godot/imported/RedDeadSpritesheet.png-4a31ea024a09ace8298a7dedafebaa8a.ctex"
@@ -76,6 +77,26 @@ _data = {
 "RESET": SubResource("Animation_pdl5p")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gb5"]
+atlas = ExtResource("2_578u5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Gradient" id="Gradient_kkc4u"]
+offsets = PackedFloat32Array(0, 0.631148, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6myxw"]
+atlas = ExtResource("2_578u5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3n7d"]
+atlas = ExtResource("2_578u5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m167p"]
+atlas = ExtResource("2_578u5")
+region = Rect2(96, 0, 32, 32)
+
 [node name="Player_Body" type="Node2D"]
 script = ExtResource("1_avort")
 
@@ -90,3 +111,96 @@ hframes = 12
 libraries = {
 "": SubResource("AnimationLibrary_ua0bx")
 }
+
+[node name="Head" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 1)
+emitting = false
+amount = 1
+lifetime = 1.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+fixed_fps = 30
+texture = SubResource("AtlasTexture_y1gb5")
+direction = Vector2(0, -1)
+spread = 58.18
+initial_velocity_min = 505.37
+initial_velocity_max = 774.2
+angular_velocity_min = -87.27
+angular_velocity_max = 116.36
+damping_min = 15.493
+damping_max = 30.986
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_kkc4u")
+anim_offset_max = 1.0
+
+[node name="Torso" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 1
+lifetime = 1.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+fixed_fps = 30
+texture = SubResource("AtlasTexture_6myxw")
+direction = Vector2(0, -1)
+spread = 58.18
+initial_velocity_min = 505.37
+initial_velocity_max = 774.2
+angular_velocity_min = -87.27
+angular_velocity_max = 116.36
+damping_min = 15.493
+damping_max = 30.986
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_kkc4u")
+anim_offset_max = 1.0
+
+[node name="Arms" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 1
+lifetime = 1.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+fixed_fps = 30
+texture = SubResource("AtlasTexture_c3n7d")
+direction = Vector2(0, -1)
+spread = 58.18
+initial_velocity_min = 505.37
+initial_velocity_max = 774.2
+angular_velocity_min = -87.27
+angular_velocity_max = 116.36
+damping_min = 15.493
+damping_max = 30.986
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_kkc4u")
+anim_offset_max = 1.0
+
+[node name="Legs" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 1
+lifetime = 1.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+fixed_fps = 30
+texture = SubResource("AtlasTexture_m167p")
+direction = Vector2(0, -1)
+spread = 58.18
+initial_velocity_min = 505.37
+initial_velocity_max = 774.2
+angular_velocity_min = -87.27
+angular_velocity_max = 116.36
+damping_min = 15.493
+damping_max = 30.986
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_kkc4u")
+anim_offset_max = 1.0
