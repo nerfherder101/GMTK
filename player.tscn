@@ -81,7 +81,7 @@ script = ExtResource("1_avort")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
-scale = Vector2(4, 4)
+scale = Vector2(5, 5)
 texture = SubResource("CompressedTexture2D_belfh")
 flip_h = true
 hframes = 12
