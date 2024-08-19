@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTK2024"
-run/main_scene="res://RobotBattle.tscn"
+run/main_scene="res://Scenes/bedroom.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://GMTK2024/icon.svg"
 

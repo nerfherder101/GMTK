@@ -9,7 +9,8 @@ size = Vector2(48, 64)
 [node name="Bedroom" type="Node"]
 
 [node name="red dead" type="Sprite2D" parent="."]
-position = Vector2(56, 32)
+position = Vector2(264, 304)
+scale = Vector2(11.75, 11.5)
 texture = ExtResource("1_dfu3o")
 script = ExtResource("2_hk0es")
 
