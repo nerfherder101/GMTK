@@ -77,7 +77,8 @@ func _on_parry_pressed() -> void:
 	parry_selected = true
 	parrying = true
 	battle_screen.player_body.modulate = Color(0.403, 1, 0.999)
-	await get_tree().create_timer(0.6).timeout
+	var _true_time = 0.6 + (Global_Player_Information.character_attributes["agility"] * .15)
+	await get_tree().create_timer(_true_time).timeout
 	battle_screen.player_body.modulate = Color.WHITE
 	parrying = false
 	await get_tree().create_timer(0.35).timeout

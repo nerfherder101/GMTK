@@ -92,6 +92,7 @@ func do_damage(dmg: int):
 	update_healthbar()
 
 func _do_passive_ability():
+	print(Global_Player_Information.character_body_parts["Head"])
 	match Global_Player_Information.character_body_parts["Head"]:
 		0:
 			pass
@@ -102,9 +103,9 @@ func _do_passive_ability():
 			critical_chance += 1.0
 			Global_Player_Information.character_attributes["critical chance"] = critical_chance
 		3:
-			battle_screen.enemy_is_stunned = true
-		4:
 			pass
+		4:
+			battle_screen.enemy_is_stunned = true
 	
 
 func _remove_passive_ability():
@@ -136,6 +137,6 @@ func _success_parry():
 			if battle_screen.current_passive_charges >= battle_screen.passive_charges_total:
 				_do_passive_ability()
 		elif _head == 3:
-			battle_screen.enemy._do_true_damage(1)
+			battle_screen.enemy.body._do_true_damage(1)
 			pass
 		battle_screen._simple_speech(0, 0, true)

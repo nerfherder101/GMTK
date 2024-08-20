@@ -386,6 +386,7 @@ position = Vector2(537, 740)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("..")
+agility = 4
 
 [node name="Opponent" type="Node2D" parent="." node_paths=PackedStringArray("body")]
 position = Vector2(1290, 700)
