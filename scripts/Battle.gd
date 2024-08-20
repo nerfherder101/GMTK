@@ -25,6 +25,7 @@ extends Control
 func _ready() -> void:
 	player_control.toggle_selection()
 	player_passive_bar.value = 0
+	Global_Player_Information.character_body_parts["Head"] = 2
 	match Global_Player_Information.character_body_parts["Head"]:
 		0:
 			player_passive_bar.modulate = Color(Color.WHITE, 0.0)
@@ -60,7 +61,7 @@ func enemy_turn_end():
 
 
 func _process(delta: float) -> void:
-	pass
+	player_passive_bar.value = current_passive_charges
 
 #UI CONTROL
 func _simple_speech(_option, _color, _from_player: bool): #TO CONTROL SPEECH BUBBLES

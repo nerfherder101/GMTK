@@ -127,18 +127,15 @@ func _remove_passive_ability():
 func _not_parry():
 	battle_screen._simple_speech(2, 0, true)
 
-@onready var passive_charges_total: int = -1
-@onready var current_passive_charges: int = 0
-
 func _success_parry():
 	var _head = Global_Player_Information.character_body_parts["Head"]
-	if hp > 0:
-		if _head != 0 or _head != 2: 
-			if current_passive_charges < passive_charges_total:
-				current_passive_charges += 1
-			if current_passive_charges >= passive_charges_total:
+	if health > 0:
+		if _head != 0 and _head != 3: 
+			if battle_screen.current_passive_charges < battle_screen.passive_charges_total:
+				battle_screen.current_passive_charges += 1
+			if battle_screen.current_passive_charges >= battle_screen.passive_charges_total:
 				_do_passive_ability()
-		elif _head == 2:
+		elif _head == 3:
 			battle_screen.enemy._do_true_damage(1)
 			pass
 		battle_screen._simple_speech(0, 0, true)

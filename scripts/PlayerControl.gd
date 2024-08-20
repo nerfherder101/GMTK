@@ -39,8 +39,9 @@ func attack():
 	var rng = RandomNumberGenerator.new()
 	var _dice = snapped(rng.randf_range(0,1), 0.01)
 	var dmg = data.atk + Global_Player_Information.character_attributes["strength"]
+	var _true_crit = data.critical_chance + Global_Player_Information.character_attributes["critical chance"]
 	if success:
-		if crit_chance >= _dice:
+		if _true_crit >= _dice:
 			base_crit = 2
 			battle_screen._simple_speech(7, 0, true) #speech bubble
 		dmg *= base_crit #TO CONSIDER CRIT HITS WHEN THEY LAND 
