@@ -9,7 +9,6 @@ signal timing_game_ended(result)
 @export var success_zone: TextureRect = null
 @export var success_size: int = 100
 @export var attempt_button: Button = null
-@export var result_label: Label = null
 
 var forward = true
 var x_min = 0
@@ -25,7 +24,6 @@ func start_game(speed: int, success_sz: int):
 	success_size = success_sz
 	
 	get_parent().visible = true
-	result_label.text = ""
 	
 	x_max = self.size.x - pointer.size.x
 	pointer.position = Vector2(0, 0)
@@ -38,10 +36,6 @@ func start_game(speed: int, success_sz: int):
 func attempt(): 
 	running = false
 	var success = get_success()
-	if success:
-		result_label.text = "GOOD JOB!"
-	else:
-		result_label.text = "YOU SUCK!"
 	
 	emit_signal("timing_game_ended", success)
 	await get_tree().create_timer(1).timeout

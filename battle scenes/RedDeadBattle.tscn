@@ -311,7 +311,7 @@ grow_vertical = 0
 texture = ExtResource("15_s4bbw")
 expand_mode = 1
 
-[node name="Timing Game Bar" type="TextureRect" parent="UI/Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button", "result_label")]
+[node name="Timing Game Bar" type="TextureRect" parent="UI/Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button")]
 z_index = 2
 z_as_relative = false
 layout_mode = 0
@@ -325,7 +325,6 @@ script = ExtResource("16_e6e2g")
 pointer = NodePath("Pointer")
 success_zone = NodePath("Success Zone")
 attempt_button = NodePath("../Try")
-result_label = NodePath("../Result Label")
 
 [node name="Success Zone" type="TextureRect" parent="UI/Timing Game Panel/Timing Game Bar"]
 modulate = Color(0.0431373, 0.701961, 0.00784314, 1)

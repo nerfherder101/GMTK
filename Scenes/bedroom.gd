@@ -36,7 +36,6 @@ extends Node
 @onready var entered: bool = false
 
 func _ready() -> void:
-	Global_Player_Information.battle_counter = 4
 	black_panel.show()
 	_fade_in()
 	match Global_Player_Information.battle_counter:

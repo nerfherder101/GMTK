@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cd82u8sp4slp5"]
+[gd_scene load_steps=21 format=3 uid="uid://cd82u8sp4slp5"]
 
 [ext_resource type="Texture2D" uid="uid://df8t80wjk07g8" path="res://art/background art/Overworld/top_of_drawer.png" id="1_a6c0f"]
 [ext_resource type="Texture2D" uid="uid://o32djg8sskhx" path="res://art/character art/reddead.png" id="1_dfu3o"]
@@ -24,6 +24,9 @@ size = Vector2(37.9733, 80.1032)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuorx"]
 bg_color = Color(0, 0.0509804, 0.223529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xki31"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8bank"]
 random_pitch = 1.1
@@ -159,7 +162,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vuorx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xki31")
 
 [node name="Audio" type="Node" parent="."]
 
