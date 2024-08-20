@@ -6,10 +6,9 @@
 [ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="3_sse3f"]
 [ext_resource type="AudioStream" uid="uid://dyu1yysiq2qmu" path="res://art/sound/music/title screen initial loop.wav" id="5_mypio"]
 [ext_resource type="AudioStream" uid="uid://vte2rqw7yy0y" path="res://art/sound/music/title screen continuous loop.wav" id="6_puqwq"]
-[ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="7_e518t"]
-[ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="8_vbbkj"]
-[ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="9_cc62i"]
-[ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="10_xwvon"]
+[ext_resource type="AudioStream" uid="uid://nacy3tvfhxaa" path="res://art/sound/new ui sfx/Menu_7 LOW.wav" id="7_53w4i"]
+[ext_resource type="AudioStream" uid="uid://b3o836lfijw7n" path="res://art/sound/new ui sfx/Pause 2_B.wav" id="8_yr6hi"]
+[ext_resource type="AudioStream" uid="uid://cvkt1wogqg53l" path="res://art/sound/new ui sfx/Pause 1_B.wav" id="9_df3kp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojvpl"]
 bg_color = Color(0, 0, 0, 0.419608)
@@ -27,8 +26,15 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05yyi"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ttm3m"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("7_53w4i")
+
 [node name="Start_Screen" type="Node2D"]
 script = ExtResource("1_nm2hd")
+array_all_dialogues_scene_1 = Array[String](["NO! NO! DON’T SMASH THEM AGAIN", "BOOM!", "Well there goes your last toy.", "Please don’t tell mom", "Well you’re not gonna use any of my toys, guess I’ll playon my own"])
+array_all_dialogues_scene_2 = Array[String](["Wait, I think I saw something on dad’s desk"])
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -37,6 +43,7 @@ texture = ExtResource("1_auyln")
 
 [node name="Gray_Panel" type="Panel" parent="Background"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +54,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ojvpl")
 
 [node name="Title" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(1000, 1000)
 layout_mode = 1
 anchors_preset = 5
@@ -64,6 +72,7 @@ stretch_mode = 4
 
 [node name="Button_Container" type="PanelContainer" parent="Background"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -140,23 +149,31 @@ bus = &"Music"
 
 [node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("7_e518t")
+stream = ExtResource("7_53w4i")
+bus = &"UI"
+
+[node name="SFX_LilBro" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_ttm3m")
+pitch_scale = 1.5
+bus = &"UI"
+
+[node name="SFX_Player" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_ttm3m")
 bus = &"UI"
 
 [node name="SFX_Accept" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("8_vbbkj")
+stream = ExtResource("8_yr6hi")
 bus = &"UI"
 
-[node name="SFX_Error" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="SFX_Back" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("9_cc62i")
+stream = ExtResource("9_df3kp")
 bus = &"UI"
 
-[node name="SFX_Success" type="AudioStreamPlayer2D" parent="Audio"]
-unique_name_in_owner = true
-stream = ExtResource("10_xwvon")
-bus = &"UI"
-
+[connection signal="mouse_entered" from="Background/Button_Container/MarginContainer/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Background/Button_Container/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Background/Button_Container/MarginContainer/VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="finished" from="Audio/Music_InitialLoop" to="." method="_on_music_initial_loop_finished"]

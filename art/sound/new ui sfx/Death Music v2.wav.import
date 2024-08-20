@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bj2ja5olm557k"
+path="res://.godot/imported/Death Music v2.wav-cb4c120c9d7a8a0dc62f120182e49b99.sample"
+
+[deps]
+
+source_file="res://art/sound/new ui sfx/Death Music v2.wav"
+dest_files=["res://.godot/imported/Death Music v2.wav-cb4c120c9d7a8a0dc62f120182e49b99.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

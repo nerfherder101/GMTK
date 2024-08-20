@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhoaibom1gikn"
+path="res://.godot/imported/Menu_4.wav-54139f5e0adbc90e689f7a23b65a0e7c.sample"
+
+[deps]
+
+source_file="res://art/sound/new ui sfx/Menu_4.wav"
+dest_files=["res://.godot/imported/Menu_4.wav-54139f5e0adbc90e689f7a23b65a0e7c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

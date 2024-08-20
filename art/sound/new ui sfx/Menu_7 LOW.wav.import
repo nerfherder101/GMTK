@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://nacy3tvfhxaa"
+path="res://.godot/imported/Menu_7 LOW.wav-6c5265ce676d6417e03ce0594caf3ec3.sample"
+
+[deps]
+
+source_file="res://art/sound/new ui sfx/Menu_7 LOW.wav"
+dest_files=["res://.godot/imported/Menu_7 LOW.wav-6c5265ce676d6417e03ce0594caf3ec3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
