@@ -157,7 +157,8 @@ func _fade_to_black_back_to_bedroom():
 		5:
 			black_panel.show()
 			Global_Player_Information.characters_available["Knightmare"] = false
-	body_selector.hide()
+	if battle_id != 5:
+		body_selector.hide()
 	var _tween = create_tween()
 	_tween.set_ease(Tween.EASE_OUT)
 	_tween.set_trans(Tween.TRANS_LINEAR)

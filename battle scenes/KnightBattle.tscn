@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cpfyqvbgnxkb8"]
+[gd_scene load_steps=43 format=3 uid="uid://cpfyqvbgnxkb8"]
 
 [ext_resource type="Script" path="res://scripts/battle_specific/Knight_Battle.gd" id="1_34c83"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_gh8wd"]
@@ -48,6 +48,9 @@ bg_color = Color(0, 0, 0, 0.717647)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c50yg"]
 bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20ut1"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_qgg71"]
 length = 0.001
@@ -538,6 +541,18 @@ theme_override_constants/margin_right = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/SpeechBubble_Opponent"]
 layout_mode = 2
 size_flags_horizontal = 8
+
+[node name="Black_Panel" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 1, 1, 0.705882)
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_20ut1")
 
 [node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("24_i4r56")]
 position = Vector2(630, 680)

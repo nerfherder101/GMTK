@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cbd26bqyy0mmu" path="res://art/background art/Overworld/background_bedroom_layer_1.png" id="2_qlcit"]
 [ext_resource type="Texture2D" uid="uid://xdmek8natl7w" path="res://art/character art/Individual Pieces/MODBoxer.png" id="3_6ede5"]
 [ext_resource type="Texture2D" uid="uid://pw0kiu2ngna2" path="res://art/character art/robot.png" id="3_gigoe"]
-[ext_resource type="Script" path="res://Scripts/1st scene/bowser.gd" id="5_yr5pd"]
 [ext_resource type="Texture2D" uid="uid://3uqw2onxk6xc" path="res://art/character art/SparkStriker.png" id="6_jnulf"]
 [ext_resource type="AudioStream" uid="uid://dyu1yysiq2qmu" path="res://art/sound/music/title screen initial loop.wav" id="6_jyhd2"]
 [ext_resource type="Script" path="res://scripts/1st scene/alien.gd" id="7_1vo2l"]
 [ext_resource type="AudioStream" uid="uid://vte2rqw7yy0y" path="res://art/sound/music/title screen continuous loop.wav" id="7_mhhxx"]
+[ext_resource type="Script" path="res://Scenes/robot.gd" id="8_td30n"]
 [ext_resource type="AudioStream" uid="uid://nacy3tvfhxaa" path="res://art/sound/new ui sfx/Menu_7 LOW.wav" id="8_tj6gn"]
 [ext_resource type="AudioStream" uid="uid://b3o836lfijw7n" path="res://art/sound/new ui sfx/Pause 2_B.wav" id="9_fcgcr"]
 [ext_resource type="AudioStream" uid="uid://cvkt1wogqg53l" path="res://art/sound/new ui sfx/Pause 1_B.wav" id="10_xlki1"]
@@ -119,7 +119,7 @@ shape = SubResource("RectangleShape2D_e3dxx")
 position = Vector2(656, 421)
 scale = Vector2(6.5, 7.125)
 texture = ExtResource("3_gigoe")
-script = ExtResource("5_yr5pd")
+script = ExtResource("8_td30n")
 
 [node name="Area2D" type="Area2D" parent="All Figurines/Robot"]
 
