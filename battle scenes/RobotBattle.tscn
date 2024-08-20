@@ -405,6 +405,7 @@ size_flags_horizontal = 8
 
 [node name="Black_Panel" type="PanelContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(1, 1, 1, 0.705882)
 custom_minimum_size = Vector2(0, 100)
 anchors_preset = 15
@@ -416,6 +417,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qkxap")
 
 [node name="BodyPartSelector" type="MarginContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -603,3 +605,15 @@ bus = &"UI"
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Special" to="UI/ControlContainer/ControlPanel" method="_on_special_mouse_entered"]
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_mouse_entered"]
 [connection signal="pressed" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_pressed"]
+[connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Head" to="." method="_on_head_mouse_entered"]
+[connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Head" to="." method="_on_head_mouse_exited"]
+[connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Head" to="." method="_on_head_pressed"]
+[connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Torso" to="." method="_on_torso_mouse_entered"]
+[connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Torso" to="." method="_on_torso_mouse_exited"]
+[connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Torso" to="." method="_on_torso_pressed"]
+[connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Arms" to="." method="_on_arms_mouse_entered"]
+[connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Arms" to="." method="_on_arms_mouse_exited"]
+[connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Arms" to="." method="_on_arms_pressed"]
+[connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_mouse_entered"]
+[connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_mouse_exited"]
+[connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_pressed"]

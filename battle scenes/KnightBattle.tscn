@@ -118,6 +118,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_34c83")
+battle_id = 5
 enemy = NodePath("Opponent")
 player_body = NodePath("Player_Body")
 player_control = NodePath("UI/ControlContainer/ControlPanel")

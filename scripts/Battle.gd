@@ -134,14 +134,29 @@ func _end_battle_player_win():
 	black_panel.show()
 	black_panel.self_modulate = Color(Color.WHITE,0.70)
 	body_selector.show()
+	body_selector.position = Vector2(0, 1097)
+	var _tween = create_tween()
+	_tween.set_ease(Tween.EASE_OUT)
+	_tween.set_trans(Tween.TRANS_BACK)
+	_tween.tween_property(body_selector, "position", Vector2(0,0), 0.2).from_current()
 
+func _fade_to_black_back_to_bedroom():
+	body_selector.hide()
+	var _tween = create_tween()
+	_tween.set_ease(Tween.EASE_OUT)
+	_tween.set_trans(Tween.TRANS_LINEAR)
+	_tween.tween_property(black_panel, "self_modulate", Color(Color.WHITE,1), 0.5).from_current()
+	await _tween.finished
+	await get_tree().create_timer(0.4).timeout
+	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
+	pass
 
 func _on_head_pressed() -> void:
 	if Global_Player_Information.character_body_parts["Head"] != 0:
 		return
 	
 	Global_Player_Information.character_body_parts["Head"] = battle_id
-	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
+	_fade_to_black_back_to_bedroom()
 
 
 func _on_head_mouse_entered() -> void:
@@ -162,7 +177,7 @@ func _on_torso_pressed() -> void:
 		return
 	
 	Global_Player_Information.character_body_parts["Torso"] = battle_id
-	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
+	_fade_to_black_back_to_bedroom()
 
 
 func _on_torso_mouse_entered() -> void:
@@ -185,7 +200,7 @@ func _on_arms_pressed() -> void:
 	
 	Global_Player_Information.character_body_parts["Left Arm"] = battle_id
 	Global_Player_Information.character_body_parts["Right Arm"] = battle_id
-	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
+	_fade_to_black_back_to_bedroom()
 
 
 func _on_arms_mouse_entered() -> void:
@@ -205,7 +220,7 @@ func _on_legs_pressed() -> void:
 		return
 	
 	Global_Player_Information.character_body_parts["Legs"] = battle_id
-	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
+	_fade_to_black_back_to_bedroom()
 
 
 func _on_legs_mouse_entered() -> void:
