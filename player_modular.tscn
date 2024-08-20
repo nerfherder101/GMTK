@@ -1,0 +1,368 @@
+[gd_scene load_steps=15 format=3 uid="uid://coabno8t3hu8h"]
+
+[ext_resource type="Script" path="res://scripts/player_body.gd" id="1_hru32"]
+[ext_resource type="Texture2D" uid="uid://ulgy8a7cxm84" path="res://art/character art/Individual Pieces/MODSparkStriker.png" id="2_66in5"]
+[ext_resource type="Texture2D" uid="uid://bjhrb70wv76v7" path="res://art/character art/Individual Pieces/MODBase.png" id="3_xkx25"]
+[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="4_qs4g6"]
+[ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="5_ndv0r"]
+[ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="6_1aekd"]
+
+[sub_resource type="Animation" id="Animation_7ctjf"]
+resource_name = "Idle"
+length = 1.2
+loop_mode = 2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bodyparts/Larm_Joint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.285714, 0.571429, 0.842857, 1.14286),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(27, -15), Vector2(27, -15), Vector2(27, -20), Vector2(27, -25), Vector2(27, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bodyparts/Torso_Location:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-9, 23)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bodyparts/Legs_Joint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-9, 78)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bodyparts/Head_Joint:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.285714, 0.714286),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-6, -30), Vector2(-6, -30), Vector2(-6, -35)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bodyparts/RArm_Joint:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.285714, 0.571429, 0.842857, 1.14286),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-43, -15), Vector2(-43, -15), Vector2(-43, -20), Vector2(-43, -25), Vector2(-43, -25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bodyparts/Torso_Location/Torso_Joint:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.285714, 0.571429),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_pdl5p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bodyparts/Larm_Joint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(27, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bodyparts/Torso_Location:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 23)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bodyparts/Legs_Joint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 78)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bodyparts/Head_Joint:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -30)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bodyparts/RArm_Joint:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-43, -15)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bodyparts/Torso_Location/Torso_Joint:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ua0bx"]
+_data = {
+"Idle": SubResource("Animation_7ctjf"),
+"RESET": SubResource("Animation_pdl5p")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gb5"]
+atlas = ExtResource("4_qs4g6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Gradient" id="Gradient_kkc4u"]
+offsets = PackedFloat32Array(0, 0.631148, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6myxw"]
+atlas = ExtResource("4_qs4g6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3n7d"]
+atlas = ExtResource("4_qs4g6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m167p"]
+atlas = ExtResource("4_qs4g6")
+region = Rect2(96, 0, 32, 32)
+
+[node name="Player_Body" type="Node2D"]
+script = ExtResource("1_hru32")
+
+[node name="Bodyparts" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Larm_Joint" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
+position = Vector2(27, -15)
+
+[node name="Larm" type="Sprite2D" parent="Bodyparts/Larm_Joint"]
+position = Vector2(9, 68)
+scale = Vector2(5, 5)
+texture = ExtResource("2_66in5")
+hframes = 4
+frame = 2
+
+[node name="Torso_Location" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
+position = Vector2(-9, 23)
+
+[node name="BaseTorso" type="Sprite2D" parent="Bodyparts/Torso_Location"]
+scale = Vector2(5, 5)
+texture = ExtResource("3_xkx25")
+hframes = 4
+frame = 1
+
+[node name="Torso_Joint" type="Marker2D" parent="Bodyparts/Torso_Location"]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="Torso" type="Sprite2D" parent="Bodyparts/Torso_Location/Torso_Joint"]
+position = Vector2(-10, -35)
+scale = Vector2(5, 5)
+texture = ExtResource("2_66in5")
+hframes = 4
+frame = 1
+
+[node name="Legs_Joint" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
+position = Vector2(-9, 78)
+
+[node name="Legs" type="Sprite2D" parent="Bodyparts/Legs_Joint"]
+position = Vector2(4, 30)
+scale = Vector2(5, 5)
+texture = ExtResource("2_66in5")
+hframes = 4
+frame = 3
+
+[node name="Head_Joint" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
+position = Vector2(-6, -30)
+
+[node name="Head" type="Sprite2D" parent="Bodyparts/Head_Joint"]
+position = Vector2(-8, -57)
+scale = Vector2(5, 5)
+texture = ExtResource("2_66in5")
+hframes = 4
+
+[node name="RArm_Joint" type="Marker2D" parent="Bodyparts"]
+unique_name_in_owner = true
+position = Vector2(-43, -15)
+
+[node name="Rarm" type="Sprite2D" parent="Bodyparts/RArm_Joint"]
+position = Vector2(-11, 68)
+scale = Vector2(5, 5)
+texture = ExtResource("2_66in5")
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ua0bx")
+}
+autoplay = "Idle"
+
+[node name="Head" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 1)
+emitting = false
+amount = 1
+lifetime = 1.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+fixed_fps = 30
+texture = SubResource("AtlasTexture_y1gb5")
+direction = Vector2(0, -1)
+spread = 58.18
+initial_velocity_min = 505.37
+initial_velocity_max = 774.2
+angular_velocity_min = -87.27
+angular_velocity_max = 116.36
+damping_min = 15.493
+damping_max = 30.986
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_kkc4u")
+anim_offset_max = 1.0
+
+[node name="Torso" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 1
+lifetime = 1.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+fixed_fps = 30
+texture = SubResource("AtlasTexture_6myxw")
+direction = Vector2(0, -1)
+spread = 58.18
+initial_velocity_min = 505.37
+initial_velocity_max = 774.2
+angular_velocity_min = -87.27
+angular_velocity_max = 116.36
+damping_min = 15.493
+damping_max = 30.986
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_kkc4u")
+anim_offset_max = 1.0
+
+[node name="Arms" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 1
+lifetime = 1.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+fixed_fps = 30
+texture = SubResource("AtlasTexture_c3n7d")
+direction = Vector2(0, -1)
+spread = 58.18
+initial_velocity_min = 505.37
+initial_velocity_max = 774.2
+angular_velocity_min = -87.27
+angular_velocity_max = 116.36
+damping_min = 15.493
+damping_max = 30.986
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_kkc4u")
+anim_offset_max = 1.0
+
+[node name="Legs" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 1
+lifetime = 1.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+fixed_fps = 30
+texture = SubResource("AtlasTexture_m167p")
+direction = Vector2(0, -1)
+spread = 58.18
+initial_velocity_min = 505.37
+initial_velocity_max = 774.2
+angular_velocity_min = -87.27
+angular_velocity_max = 116.36
+damping_min = 15.493
+damping_max = 30.986
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_kkc4u")
+anim_offset_max = 1.0
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Explode" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_ndv0r")
+volume_db = 4.0
+bus = &"Reverb"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("6_1aekd")
+volume_db = 3.0
+bus = &"SFX"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ophymw7rbhb"
-path="res://.godot/imported/MODRedDead.png-3c9d3692710d9690f14facbf269ddf83.ctex"
+uid="uid://dmecugks0g74n"
+path="res://.godot/imported/MODSentryFlash.png-2f5864e7debb82bcafc9680c23a9c83b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character art/Individual Pieces/MODRedDead.png"
-dest_files=["res://.godot/imported/MODRedDead.png-3c9d3692710d9690f14facbf269ddf83.ctex"]
+source_file="res://art/character art/Individual Pieces/MODSentryFlash.png"
+dest_files=["res://.godot/imported/MODSentryFlash.png-2f5864e7debb82bcafc9680c23a9c83b.ctex"]
 
 [params]
 

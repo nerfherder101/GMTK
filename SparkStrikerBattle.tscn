@@ -1,31 +1,31 @@
-[gd_scene load_steps=29 format=3 uid="uid://ctrj2tvqgi3uh"]
+[gd_scene load_steps=29 format=3 uid="uid://rjbbjdu7dmuv"]
 
-[ext_resource type="Texture2D" uid="uid://l8ar3a1k5j7h" path="res://art/background art/SCI-FI.png" id="1_5hhyj"]
-[ext_resource type="Script" path="res://scripts/Battle.gd" id="1_8y0ol"]
-[ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="2_6ultm"]
-[ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_hy8ik"]
-[ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="3_p847n"]
-[ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="4_2jp21"]
-[ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="5_85q78"]
-[ext_resource type="Texture2D" uid="uid://bi4r0wc8l5xg4" path="res://art/ui/placeholders/thoughtbubble_regular.png" id="6_3q8m4"]
-[ext_resource type="Texture2D" uid="uid://cgvjb2ecromk3" path="res://art/ui/placeholders/thoughtbubble_pressed.png" id="7_8uu27"]
-[ext_resource type="Texture2D" uid="uid://7a5y0jx11sbo" path="res://art/ui/placeholders/thoughtbubble_hover.png" id="8_5mb36"]
-[ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="9_5qcot"]
-[ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="10_sl51d"]
-[ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="11_olu64"]
-[ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="12_dqc32"]
-[ext_resource type="Script" path="res://scripts/TimingGame.gd" id="13_3benn"]
-[ext_resource type="Script" path="res://scripts/Enemy.gd" id="15_0lkds"]
-[ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="16_m5j25"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="16_xowd7"]
-[ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="17_n6ay4"]
-[ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="19_ud1by"]
-[ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="20_4eqwi"]
-[ext_resource type="PackedScene" path="res://enemy scenes/robot.tscn" id="20_e0lgw"]
-[ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="21_mq5po"]
-[ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="22_psst4"]
-[ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="23_mlg4h"]
-[ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="24_yhq7q"]
+[ext_resource type="Script" path="res://scripts/Battle.gd" id="1_uq2c3"]
+[ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_c5t1g"]
+[ext_resource type="Texture2D" uid="uid://l8ar3a1k5j7h" path="res://art/background art/SCI-FI.png" id="3_owvr3"]
+[ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="4_p7318"]
+[ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="5_6kvx0"]
+[ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="6_58orv"]
+[ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="7_ghwqi"]
+[ext_resource type="Texture2D" uid="uid://bi4r0wc8l5xg4" path="res://art/ui/placeholders/thoughtbubble_regular.png" id="8_wlnfc"]
+[ext_resource type="Texture2D" uid="uid://cgvjb2ecromk3" path="res://art/ui/placeholders/thoughtbubble_pressed.png" id="9_8e62h"]
+[ext_resource type="Texture2D" uid="uid://7a5y0jx11sbo" path="res://art/ui/placeholders/thoughtbubble_hover.png" id="10_re6p1"]
+[ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="11_2ugwn"]
+[ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="12_h8cc1"]
+[ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="13_xis1t"]
+[ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="14_ga2ni"]
+[ext_resource type="Script" path="res://scripts/TimingGame.gd" id="15_c1ywa"]
+[ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="16_r5bax"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_gh0p5"]
+[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="18_7fxv0"]
+[ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_22b6y"]
+[ext_resource type="PackedScene" path="res://enemy scenes/spark_striker.tscn" id="20_l1cs6"]
+[ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="21_10eqc"]
+[ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="22_xo6ss"]
+[ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="23_pfm7c"]
+[ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="24_gkg5r"]
+[ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="25_fkgf6"]
+[ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="26_jlyst"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjqx5"]
 bg_color = Color(0.941176, 0.121569, 0.360784, 1)
@@ -40,14 +40,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8y0ol")
+script = ExtResource("1_uq2c3")
 enemy = NodePath("Opponent")
 player_body = NodePath("Player_Body")
 player_control = NodePath("UI/ControlContainer/ControlPanel")
 timing_minigame = NodePath("UI/Timing Game Panel/Timing Game Bar")
 speech_bubble_player = NodePath("UI/SpeechBubble_Player")
 speech_bubble_opponent = NodePath("UI/SpeechBubble_Opponent")
-speech_bubble = ExtResource("2_hy8ik")
+speech_bubble = ExtResource("2_c5t1g")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -10
@@ -58,7 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_5hhyj")
+texture = ExtResource("3_owvr3")
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -83,7 +83,7 @@ size_flags_horizontal = 3
 [node name="Layer1" type="TextureRect" parent="UI/BarContainer/BarHbox/PlayerBar"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_6ultm")
+texture = ExtResource("4_p7318")
 stretch_mode = 2
 flip_h = true
 
@@ -111,7 +111,7 @@ show_percentage = false
 [node name="Layer2" type="TextureRect" parent="UI/BarContainer/BarHbox/PlayerBar"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("3_p847n")
+texture = ExtResource("5_6kvx0")
 stretch_mode = 2
 flip_h = true
 
@@ -121,7 +121,7 @@ size_flags_horizontal = 10
 
 [node name="Layer1" type="TextureRect" parent="UI/BarContainer/BarHbox/EnemyBar"]
 layout_mode = 2
-texture = ExtResource("2_6ultm")
+texture = ExtResource("4_p7318")
 stretch_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/BarContainer/BarHbox/EnemyBar/Layer1"]
@@ -148,7 +148,7 @@ show_percentage = false
 
 [node name="Layer2" type="TextureRect" parent="UI/BarContainer/BarHbox/EnemyBar"]
 layout_mode = 2
-texture = ExtResource("3_p847n")
+texture = ExtResource("5_6kvx0")
 stretch_mode = 2
 
 [node name="ControlContainer" type="MarginContainer" parent="UI"]
@@ -166,10 +166,10 @@ size_flags_vertical = 8
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5k26r")
-script = ExtResource("4_2jp21")
+script = ExtResource("6_58orv")
 attack_button = NodePath("HBoxContainer/Attack")
 parry_button = NodePath("Parry")
-data = ExtResource("5_85q78")
+data = ExtResource("7_ghwqi")
 battle_screen = NodePath("../../..")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/ControlContainer/ControlPanel"]
@@ -184,9 +184,9 @@ alignment = 1
 
 [node name="Attack" type="TextureButton" parent="UI/ControlContainer/ControlPanel/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_3q8m4")
-texture_pressed = ExtResource("7_8uu27")
-texture_hover = ExtResource("8_5mb36")
+texture_normal = ExtResource("8_wlnfc")
+texture_pressed = ExtResource("9_8e62h")
+texture_hover = ExtResource("10_re6p1")
 
 [node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/HBoxContainer/Attack"]
 layout_mode = 1
@@ -195,13 +195,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_5qcot")
+texture = ExtResource("11_2ugwn")
 
 [node name="Special" type="TextureButton" parent="UI/ControlContainer/ControlPanel/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_3q8m4")
-texture_pressed = ExtResource("7_8uu27")
-texture_hover = ExtResource("8_5mb36")
+texture_normal = ExtResource("8_wlnfc")
+texture_pressed = ExtResource("9_8e62h")
+texture_hover = ExtResource("10_re6p1")
 
 [node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/HBoxContainer/Special"]
 layout_mode = 1
@@ -210,7 +210,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_sl51d")
+texture = ExtResource("12_h8cc1")
 
 [node name="Parry" type="TextureButton" parent="UI/ControlContainer/ControlPanel"]
 visible = false
@@ -223,10 +223,10 @@ offset_left = -102.0
 offset_right = 102.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("6_3q8m4")
-texture_pressed = ExtResource("7_8uu27")
-texture_hover = ExtResource("8_5mb36")
-texture_disabled = ExtResource("7_8uu27")
+texture_normal = ExtResource("8_wlnfc")
+texture_pressed = ExtResource("9_8e62h")
+texture_hover = ExtResource("10_re6p1")
+texture_disabled = ExtResource("9_8e62h")
 
 [node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/Parry"]
 layout_mode = 1
@@ -235,7 +235,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_olu64")
+texture = ExtResource("13_xis1t")
 
 [node name="Timing Game Panel" type="TextureRect" parent="UI"]
 visible = false
@@ -251,7 +251,7 @@ offset_top = -227.0
 offset_right = 390.5
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("12_dqc32")
+texture = ExtResource("14_ga2ni")
 expand_mode = 1
 
 [node name="Timing Game Bar" type="TextureRect" parent="UI/Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button", "result_label")]
@@ -262,9 +262,9 @@ offset_left = 70.0
 offset_top = 41.0
 offset_right = 674.0
 offset_bottom = 119.0
-texture = ExtResource("12_dqc32")
+texture = ExtResource("14_ga2ni")
 expand_mode = 1
-script = ExtResource("13_3benn")
+script = ExtResource("15_c1ywa")
 pointer = NodePath("Pointer")
 success_zone = NodePath("Success Zone")
 attempt_button = NodePath("../Try")
@@ -281,7 +281,7 @@ offset_left = 252.0
 offset_right = -252.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_dqc32")
+texture = ExtResource("14_ga2ni")
 expand_mode = 1
 
 [node name="Pointer" type="TextureRect" parent="UI/Timing Game Panel/Timing Game Bar"]
@@ -295,7 +295,7 @@ offset_left = 352.0
 offset_right = -242.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_dqc32")
+texture = ExtResource("14_ga2ni")
 expand_mode = 1
 
 [node name="Try" type="Button" parent="UI/Timing Game Panel"]
@@ -347,26 +347,22 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("16_m5j25")]
-position = Vector2(630, 700)
+[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("16_r5bax")]
+position = Vector2(537, 740)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("..")
-metadata/_edit_lock_ = true
 
 [node name="Opponent" type="Node2D" parent="." node_paths=PackedStringArray("body")]
 position = Vector2(1290, 700)
-script = ExtResource("15_0lkds")
+script = ExtResource("17_gh0p5")
 body = NodePath("Enemy_Body")
-texture = ExtResource("16_xowd7")
-base_health = 15
+texture = ExtResource("18_7fxv0")
 base_attack_timer = 3.0
 base_strength = 2
-vfx = ExtResource("17_n6ay4")
-metadata/_edit_lock_ = true
+vfx = ExtResource("19_22b6y")
 
-[node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("20_e0lgw")]
-position = Vector2(17, -71)
+[node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("20_l1cs6")]
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
 control = NodePath("../../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("../..")
@@ -375,33 +371,33 @@ battle_screen = NodePath("../..")
 
 [node name="Music_InitialLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("19_ud1by")
+stream = ExtResource("21_10eqc")
 autoplay = true
 bus = &"Music"
 
 [node name="Music_ContinuousLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("20_4eqwi")
+stream = ExtResource("22_xo6ss")
 bus = &"Music"
 
 [node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("21_mq5po")
+stream = ExtResource("23_pfm7c")
 bus = &"UI"
 
 [node name="SFX_Accept" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("22_psst4")
+stream = ExtResource("24_gkg5r")
 bus = &"UI"
 
 [node name="SFX_Error" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("23_mlg4h")
+stream = ExtResource("25_fkgf6")
 bus = &"UI"
 
 [node name="SFX_Success" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("24_yhq7q")
+stream = ExtResource("26_jlyst")
 bus = &"UI"
 
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Attack" to="UI/ControlContainer/ControlPanel" method="_on_attack_mouse_entered"]

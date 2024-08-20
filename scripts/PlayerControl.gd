@@ -38,7 +38,7 @@ func attack():
 	var base_crit = 1 #to multiply later
 	var rng = RandomNumberGenerator.new()
 	var _dice = snapped(rng.randf_range(0,1), 0.01)
-	var dmg = data.atk
+	var dmg = data.atk + Global_Player_Information.character_attributes["strength"]
 	if success:
 		if crit_chance >= _dice:
 			base_crit = 2
