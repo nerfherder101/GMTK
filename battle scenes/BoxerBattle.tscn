@@ -613,3 +613,4 @@ bus = &"UI"
 [connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_mouse_entered"]
 [connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_mouse_exited"]
 [connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_pressed"]
+[connection signal="finished" from="Audio/Music_InitialLoop" to="." method="_on_music_initial_loop_finished"]

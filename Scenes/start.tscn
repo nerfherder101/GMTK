@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhdkjas0as6pn"]
+[gd_scene load_steps=15 format=3 uid="uid://bhdkjas0as6pn"]
 
 [ext_resource type="Texture2D" uid="uid://cbd26bqyy0mmu" path="res://art/background art/Overworld/background_bedroom_layer_1.png" id="1_auyln"]
 [ext_resource type="Script" path="res://Scenes/start.gd" id="1_nm2hd"]
 [ext_resource type="Texture2D" uid="uid://dkls7vk8stvc3" path="res://art/ui/AugmentDream_Text.png" id="2_t7kfi"]
 [ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="3_sse3f"]
+[ext_resource type="AudioStream" uid="uid://dyu1yysiq2qmu" path="res://art/sound/music/title screen initial loop.wav" id="5_mypio"]
+[ext_resource type="AudioStream" uid="uid://vte2rqw7yy0y" path="res://art/sound/music/title screen continuous loop.wav" id="6_puqwq"]
+[ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="7_e518t"]
+[ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="8_vbbkj"]
+[ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="9_cc62i"]
+[ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="10_xwvon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojvpl"]
 bg_color = Color(0, 0, 0, 0.419608)
@@ -119,4 +125,38 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_05yyi")
 
+[node name="Audio" type="Node" parent="."]
+
+[node name="Music_InitialLoop" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("5_mypio")
+autoplay = true
+bus = &"Music"
+
+[node name="Music_ContinuousLoop" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("6_puqwq")
+bus = &"Music"
+
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("7_e518t")
+bus = &"UI"
+
+[node name="SFX_Accept" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("8_vbbkj")
+bus = &"UI"
+
+[node name="SFX_Error" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("9_cc62i")
+bus = &"UI"
+
+[node name="SFX_Success" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("10_xwvon")
+bus = &"UI"
+
 [connection signal="pressed" from="Background/Button_Container/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="finished" from="Audio/Music_InitialLoop" to="." method="_on_music_initial_loop_finished"]

@@ -7,6 +7,11 @@ extends Node2D
 @onready var title = %Title
 @onready var button_container = %Button_Container
 
+
+@onready var audio_node = $Audio
+@onready var music_i = %Music_InitialLoop
+@onready var music_c = %Music_ContinuousLoop
+
 func _ready() -> void:
 	black_screen.show()
 	button_container.show()
@@ -34,3 +39,7 @@ func _on_start_pressed() -> void:
 	await _tween.finished
 	button_container.hide()
 	title.hide()
+
+
+func _on_music_initial_loop_finished() -> void:
+	music_c.playing = true
