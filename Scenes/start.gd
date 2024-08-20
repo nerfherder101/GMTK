@@ -19,6 +19,8 @@ extends Node2D
 @onready var sfx_hover = %SFX_Hover
 @onready var sfx_accept = %SFX_Accept
 @onready var sfx_back = %SFX_Back
+@onready var sfx_lil_bro = %SFX_LilBro
+@onready var sfx_player = %SFX_Player
 
 @onready var current_speeches: Array
 @onready var current_scene = 0
@@ -49,6 +51,7 @@ func _process(delta: float) -> void:
 			if !entered:
 				_start_first_dialogue()
 			entered = true
+			
 			if Input.is_action_just_pressed("ui_accept"):
 				sfx_accept.play()
 				current_scene = 2
@@ -61,6 +64,7 @@ func _process(delta: float) -> void:
 			if !entered:
 				_start_second_dialogue()
 			entered = true
+			await get_tree().create_timer(2.5).timeout
 			if Input.is_action_just_pressed("ui_accept"):
 				sfx_accept.play()
 				current_scene = 3
@@ -73,6 +77,7 @@ func _process(delta: float) -> void:
 			if !entered:
 				_start_third_dialogue()
 			entered = true
+			await get_tree().create_timer(1).timeout
 			if Input.is_action_just_pressed("ui_accept"):
 				sfx_accept.play()
 				mono.hide()
@@ -84,6 +89,7 @@ func _process(delta: float) -> void:
 			if !entered:
 				_start_fourth_dialogue()
 			entered = true
+			await get_tree().create_timer(1).timeout
 			if Input.is_action_just_pressed("ui_accept"):
 				sfx_accept.play()
 				current_scene = 5
@@ -140,7 +146,7 @@ func _start_first_dialogue():
 			current_speeches[n].position_in_x = 100
 		else:
 			current_speeches[n].position_in_x = 1300
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(0.5).timeout
 
 func _start_second_dialogue():
 	current_speeches.append(speech_bubble.instantiate())
@@ -149,7 +155,7 @@ func _start_second_dialogue():
 	await get_tree().create_timer(0.1).timeout
 	current_speeches[0].position_in_y = 300
 	current_speeches[0].position_in_x = 1300
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.5).timeout
 
 func _start_third_dialogue():
 	mono.show()
@@ -165,4 +171,4 @@ func _start_fourth_dialogue():
 	await get_tree().create_timer(0.1).timeout
 	current_speeches[0].position_in_y = 300
 	current_speeches[0].position_in_x = 100
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.5).timeout
