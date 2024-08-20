@@ -18,11 +18,11 @@
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="15_c5d43"]
 [ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="17_byg58"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_u3enw"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="19_ahtxl"]
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="19_be7we"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="20_ahe4y"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="20_uco0r"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="21_jstv6"]
+[ext_resource type="Script" path="res://scripts/scaling_enemies/red_dead.gd" id="21_knmxg"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="22_vxnd5"]
 [ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="23_m7vhe"]
 [ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="24_6ff30"]
@@ -392,13 +392,15 @@ battle_screen = NodePath("..")
 position = Vector2(1290, 700)
 script = ExtResource("17_u3enw")
 body = NodePath("Enemy_Body")
-texture = ExtResource("19_ahtxl")
-base_health = 3
+base_strength = 3
+base_defense = 0
 vfx = ExtResource("20_uco0r")
 
-[node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "battle_screen") instance=ExtResource("19_be7we")]
-max_health = 3
+[node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("19_be7we")]
+script = ExtResource("21_knmxg")
+health = 5
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
+control = NodePath("../../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("../..")
 enemey_id = 2
 

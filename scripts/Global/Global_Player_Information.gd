@@ -10,6 +10,7 @@ extends Node
 	"Spark Striker" : false,
 	"Knightmare" : false
 }
+@onready var battle_counter: int = 0
 
 #assign after a combat finish for customization screen
 @onready var last_combat: int = 1

@@ -561,7 +561,7 @@ position = Vector2(1290, 600)
 script = ExtResource("18_c7gre")
 body = NodePath("Enemy_Body")
 texture = ExtResource("19_b3bic")
-base_attack_timer = 3.0
+base_attack_timer = 1.0
 base_strength = 3
 vfx = ExtResource("20_iwxow")
 

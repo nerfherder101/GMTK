@@ -18,12 +18,12 @@
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="13_3benn"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="15_0lkds"]
 [ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="16_m5j25"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="16_xowd7"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="17_n6ay4"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="19_ud1by"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="20_4eqwi"]
 [ext_resource type="PackedScene" path="res://enemy scenes/robot.tscn" id="20_e0lgw"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="21_mq5po"]
+[ext_resource type="Script" path="res://scripts/scaling_enemies/robot.gd" id="22_5id57"]
 [ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="22_psst4"]
 [ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="23_mlg4h"]
 [ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="24_yhq7q"]
@@ -392,18 +392,16 @@ metadata/_edit_lock_ = true
 position = Vector2(1290, 700)
 script = ExtResource("15_0lkds")
 body = NodePath("Enemy_Body")
-texture = ExtResource("16_xowd7")
-base_health = 15
-base_attack_timer = 3.0
-base_strength = 2
+base_attack_timer = 0.5
+base_strength = 0
 vfx = ExtResource("17_n6ay4")
 metadata/_edit_lock_ = true
 
-[node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("20_e0lgw")]
+[node name="Enemy_Body" parent="Opponent" instance=ExtResource("20_e0lgw")]
 position = Vector2(17, -71)
-health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
-control = NodePath("../../UI/ControlContainer/ControlPanel")
-battle_screen = NodePath("../..")
+script = ExtResource("22_5id57")
+max_health = 10
+health = 5
 enemey_id = 3
 
 [node name="Audio" type="Node" parent="."]

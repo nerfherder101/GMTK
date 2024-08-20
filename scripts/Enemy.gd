@@ -4,8 +4,6 @@ class_name Enemy
 @export var body: Body
 
 @export_category("General Info")
-@export var texture: Texture = null
-@export var base_health := 10
 @export var base_attack_timer: float = 2.0
 @export var base_strength: int = 1
 @export var base_defense: int = 1
@@ -20,13 +18,6 @@ class_name Enemy
 signal attack_finished()
 
 
-func _ready() -> void: 
-	# confligure healthbar
-	await get_tree().create_timer(0.1).timeout
-	body.max_health = base_health
-	body.health = base_health
-	body.update_healthbar()
-	
 func do_damage(dmg: int):
 	body.do_damage(dmg)
 	var _tween = create_tween()

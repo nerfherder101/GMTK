@@ -18,10 +18,10 @@
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="15_c1ywa"]
 [ext_resource type="PackedScene" path="res://player_change_clothes.tscn" id="16_lf7x7"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_gh0p5"]
-[ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="18_7fxv0"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_22b6y"]
 [ext_resource type="PackedScene" path="res://enemy scenes/spark_striker.tscn" id="20_l1cs6"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="21_10eqc"]
+[ext_resource type="Script" path="res://scripts/scaling_enemies/spark_striker.gd" id="22_ce8lx"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="22_xo6ss"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="23_pfm7c"]
 [ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="24_gkg5r"]
@@ -392,12 +392,14 @@ agility = 4
 position = Vector2(1290, 700)
 script = ExtResource("17_gh0p5")
 body = NodePath("Enemy_Body")
-texture = ExtResource("18_7fxv0")
-base_attack_timer = 3.0
+base_attack_timer = 0.2
 base_strength = 2
+base_defense = 0
 vfx = ExtResource("19_22b6y")
 
 [node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("20_l1cs6")]
+script = ExtResource("22_ce8lx")
+health = 5
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
 control = NodePath("../../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("../..")
