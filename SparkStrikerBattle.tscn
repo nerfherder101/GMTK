@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="13_xis1t"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="14_ga2ni"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="15_c1ywa"]
-[ext_resource type="PackedScene" uid="uid://byameij4nxp2a" path="res://player_change_clothes.tscn" id="16_lf7x7"]
+[ext_resource type="PackedScene" path="res://player_change_clothes.tscn" id="16_lf7x7"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_gh0p5"]
 [ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="18_7fxv0"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_22b6y"]

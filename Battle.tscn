@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="14_0f5xy"]
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="14_umklu"]
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="15_s8umo"]
-[ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="16_kx0ad"]
+[ext_resource type="PackedScene" path="res://player_modular.tscn" id="16_kx0ad"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="16_ngvtm"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="20_6nyhb"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="21_cbd1w"]
@@ -31,7 +31,7 @@ bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4m8r"]
 bg_color = Color(0, 0, 0, 0.717647)
 
-[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame", "speech_bubble_player", "speech_bubble_opponent")]
+[node name="Battle2" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame", "speech_bubble_player", "speech_bubble_opponent")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

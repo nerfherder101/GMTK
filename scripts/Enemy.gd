@@ -11,6 +11,7 @@ class_name Enemy
 @export var base_defense: int = 1
 
 
+
 @export_category("Special Effects")
 @export var vfx: Resource
 @export var sfx: Resource
