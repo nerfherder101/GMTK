@@ -22,25 +22,14 @@ func _ready() -> void:
 	health_bar.max_value = max_health
 	update_healthbar()
 	current_body_parts.clear()
-	current_body_parts.append(all_profiles[0])
-	current_body_parts.append(all_profiles[1])
-	current_body_parts.append(all_profiles[2])
-	current_body_parts.append(all_profiles[3])
-	current_body_parts.append(all_profiles[4])
+	current_body_parts.append(all_profiles[0 +  (5 * Global_Player_Information.character_body_parts["Torso"])])
+	current_body_parts.append(all_profiles[1 +  (5 * Global_Player_Information.character_body_parts["Head"])])
+	current_body_parts.append(all_profiles[2 +  (5 * Global_Player_Information.character_body_parts["Left Arm"])])
+	current_body_parts.append(all_profiles[3 +  (5 * Global_Player_Information.character_body_parts["Right Arm"])])
+	current_body_parts.append(all_profiles[4 +  (5 * Global_Player_Information.character_body_parts["Legs"])])
 	_update_appearance()
 
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		var rng = RandomNumberGenerator.new()
-		var _c: int = current_body_parts.size()
-		current_body_parts.clear()
-		for n in _c:
-			if n == 3:
-				current_body_parts.append(all_profiles[n + (current_body_parts[2].character_base * 5)])
-				continue
-			current_body_parts.append(all_profiles[n + (rng.randi_range(0,4) * 5)])
-		_update_appearance()
-		
+
 func _update_appearance():
 	for n in current_body_parts.size():
 		var _location_in_array = all_profiles[current_body_parts[n].body_part_id + (5 * current_body_parts[n].character_base)]
