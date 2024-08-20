@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs3tc2752oq8v"]
+
+[ext_resource type="Script" path="res://Scripts/1st scene/pre_game_cut_scene.gd" id="1_ql4g4"]
+[ext_resource type="Texture2D" uid="uid://2rkg3evlllbo" path="res://art/background art/main_menu_brothers_banter.webp" id="2_5id3y"]
+
+[node name="Pre-Game Cut Scene" type="Node"]
+script = ExtResource("1_ql4g4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(970, 540.5)
+scale = Vector2(1.23846, 1.22893)
+texture = ExtResource("2_5id3y")

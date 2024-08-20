@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://b4jhj8bh6arj5"
+path="res://.godot/imported/intro_banter.dialogue-878cbc2d9acdc720c9b3cbd54b22ea1f.tres"
+
+[deps]
+
+source_file="res://dialogue/intro_banter.dialogue"
+dest_files=["res://.godot/imported/intro_banter.dialogue-878cbc2d9acdc720c9b3cbd54b22ea1f.tres"]
+
+[params]
+
+defaults=true
