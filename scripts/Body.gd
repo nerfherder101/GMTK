@@ -53,12 +53,13 @@ func _process(delta: float) -> void:
 			torso_particle.emitting = true
 			arms_particle.emitting = true
 			legs_particle.emitting = true
-			current_state_anim = state_anim.wait
+			#current_state_anim = state_anim.wait
 			
-			await get_tree().create_timer(2).timeout
-				
+			print("timer initiated")
+			await get_tree().create_timer(1).timeout
+			print("timer passed")
 			Global_Player_Information.last_combat = enemey_id
-			#get_tree().change_scene_to_file()
+			get_tree().change_scene_to_file("res://Scenes/customization.tscn")
 			
 		state_anim.wait:
 			pass

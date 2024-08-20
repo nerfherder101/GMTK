@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="13_4f22v"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="14_fdcna"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="15_c5d43"]
-[ext_resource type="PackedScene" path="res://player_modular.tscn" id="17_byg58"]
+[ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="17_byg58"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_u3enw"]
 [ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="19_ahtxl"]
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="19_be7we"]
@@ -359,11 +359,14 @@ position = Vector2(1290, 700)
 script = ExtResource("17_u3enw")
 body = NodePath("Enemy_Body")
 texture = ExtResource("19_ahtxl")
+base_health = 3
 vfx = ExtResource("20_uco0r")
 
 [node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "battle_screen") instance=ExtResource("19_be7we")]
+max_health = 3
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
 battle_screen = NodePath("../..")
+enemey_id = 2
 
 [node name="Audio" type="Node" parent="."]
 

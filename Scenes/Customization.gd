@@ -26,7 +26,7 @@ func get_body_name(id: int) -> String:
 		2:
 			return "red"
 		3:
-			return "robot"
+			return "sentry"
 		4:
 			return "sparkstriker"
 		_:
@@ -60,12 +60,19 @@ func _ready() -> void:
 	var name = get_body_name(last_combat)
 	
 	var rec = load("res://resources/bodyparts/" + name + "/" + name+ "_head.tres")
+	print("res://resources/bodyparts/" + name + "/" + name+ "_head.tres")
 	fill_label(rec, head_label)
+	
 	rec = load("res://resources/bodyparts/" + name + "/" + name+ "_torso.tres")
+	print("res://resources/bodyparts/" + name + "/" + name+ "_head.tres")
 	fill_label(rec, chest_label)
 	rec = load("res://resources/bodyparts/" + name + "/" + name+ "_larm.tres")
+	print("res://resources/bodyparts/" + name + "/" + name+ "_larm.tres")
+
 	fill_label(rec, arms_label)
 	rec = load("res://resources/bodyparts/" + name + "/" + name+ "_legs.tres")
+	if not rec: 
+		print("res://resources/bodyparts/" + name + "/" + name+ "_head.tres")
 	fill_label(rec, legs_label)
 	
 func fill_label(part: Body_Part, label: Label):
@@ -92,7 +99,7 @@ func chest_selected():
 
 
 func arms_selected():
-	Global_Player_Information.charater_body_parts["Left Arm"] = last_combat
+	Global_Player_Information.character_body_parts["Left Arm"] = last_combat
 	Global_Player_Information.character_body_parts["Right Arm"] = last_combat
 	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
 

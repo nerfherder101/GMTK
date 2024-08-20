@@ -18,8 +18,8 @@ config/icon="res://GMTK2024/icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-GameStart="*res://scripts/game_start.gd"
 Global_Player_Information="*res://scripts/Global/Global_Player_Information.gd"
+GameStart="*res://scripts/game_start.gd"
 
 [display]
 
