@@ -13,6 +13,7 @@ config_version=5
 config/name="GMTK2024"
 run/main_scene="res://Scenes/start.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://art/AugmentDream_Texts.png"
 config/icon="res://GMTK2024/icon.svg"
 
 [autoload]

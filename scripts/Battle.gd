@@ -107,6 +107,9 @@ func enemy_turn_end():
 
 func _process(delta: float) -> void:
 	player_passive_bar.value = current_passive_charges
+	if player_body.health <= 0:
+		await get_tree().create_timer(1.5).timeout
+		get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
 
 #UI CONTROL
 func _simple_speech(_option, _color, _from_player: bool): #TO CONTROL SPEECH BUBBLES

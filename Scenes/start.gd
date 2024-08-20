@@ -51,53 +51,19 @@ func _process(delta: float) -> void:
 			if !entered:
 				_start_first_dialogue()
 			entered = true
-			
-			if Input.is_action_just_pressed("ui_accept"):
-				sfx_accept.play()
-				current_scene = 2
-				for n in current_speeches.size():
-					current_speeches[n].queue_free()
-				current_speeches.clear()
-				entered = false
-				return
 		2:
 			if !entered:
 				_start_second_dialogue()
 			entered = true
-			await get_tree().create_timer(2.5).timeout
-			if Input.is_action_just_pressed("ui_accept"):
-				sfx_accept.play()
-				current_scene = 3
-				for n in current_speeches.size():
-					current_speeches[n].queue_free()
-				current_speeches.clear()
-				entered = false
-				return
 		3:
 			if !entered:
 				_start_third_dialogue()
 			entered = true
-			await get_tree().create_timer(1).timeout
-			if Input.is_action_just_pressed("ui_accept"):
-				sfx_accept.play()
-				mono.hide()
-				gray_panel.hide()
-				current_scene = 4
-				entered = false
-				return
 		4:
 			if !entered:
 				_start_fourth_dialogue()
 			entered = true
-			await get_tree().create_timer(1).timeout
-			if Input.is_action_just_pressed("ui_accept"):
-				sfx_accept.play()
-				current_scene = 5
-				_fade_to_black()
-				for n in current_speeches.size():
-					current_speeches[n].queue_free()
-				current_speeches.clear()
-				return
+
 
 
 func _on_start_pressed() -> void:
@@ -146,7 +112,15 @@ func _start_first_dialogue():
 			current_speeches[n].position_in_x = 100
 		else:
 			current_speeches[n].position_in_x = 1300
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(2).timeout
+	for n in current_speeches.size():
+			current_speeches[n].queue_free()
+	current_speeches.clear()
+	sfx_accept.play()
+	current_scene = 2
+	entered = false
+
 
 func _start_second_dialogue():
 	current_speeches.append(speech_bubble.instantiate())
@@ -155,7 +129,13 @@ func _start_second_dialogue():
 	await get_tree().create_timer(0.1).timeout
 	current_speeches[0].position_in_y = 300
 	current_speeches[0].position_in_x = 1300
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(2).timeout
+	for n in current_speeches.size():
+			current_speeches[n].queue_free()
+	current_speeches.clear()
+	sfx_accept.play()
+	current_scene = 3
+	entered = false
 
 func _start_third_dialogue():
 	mono.show()
@@ -163,6 +143,13 @@ func _start_third_dialogue():
 	_tween.set_parallel(true)
 	_tween.tween_property(gray_panel, "self_modulate", Color(1,1,1,0.5), 0.3).from_current()
 	_tween.tween_property(mono, "self_modulate", Color(1,1,1,1), 0.3).from(Color(1,1,1,0))
+	await get_tree().create_timer(2).timeout
+	sfx_accept.play()
+	mono.hide()
+	gray_panel.hide()
+	current_scene = 4
+	entered = false
+	return
 
 func _start_fourth_dialogue():
 	current_speeches.append(speech_bubble.instantiate())
@@ -172,3 +159,10 @@ func _start_fourth_dialogue():
 	current_speeches[0].position_in_y = 300
 	current_speeches[0].position_in_x = 100
 	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(2).timeout
+	for n in current_speeches.size():
+			current_speeches[n].queue_free()
+	current_speeches.clear()
+	sfx_accept.play()
+	current_scene = 5
+	_fade_to_black()
