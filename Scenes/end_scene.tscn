@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://63y3q37if37o"]
+
+[ext_resource type="Texture2D" uid="uid://cbd26bqyy0mmu" path="res://art/background art/Overworld/background_bedroom_layer_1.png" id="1_lykx5"]
+
+[node name="EndScene" type="Node2D"]
+
+[node name="BackgroundBedroomLayer1" type="Sprite2D" parent="."]
+position = Vector2(960, 548)
+scale = Vector2(1, 1)
+texture = ExtResource("1_lykx5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 632.0
+offset_top = 424.0
+offset_right = 1205.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+
+[node name="Timer" type="Timer" parent="."]

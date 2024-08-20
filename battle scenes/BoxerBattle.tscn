@@ -21,7 +21,7 @@
 [ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="18_4ps43"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="18_ewwkl"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_mi7u1"]
-[ext_resource type="PackedScene" uid="uid://dwcsaqqo58xcb" path="res://enemy scenes/boxer.tscn" id="20_4p2dg"]
+[ext_resource type="PackedScene" uid="uid://b7quh5p566caf" path="res://enemy scenes/boxer.tscn" id="20_4p2dg"]
 [ext_resource type="AudioStream" uid="uid://dt7u3bwsiir0u" path="res://art/sound/music/boxing ring initial loop.wav" id="23_6kt1f"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="23_fs0d0"]
 [ext_resource type="AudioStream" uid="uid://bauflwia5lpmb" path="res://art/sound/music/boxing ring continuous loop.wav" id="24_cg1ys"]

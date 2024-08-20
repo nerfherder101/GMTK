@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://btsgrskrod2ab"]
+[gd_scene load_steps=4 format=3 uid="uid://b377v25bhfve5"]
 
 [ext_resource type="Script" path="res://Scenes/Customization.gd" id="1_dydr3"]
 [ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="2_mivsb"]
