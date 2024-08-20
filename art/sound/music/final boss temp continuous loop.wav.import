@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c30kt52pfeg0c"
+path="res://.godot/imported/final boss temp continuous loop.wav-62041e61bc6b917a53cd60727ef5f1fa.sample"
+
+[deps]
+
+source_file="res://art/sound/music/final boss temp continuous loop.wav"
+dest_files=["res://.godot/imported/final boss temp continuous loop.wav-62041e61bc6b917a53cd60727ef5f1fa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
