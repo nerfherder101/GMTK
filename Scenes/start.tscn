@@ -1,60 +1,122 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhdkjas0as6pn"]
+[gd_scene load_steps=9 format=3 uid="uid://bhdkjas0as6pn"]
 
-[ext_resource type="Texture2D" uid="uid://2rkg3evlllbo" path="res://art/background art/main_menu_brothers_banter.webp" id="1_xbiah"]
-[ext_resource type="Script" path="res://scripts/1st scene/start.gd" id="2_f5gp5"]
+[ext_resource type="Texture2D" uid="uid://cbd26bqyy0mmu" path="res://art/background art/Overworld/background_bedroom_layer_1.png" id="1_auyln"]
+[ext_resource type="Script" path="res://Scenes/start.gd" id="1_nm2hd"]
+[ext_resource type="Texture2D" uid="uid://dkls7vk8stvc3" path="res://art/ui/AugmentDream_Text.png" id="2_t7kfi"]
+[ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="3_sse3f"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ac7c6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojvpl"]
+bg_color = Color(0, 0, 0, 0.419608)
 
-[node name="Start" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8a51"]
+bg_color = Color(0, 0, 0, 0.564706)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqn7c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="MainMenuBrothersBanter" type="Sprite2D" parent="."]
-position = Vector2(956, 544)
-scale = Vector2(1.22564, 1.22096)
-texture = ExtResource("1_xbiah")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05yyi"]
+bg_color = Color(0, 0, 0, 1)
 
-[node name="Start" type="Button" parent="."]
-offset_left = 656.0
-offset_top = 264.0
-offset_right = 1240.0
-offset_bottom = 488.0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 150
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ac7c6")
-text = "START"
-script = ExtResource("2_f5gp5")
+[node name="Start_Screen" type="Node2D"]
+script = ExtResource("1_nm2hd")
 
-[node name="Options" type="Button" parent="."]
-offset_left = 632.0
-offset_top = 480.0
-offset_right = 1291.0
-offset_bottom = 704.0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 150
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ac7c6")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ac7c6")
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_auyln")
+
+[node name="Gray_Panel" type="Panel" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojvpl")
+
+[node name="Title" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = -252.0
+offset_right = 500.0
+offset_bottom = 748.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_t7kfi")
+stretch_mode = 4
+
+[node name="Button_Container" type="PanelContainer" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = 551.0
+offset_right = 231.0
+offset_bottom = 839.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8a51")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Button_Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Button_Container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Start" type="Button" parent="Background/Button_Container/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_sse3f")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_iqn7c")
+text = "START GAME!"
+
+[node name="Options" type="Button" parent="Background/Button_Container/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_sse3f")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_iqn7c")
 text = "OPTIONS"
 
-[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
+[node name="Black_Screen" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_05yyi")
+
+[connection signal="pressed" from="Background/Button_Container/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
