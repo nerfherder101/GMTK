@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cgvjb2ecromk3" path="res://art/ui/placeholders/thoughtbubble_pressed.png" id="10_lp1iy"]
 [ext_resource type="Texture2D" uid="uid://7a5y0jx11sbo" path="res://art/ui/placeholders/thoughtbubble_hover.png" id="11_fbqpf"]
 [ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="12_dn2ri"]
-[ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="13_f82b1"]
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="14_unkwg"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="15_s4bbw"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="16_e6e2g"]
@@ -41,6 +40,9 @@ bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4m8r"]
 bg_color = Color(0, 0, 0, 0.717647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyyof"]
+bg_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ne1v"]
 bg_color = Color(0, 0, 0, 1)
@@ -254,21 +256,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_dn2ri")
 
-[node name="Special" type="TextureButton" parent="UI/ControlContainer/ControlPanel/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("9_7ketp")
-texture_pressed = ExtResource("10_lp1iy")
-texture_hover = ExtResource("11_fbqpf")
-
-[node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/HBoxContainer/Special"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("13_f82b1")
-
 [node name="Parry" type="TextureButton" parent="UI/ControlContainer/ControlPanel"]
 visible = false
 layout_mode = 1
@@ -356,11 +343,13 @@ expand_mode = 1
 
 [node name="Try" type="Button" parent="UI/Timing Game Panel"]
 modulate = Color(0, 0.14902, 1, 1)
+z_index = 15
 layout_mode = 0
 offset_left = 302.0
 offset_top = 145.0
 offset_right = 446.0
 offset_bottom = 212.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_eyyof")
 
 [node name="Result Label" type="Label" parent="UI/Timing Game Panel"]
 layout_mode = 0
@@ -600,7 +589,6 @@ stream = ExtResource("27_yv0ty")
 bus = &"UI"
 
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Attack" to="UI/ControlContainer/ControlPanel" method="_on_attack_mouse_entered"]
-[connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Special" to="UI/ControlContainer/ControlPanel" method="_on_special_mouse_entered"]
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_mouse_entered"]
 [connection signal="pressed" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_pressed"]
 [connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Head" to="." method="_on_head_mouse_entered"]

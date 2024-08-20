@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://rjbbjdu7dmuv"]
+[gd_scene load_steps=40 format=3 uid="uid://rjbbjdu7dmuv"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_txbrd"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_jnbjc"]
@@ -23,10 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_obn5s"]
 [ext_resource type="PackedScene" uid="uid://uwqsdqn68gdi" path="res://enemy scenes/spark_striker.tscn" id="20_mbyqd"]
 [ext_resource type="Script" path="res://scripts/scaling_enemies/spark_striker.gd" id="21_p8nip"]
-[ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="22_p4j7c"]
-[ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="23_focs5"]
+[ext_resource type="AudioStream" uid="uid://lpy41wdab5ko" path="res://art/sound/music/scifi initial loop.wav" id="24_2fmh3"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="24_nksdv"]
 [ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="25_1ib37"]
+[ext_resource type="AudioStream" uid="uid://cyrtfi7sxvjwu" path="res://art/sound/music/scifi continuous loop.wav" id="25_2ti80"]
 [ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="26_q2wee"]
 [ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="27_gqb7j"]
 
@@ -41,6 +41,9 @@ bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k26r"]
 bg_color = Color(0, 0, 0, 0.717647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u1ol"]
+bg_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6e2x"]
 bg_color = Color(0, 0, 0, 1)
@@ -310,7 +313,7 @@ grow_vertical = 0
 texture = ExtResource("15_rbj38")
 expand_mode = 1
 
-[node name="Timing Game Bar" type="TextureRect" parent="UI/Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button", "result_label")]
+[node name="Timing Game Bar" type="TextureRect" parent="UI/Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button")]
 z_index = 2
 z_as_relative = false
 layout_mode = 0
@@ -324,7 +327,6 @@ script = ExtResource("16_gmsgn")
 pointer = NodePath("Pointer")
 success_zone = NodePath("Success Zone")
 attempt_button = NodePath("../Try")
-result_label = NodePath("../Result Label")
 
 [node name="Success Zone" type="TextureRect" parent="UI/Timing Game Panel/Timing Game Bar"]
 modulate = Color(0.0431373, 0.701961, 0.00784314, 1)
@@ -356,11 +358,13 @@ expand_mode = 1
 
 [node name="Try" type="Button" parent="UI/Timing Game Panel"]
 modulate = Color(0, 0.14902, 1, 1)
+z_index = 4
 layout_mode = 0
 offset_left = 302.0
 offset_top = 145.0
 offset_right = 446.0
 offset_bottom = 212.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6u1ol")
 
 [node name="Result Label" type="Label" parent="UI/Timing Game Panel"]
 layout_mode = 0
@@ -572,13 +576,13 @@ enemey_id = 4
 
 [node name="Music_InitialLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("22_p4j7c")
+stream = ExtResource("24_2fmh3")
 autoplay = true
 bus = &"Music"
 
 [node name="Music_ContinuousLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("23_focs5")
+stream = ExtResource("25_2ti80")
 bus = &"Music"
 
 [node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]

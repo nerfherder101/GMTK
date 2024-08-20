@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cgvjb2ecromk3" path="res://art/ui/placeholders/thoughtbubble_pressed.png" id="10_i8ixe"]
 [ext_resource type="Texture2D" uid="uid://7a5y0jx11sbo" path="res://art/ui/placeholders/thoughtbubble_hover.png" id="11_dehtm"]
 [ext_resource type="Texture2D" uid="uid://c8joxdrnrp0fr" path="res://art/ui/placeholders/sword.png" id="12_bd58s"]
-[ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="13_8qkml"]
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="14_74vbq"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="15_522ag"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="16_m14xo"]
@@ -23,9 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_sq3hx"]
 [ext_resource type="PackedScene" uid="uid://cea228ikopsxk" path="res://enemy scenes/robot.tscn" id="20_bnt14"]
 [ext_resource type="Script" path="res://scripts/scaling_enemies/robot.gd" id="21_6flhc"]
-[ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="22_8if4g"]
-[ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="23_d2mx5"]
+[ext_resource type="AudioStream" uid="uid://lpy41wdab5ko" path="res://art/sound/music/scifi initial loop.wav" id="23_1lx4n"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="24_5cdu8"]
+[ext_resource type="AudioStream" uid="uid://cyrtfi7sxvjwu" path="res://art/sound/music/scifi continuous loop.wav" id="24_hnbba"]
 [ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="25_h7jmr"]
 [ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="26_v252q"]
 [ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="27_tnwxk"]
@@ -41,6 +40,9 @@ bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k26r"]
 bg_color = Color(0, 0, 0, 0.717647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20w06"]
+bg_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkxap"]
 bg_color = Color(0, 0, 0, 1)
@@ -253,21 +255,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_bd58s")
 
-[node name="Special" type="TextureButton" parent="UI/ControlContainer/ControlPanel/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("9_01tcn")
-texture_pressed = ExtResource("10_i8ixe")
-texture_hover = ExtResource("11_dehtm")
-
-[node name="TextureRect" type="TextureRect" parent="UI/ControlContainer/ControlPanel/HBoxContainer/Special"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("13_8qkml")
-
 [node name="Parry" type="TextureButton" parent="UI/ControlContainer/ControlPanel"]
 visible = false
 layout_mode = 1
@@ -310,7 +297,7 @@ grow_vertical = 0
 texture = ExtResource("15_522ag")
 expand_mode = 1
 
-[node name="Timing Game Bar" type="TextureRect" parent="UI/Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button", "result_label")]
+[node name="Timing Game Bar" type="TextureRect" parent="UI/Timing Game Panel" node_paths=PackedStringArray("pointer", "success_zone", "attempt_button")]
 z_index = 2
 z_as_relative = false
 layout_mode = 0
@@ -324,7 +311,6 @@ script = ExtResource("16_m14xo")
 pointer = NodePath("Pointer")
 success_zone = NodePath("Success Zone")
 attempt_button = NodePath("../Try")
-result_label = NodePath("../Result Label")
 
 [node name="Success Zone" type="TextureRect" parent="UI/Timing Game Panel/Timing Game Bar"]
 modulate = Color(0.0431373, 0.701961, 0.00784314, 1)
@@ -356,11 +342,13 @@ expand_mode = 1
 
 [node name="Try" type="Button" parent="UI/Timing Game Panel"]
 modulate = Color(0, 0.14902, 1, 1)
+z_index = 4
 layout_mode = 0
 offset_left = 302.0
 offset_top = 145.0
 offset_right = 446.0
 offset_bottom = 212.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_20w06")
 
 [node name="Result Label" type="Label" parent="UI/Timing Game Panel"]
 layout_mode = 0
@@ -572,13 +560,13 @@ enemey_id = 3
 
 [node name="Music_InitialLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("22_8if4g")
+stream = ExtResource("23_1lx4n")
 autoplay = true
 bus = &"Music"
 
 [node name="Music_ContinuousLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("23_d2mx5")
+stream = ExtResource("24_hnbba")
 bus = &"Music"
 
 [node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]
@@ -602,7 +590,6 @@ stream = ExtResource("27_tnwxk")
 bus = &"UI"
 
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Attack" to="UI/ControlContainer/ControlPanel" method="_on_attack_mouse_entered"]
-[connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Special" to="UI/ControlContainer/ControlPanel" method="_on_special_mouse_entered"]
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_mouse_entered"]
 [connection signal="pressed" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_pressed"]
 [connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Head" to="." method="_on_head_mouse_entered"]

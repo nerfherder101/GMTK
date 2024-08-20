@@ -40,7 +40,8 @@ bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k26r"]
 bg_color = Color(0, 0, 0, 0.717647)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdyux"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7o1q"]
+bg_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7o3si"]
 bg_color = Color(0, 0, 0, 1)
@@ -353,7 +354,7 @@ offset_right = 72.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_kdyux")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7o1q")
 text = "PUSH!"
 
 [node name="SpeechBubble_Player" type="MarginContainer" parent="UI"]
