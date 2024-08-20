@@ -16,6 +16,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="SpeechBubble_OVR" type="PanelContainer"]
+visible = false
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8f5xp")
@@ -32,7 +33,7 @@ theme_override_constants/margin_bottom = 10
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("2_cn0hj")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "HAHA TAKE THAT!"
 horizontal_alignment = 1
 vertical_alignment = 1

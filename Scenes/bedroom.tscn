@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd82u8sp4slp5"]
+[gd_scene load_steps=16 format=3 uid="uid://cd82u8sp4slp5"]
 
-[ext_resource type="Texture2D" uid="uid://v3qqec3iwcav" path="res://art/character art/shelf.webp" id="1_bcb7h"]
+[ext_resource type="Texture2D" uid="uid://df8t80wjk07g8" path="res://art/background art/Overworld/top_of_drawer.png" id="1_a6c0f"]
 [ext_resource type="Texture2D" uid="uid://o32djg8sskhx" path="res://art/character art/reddead.png" id="1_dfu3o"]
 [ext_resource type="Script" path="res://scripts/1st scene/character1.gd" id="2_hk0es"]
 [ext_resource type="Texture2D" uid="uid://pw0kiu2ngna2" path="res://art/character art/robot.png" id="3_gigoe"]
 [ext_resource type="Script" path="res://Scripts/1st scene/bowser.gd" id="5_yr5pd"]
+[ext_resource type="Texture2D" uid="uid://3uqw2onxk6xc" path="res://art/character art/SparkStriker.png" id="6_jnulf"]
+[ext_resource type="AudioStream" uid="uid://dyu1yysiq2qmu" path="res://art/sound/music/title screen initial loop.wav" id="6_jyhd2"]
+[ext_resource type="Script" path="res://scripts/1st scene/alien.gd" id="7_1vo2l"]
+[ext_resource type="AudioStream" uid="uid://vte2rqw7yy0y" path="res://art/sound/music/title screen continuous loop.wav" id="7_mhhxx"]
+[ext_resource type="AudioStream" uid="uid://nacy3tvfhxaa" path="res://art/sound/new ui sfx/Menu_7 LOW.wav" id="8_tj6gn"]
+[ext_resource type="AudioStream" uid="uid://b3o836lfijw7n" path="res://art/sound/new ui sfx/Pause 2_B.wav" id="9_fcgcr"]
+[ext_resource type="AudioStream" uid="uid://cvkt1wogqg53l" path="res://art/sound/new ui sfx/Pause 1_B.wav" id="10_xlki1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dxx"]
 size = Vector2(26.5532, 64)
@@ -12,39 +19,104 @@ size = Vector2(26.5532, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5qur"]
 size = Vector2(37.9733, 80.1032)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8bank"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("8_tj6gn")
+
 [node name="Bedroom" type="Node"]
 
-[node name="Shelf" type="Sprite2D" parent="."]
-position = Vector2(960, 504)
-scale = Vector2(1.23077, 1)
-texture = ExtResource("1_bcb7h")
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a6c0f")
 
-[node name="red dead" type="Sprite2D" parent="."]
-position = Vector2(256, 448)
+[node name="All Figurines" type="Node2D" parent="."]
+
+[node name="Red Dead" type="Sprite2D" parent="All Figurines"]
+position = Vector2(231, 518)
 scale = Vector2(8.75, 8.25)
 texture = ExtResource("1_dfu3o")
 script = ExtResource("2_hk0es")
 
-[node name="Area2D" type="Area2D" parent="red dead"]
+[node name="Area2D" type="Area2D" parent="All Figurines/Red Dead"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="red dead/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Figurines/Red Dead/Area2D"]
 position = Vector2(9.19149, 0)
 shape = SubResource("RectangleShape2D_e3dxx")
 
-[node name="bowser" type="Sprite2D" parent="."]
-position = Vector2(760, 352)
+[node name="Robot" type="Sprite2D" parent="All Figurines"]
+position = Vector2(656, 421)
 scale = Vector2(6.5, 7.125)
 texture = ExtResource("3_gigoe")
 script = ExtResource("5_yr5pd")
 
-[node name="Area2D" type="Area2D" parent="bowser"]
+[node name="Area2D" type="Area2D" parent="All Figurines/Robot"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bowser/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Figurines/Robot/Area2D"]
 position = Vector2(2.34667, 11.1484)
 shape = SubResource("RectangleShape2D_f5qur")
 
-[connection signal="area_exited" from="red dead/Area2D" to="red dead" method="_on_area_2d_area_exited"]
-[connection signal="mouse_entered" from="red dead/Area2D" to="red dead" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="red dead/Area2D" to="red dead" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="bowser/Area2D" to="bowser" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="bowser/Area2D" to="bowser" method="_on_area_2d_mouse_exited"]
+[node name="Alien" type="Sprite2D" parent="All Figurines"]
+position = Vector2(1048, 421)
+scale = Vector2(6.5, 7.125)
+texture = ExtResource("6_jnulf")
+script = ExtResource("7_1vo2l")
+
+[node name="Area2D" type="Area2D" parent="All Figurines/Alien"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Figurines/Alien/Area2D"]
+position = Vector2(2.34667, 11.1484)
+shape = SubResource("RectangleShape2D_f5qur")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Music_InitialLoop" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("6_jyhd2")
+autoplay = true
+bus = &"Music"
+
+[node name="Music_ContinuousLoop" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("7_mhhxx")
+bus = &"Music"
+
+[node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("8_tj6gn")
+bus = &"UI"
+
+[node name="SFX_LilBro" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_8bank")
+pitch_scale = 1.5
+bus = &"UI"
+
+[node name="SFX_Player" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_8bank")
+bus = &"UI"
+
+[node name="SFX_Accept" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("9_fcgcr")
+bus = &"UI"
+
+[node name="SFX_Back" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("10_xlki1")
+bus = &"UI"
+
+[connection signal="area_exited" from="All Figurines/Red Dead/Area2D" to="All Figurines/Red Dead" method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="All Figurines/Red Dead/Area2D" to="All Figurines/Red Dead" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="All Figurines/Red Dead/Area2D" to="All Figurines/Red Dead" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="All Figurines/Robot/Area2D" to="All Figurines/Robot" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="All Figurines/Robot/Area2D" to="All Figurines/Robot" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="All Figurines/Alien/Area2D" to="All Figurines/Alien" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="All Figurines/Alien/Area2D" to="All Figurines/Alien" method="_on_area_2d_mouse_exited"]

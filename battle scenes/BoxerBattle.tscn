@@ -22,9 +22,9 @@
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="18_ewwkl"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_mi7u1"]
 [ext_resource type="PackedScene" uid="uid://dwcsaqqo58xcb" path="res://enemy scenes/boxer.tscn" id="20_4p2dg"]
-[ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="21_y0p64"]
-[ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="22_tf6ja"]
+[ext_resource type="AudioStream" uid="uid://dt7u3bwsiir0u" path="res://art/sound/music/boxing ring initial loop.wav" id="23_6kt1f"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="23_fs0d0"]
+[ext_resource type="AudioStream" uid="uid://bauflwia5lpmb" path="res://art/sound/music/boxing ring continuous loop.wav" id="24_cg1ys"]
 [ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="24_l4lfs"]
 [ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="25_5nho1"]
 [ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="26_oqstb"]
@@ -404,7 +404,6 @@ size_flags_horizontal = 8
 
 [node name="Black_Panel" type="PanelContainer" parent="UI"]
 unique_name_in_owner = true
-visible = false
 self_modulate = Color(1, 1, 1, 0.705882)
 custom_minimum_size = Vector2(0, 100)
 anchors_preset = 15
@@ -567,13 +566,13 @@ enemey_id = 1
 
 [node name="Music_InitialLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("21_y0p64")
+stream = ExtResource("23_6kt1f")
 autoplay = true
 bus = &"Music"
 
 [node name="Music_ContinuousLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("22_tf6ja")
+stream = ExtResource("24_cg1ys")
 bus = &"Music"
 
 [node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]

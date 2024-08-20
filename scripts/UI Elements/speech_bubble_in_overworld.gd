@@ -2,15 +2,21 @@ extends Control
 
 @onready var speech_label = $MarginContainer/Expression
 var transitioning = false
+var position_in_y
+var position_in_x
 
 func _ready():
+	await get_tree().create_timer(0.2).timeout
 	_appear()
 
 func _initialize(_text):
 	speech_label = $MarginContainer/Expression
 	speech_label.text = _text
 
+
 func _appear():
+	position.y = position_in_y
+	position.x = position_in_x
 	position.y = position.y + 20
 	show()
 	var _tween = create_tween()

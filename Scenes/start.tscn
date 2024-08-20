@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhdkjas0as6pn"]
+[gd_scene load_steps=16 format=3 uid="uid://bhdkjas0as6pn"]
 
 [ext_resource type="Texture2D" uid="uid://cbd26bqyy0mmu" path="res://art/background art/Overworld/background_bedroom_layer_1.png" id="1_auyln"]
 [ext_resource type="Script" path="res://Scenes/start.gd" id="1_nm2hd"]
 [ext_resource type="Texture2D" uid="uid://dkls7vk8stvc3" path="res://art/ui/AugmentDream_Text.png" id="2_t7kfi"]
 [ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="3_sse3f"]
+[ext_resource type="Texture2D" uid="uid://cjk28yt2gdm2x" path="res://art/character art/PlayerCharacterStillOutline.png" id="5_5yllu"]
 [ext_resource type="AudioStream" uid="uid://dyu1yysiq2qmu" path="res://art/sound/music/title screen initial loop.wav" id="5_mypio"]
 [ext_resource type="AudioStream" uid="uid://vte2rqw7yy0y" path="res://art/sound/music/title screen continuous loop.wav" id="6_puqwq"]
 [ext_resource type="AudioStream" uid="uid://nacy3tvfhxaa" path="res://art/sound/new ui sfx/Menu_7 LOW.wav" id="7_53w4i"]
@@ -33,8 +34,9 @@ stream_0/stream = ExtResource("7_53w4i")
 
 [node name="Start_Screen" type="Node2D"]
 script = ExtResource("1_nm2hd")
-array_all_dialogues_scene_1 = Array[String](["NO! NO! DON’T SMASH THEM AGAIN", "BOOM!", "Well there goes your last toy.", "Please don’t tell mom", "Well you’re not gonna use any of my toys, guess I’ll playon my own"])
+array_all_dialogues_scene_1 = Array[String](["NO! NO! DON’T SMASH THEM AGAIN", "BOOM!", "Well there goes your last toy.", "Please don’t tell mom", "Well you’re not gonna use any of my toys, guess I’ll play on my own"])
 array_all_dialogues_scene_2 = Array[String](["Wait, I think I saw something on dad’s desk"])
+array_all_dialogues_scene_3 = Array[String](["Well I’ll use my favorite: Box-er"])
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -43,7 +45,6 @@ texture = ExtResource("1_auyln")
 
 [node name="Gray_Panel" type="Panel" parent="Background"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,7 +55,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ojvpl")
 
 [node name="Title" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(1000, 1000)
 layout_mode = 1
 anchors_preset = 5
@@ -72,7 +72,6 @@ stretch_mode = 4
 
 [node name="Button_Container" type="PanelContainer" parent="Background"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -119,6 +118,25 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_iqn7c")
 text = "OPTIONS"
+
+[node name="Mono" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -624.0
+offset_right = 500.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_5yllu")
+stretch_mode = 4
 
 [node name="Black_Screen" type="Panel" parent="."]
 unique_name_in_owner = true

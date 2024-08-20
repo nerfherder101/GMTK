@@ -41,6 +41,7 @@ class_name Battle_Screen
 @onready var l_four = %"4"
 
 func _ready() -> void:
+	_fade_in()
 	player_control.toggle_selection()
 	player_passive_bar.value = 0
 	match Global_Player_Information.character_body_parts["Head"]:
@@ -150,6 +151,16 @@ func _fade_to_black_back_to_bedroom():
 	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
 	pass
+
+func _fade_in():
+	var _tween = create_tween()
+	_tween.set_ease(Tween.EASE_OUT)
+	_tween.set_trans(Tween.TRANS_LINEAR)
+	_tween.tween_property(black_panel, "self_modulate", Color(Color.WHITE,0), 0.5).from(Color(1,1,1,1))
+	await _tween.finished
+	black_panel.hide()
+
+
 
 func _on_head_pressed() -> void:
 	if Global_Player_Information.character_body_parts["Head"] != 0:
