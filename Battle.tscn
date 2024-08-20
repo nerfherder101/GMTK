@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://dn2hs2aoiwnuk"]
+[gd_scene load_steps=29 format=3 uid="uid://dn2hs2aoiwnuk"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_sj1wd"]
 [ext_resource type="Texture2D" uid="uid://cnwmysv8q30n4" path="res://art/background art/Western.png" id="2_eqyca"]
 [ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="3_ai4fg"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_cvj56"]
+[ext_resource type="Texture2D" uid="uid://bigrdn1ob07ik" path="res://art/ui/placeholders/ui_bar_player_with_passive_layer1.png" id="4_7q7lt"]
 [ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="4_q5d58"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="5_c8v7s"]
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_ac1w2"]
@@ -16,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://u8k41ubn2rhj" path="res://art/ui/placeholders/special.png" id="14_0f5xy"]
 [ext_resource type="PackedScene" uid="uid://bq2kjp6s08pbi" path="res://enemy scenes/red_dead.tscn" id="14_umklu"]
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="15_s8umo"]
-[ext_resource type="PackedScene" path="res://player_modular.tscn" id="16_kx0ad"]
+[ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="16_kx0ad"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="16_ngvtm"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="20_6nyhb"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="21_cbd1w"]
@@ -27,6 +28,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll13d"]
 bg_color = Color(0.941176, 0.121569, 0.360784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mcqe"]
+bg_color = Color(0.929412, 0.796078, 0.113725, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4m8r"]
 bg_color = Color(0, 0, 0, 0.717647)
@@ -82,7 +86,7 @@ size_flags_horizontal = 3
 [node name="Layer1" type="TextureRect" parent="UI/BarContainer/BarHbox/PlayerBar"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("3_ai4fg")
+texture = ExtResource("4_7q7lt")
 stretch_mode = 2
 flip_h = true
 
@@ -93,14 +97,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 130
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_bottom = 60
+theme_override_constants/margin_top = 62
 
-[node name="Player Health" type="ProgressBar" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 130
+
+[node name="Player Health" type="ProgressBar" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_ll13d")
+max_value = 10.0
+step = 1.0
+value = 10.0
+rounded = true
+show_percentage = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_right = 230
+theme_override_constants/margin_bottom = 20
+
+[node name="Player Passive Charges" type="ProgressBar" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_6mcqe")
 max_value = 10.0
 step = 1.0
 value = 10.0
@@ -348,7 +378,7 @@ size_flags_horizontal = 8
 
 [node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("16_kx0ad")]
 position = Vector2(630, 700)
-health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
+health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("..")
 

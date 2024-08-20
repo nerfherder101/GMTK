@@ -13,3 +13,5 @@ class_name Body_Part
 @export var defense: int = 0
 @export var agility: int = 0
 @export var crit_chance: float = 0.0
+@export_category("Passive")
+@export var passive_charges: int = -1

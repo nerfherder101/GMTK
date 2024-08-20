@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://bi7vq88fswns3"]
+[gd_scene load_steps=32 format=3 uid="uid://ca3n4p1lqs3al"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_p432o"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_xv0me"]
 [ext_resource type="Texture2D" uid="uid://cnwmysv8q30n4" path="res://art/background art/Western.png" id="3_wyt2l"]
 [ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="4_dl0v5"]
+[ext_resource type="Texture2D" uid="uid://bigrdn1ob07ik" path="res://art/ui/placeholders/ui_bar_player_with_passive_layer1.png" id="4_ef1cq"]
 [ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="5_kiogq"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="6_shc4d"]
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="7_ajb3a"]
@@ -27,13 +28,19 @@
 [ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="24_6ff30"]
 [ext_resource type="AudioStream" uid="uid://cxnjs1kbrfcf0" path="res://art/sound/ui sfx/yes!.wav" id="25_jooyb"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg1jp"]
+bg_color = Color(0.941176, 0.121569, 0.360784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otrn2"]
+bg_color = Color(0.929412, 0.796078, 0.113725, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll13d"]
 bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4m8r"]
 bg_color = Color(0, 0, 0, 0.717647)
 
-[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame", "speech_bubble_player", "speech_bubble_opponent")]
+[node name="Battle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame", "speech_bubble_player", "speech_bubble_opponent", "player_bar", "player_passive_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +54,8 @@ player_control = NodePath("UI/ControlContainer/ControlPanel")
 timing_minigame = NodePath("UI/Timing Game Panel/Timing Game Bar")
 speech_bubble_player = NodePath("UI/SpeechBubble_Player")
 speech_bubble_opponent = NodePath("UI/SpeechBubble_Opponent")
+player_bar = NodePath("UI/BarContainer/BarHbox/PlayerBar")
+player_passive_bar = NodePath("UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer2/Player Passive Charges")
 speech_bubble = ExtResource("2_xv0me")
 metadata/_edit_lock_ = true
 
@@ -84,7 +93,7 @@ size_flags_horizontal = 3
 [node name="Layer1" type="TextureRect" parent="UI/BarContainer/BarHbox/PlayerBar"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("4_dl0v5")
+texture = ExtResource("4_ef1cq")
 stretch_mode = 2
 flip_h = true
 
@@ -95,14 +104,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 130
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_bottom = 60
+theme_override_constants/margin_top = 62
 
-[node name="Player Health" type="ProgressBar" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 130
+
+[node name="Player Health" type="ProgressBar" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_styles/fill = SubResource("StyleBoxFlat_ll13d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sg1jp")
+max_value = 10.0
+step = 1.0
+value = 10.0
+rounded = true
+show_percentage = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_right = 230
+theme_override_constants/margin_bottom = 20
+
+[node name="Player Passive Charges" type="ProgressBar" parent="UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_otrn2")
 max_value = 10.0
 step = 1.0
 value = 10.0
@@ -350,7 +384,7 @@ size_flags_horizontal = 8
 
 [node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("17_byg58")]
 position = Vector2(630, 700)
-health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
+health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("..")
 
