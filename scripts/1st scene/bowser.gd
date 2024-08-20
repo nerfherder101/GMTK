@@ -15,7 +15,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and mouse_in:
 		if get_rect().has_point(to_local(event.position)):
-			get_tree().change_scene_to_file("res://RobotBattle.tscn")
+			get_tree().change_scene_to_file("res://battle scenes/RobotBattle.tscn")
 			
 func _on_area_2d_mouse_entered():
 	mouse_in = true

@@ -23,7 +23,7 @@ size = Vector2(26.5532, 64)
 size = Vector2(37.9733, 80.1032)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuorx"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0.0509804, 0.223529, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8bank"]
 random_pitch = 1.1
@@ -33,7 +33,7 @@ stream_0/stream = ExtResource("8_tj6gn")
 [node name="Bedroom" type="Node"]
 script = ExtResource("1_y3gpy")
 array_all_dialogues_scene_1 = Array[String](["Box-er!!!", "sorry."])
-array_all_dialogues_scene_2 = Array[String](["You always breakeverything, you gotta to be careful", "Okay...", "Well I don’t care anymore, who do you wanna battle?"])
+array_all_dialogues_scene_2 = Array[String](["You always break everything, you gotta to be careful", "Okay...", "Well I don’t care anymore, who do you wanna battle?"])
 array_all_dialogues_scene_3 = Array[String](["Not again!", "I didn't mean to do that"])
 array_all_dialogues_scene_4 = Array[String](["Why do you always do this?", "mmm..."])
 array_all_dialogues_scene_5 = Array[String](["That's enough, I'll play on my own", "It was an accident!"])
@@ -45,7 +45,7 @@ array_all_dialogues_scene_10 = Array[String](["I guess I'll use this to build so
 array_all_dialogues_scene_11 = Array[String](["BEEP!"])
 array_all_dialogues_scene_12 = Array[String](["Hey, I think this should be yours", "But..."])
 array_all_dialogues_scene_13 = Array[String](["This is the strongest toy ever.", "It looks weird", "I'll never be able to break this one", "I hope so"])
-array_all_dialogues_scene_14 = Array[String](["CREDITS:", "AdamMusicWorld / Sound Effects", "Atonbara Diete-Koki / Programmer", "Dario Meillon / Programming Lead, Visual Designer", "DavigJ / Music Composer", "", "", ""])
+array_all_dialogues_scene_14 = Array[String](["CREDITS:", "AdamMusicWorld / Sound Effects", "Atonbara Diete-Koki / Programmer", "Dario Meillon / Programming Lead, Visual Designer, Artist", "DavigJ / Music Composer", "Hayden / Programmer", "Kohni / Character Designer, Artist", "Raymundo H. D. / Gameplay Desinger, Writer"])
 
 [node name="Bedroom" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -138,9 +138,20 @@ shape = SubResource("RectangleShape2D_f5qur")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Black_Panel" type="PanelContainer" parent="UI"]
+[node name="Blue_Filter" type="PanelContainer" parent="UI"]
 unique_name_in_owner = true
 visible = false
+self_modulate = Color(1, 1, 1, 0.729412)
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vuorx")
+
+[node name="Black_Panel" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.705882)
 custom_minimum_size = Vector2(0, 100)
 anchors_preset = 15
@@ -196,3 +207,4 @@ bus = &"UI"
 [connection signal="mouse_exited" from="All Figurines/Robot/Area2D" to="All Figurines/Robot" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="All Figurines/Alien/Area2D" to="All Figurines/Alien" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="All Figurines/Alien/Area2D" to="All Figurines/Alien" method="_on_area_2d_mouse_exited"]
+[connection signal="finished" from="Audio/Music_InitialLoop" to="." method="_on_music_initial_loop_finished"]
