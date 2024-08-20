@@ -2,12 +2,11 @@ extends Sprite2D
 
 var mouse_in = false
 var hover_character = preload("res://art/character art/SentryFlashStillOutline.webp")
-var regular_character = preload("res://art/character art/robot.png")
+var regular_character = preload("res://art/character art/SentryFlashStill.png")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	if Global_Player_Information.characters_available["Sentry Flash"] == false:
+		hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

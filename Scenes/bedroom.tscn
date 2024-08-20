@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cd82u8sp4slp5"]
+[gd_scene load_steps=20 format=3 uid="uid://cd82u8sp4slp5"]
 
 [ext_resource type="Texture2D" uid="uid://df8t80wjk07g8" path="res://art/background art/Overworld/top_of_drawer.png" id="1_a6c0f"]
 [ext_resource type="Texture2D" uid="uid://o32djg8sskhx" path="res://art/character art/reddead.png" id="1_dfu3o"]
+[ext_resource type="Script" path="res://Scenes/bedroom.gd" id="1_y3gpy"]
 [ext_resource type="Script" path="res://scripts/1st scene/character1.gd" id="2_hk0es"]
+[ext_resource type="Texture2D" uid="uid://cbd26bqyy0mmu" path="res://art/background art/Overworld/background_bedroom_layer_1.png" id="2_qlcit"]
+[ext_resource type="Texture2D" uid="uid://xdmek8natl7w" path="res://art/character art/Individual Pieces/MODBoxer.png" id="3_6ede5"]
 [ext_resource type="Texture2D" uid="uid://pw0kiu2ngna2" path="res://art/character art/robot.png" id="3_gigoe"]
 [ext_resource type="Script" path="res://Scripts/1st scene/bowser.gd" id="5_yr5pd"]
 [ext_resource type="Texture2D" uid="uid://3uqw2onxk6xc" path="res://art/character art/SparkStriker.png" id="6_jnulf"]
@@ -19,14 +22,74 @@ size = Vector2(26.5532, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5qur"]
 size = Vector2(37.9733, 80.1032)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuorx"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8bank"]
 random_pitch = 1.1
 streams_count = 1
 stream_0/stream = ExtResource("8_tj6gn")
 
 [node name="Bedroom" type="Node"]
+script = ExtResource("1_y3gpy")
+array_all_dialogues_scene_1 = Array[String](["Box-er!!!", "sorry."])
+array_all_dialogues_scene_2 = Array[String](["You always breakeverything, you gotta to be careful", "Okay...", "Well I don’t care anymore, who do you wanna battle?"])
+array_all_dialogues_scene_3 = Array[String](["Not again!", "I didn't mean to do that"])
+array_all_dialogues_scene_4 = Array[String](["Why do you always do this?", "mmm..."])
+array_all_dialogues_scene_5 = Array[String](["That's enough, I'll play on my own", "It was an accident!"])
+array_all_dialogues_scene_6 = Array[String](["Please, I promise I'll be careful.", "No!", "Please", "Ugh fiiiine"])
+array_all_dialogues_scene_7 = Array[String](["I'll never play with you again!", "No no no, don't cry", "MOM!!!!"])
+array_all_dialogues_scene_8 = Array[String](["Such a cry baby, I was just playing", "Guess I'll go to sleep"])
+array_all_dialogues_scene_9 = Array[String](["I hope that...", "What you build was worth it..."])
+array_all_dialogues_scene_10 = Array[String](["I guess I'll use this to build something for me"])
+array_all_dialogues_scene_11 = Array[String](["BEEP!"])
+array_all_dialogues_scene_12 = Array[String](["Hey, I think this should be yours", "But..."])
+array_all_dialogues_scene_13 = Array[String](["This is the strongest toy ever.", "It looks weird", "I'll never be able to break this one", "I hope so"])
+array_all_dialogues_scene_14 = Array[String](["CREDITS:", "AdamMusicWorld / Sound Effects", "Atonbara Diete-Koki / Programmer", "Dario Meillon / Programming Lead, Visual Designer", "DavigJ / Music Composer", "", "", ""])
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Bedroom" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qlcit")
+
+[node name="Boxer_Dead" type="Node2D" parent="Bedroom"]
+unique_name_in_owner = true
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Bedroom/Boxer_Dead"]
+position = Vector2(753, 649)
+scale = Vector2(4, 4)
+texture = ExtResource("3_6ede5")
+hframes = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="Bedroom/Boxer_Dead"]
+position = Vector2(937, 774)
+rotation = 1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("3_6ede5")
+hframes = 4
+frame = 3
+
+[node name="Sprite2D3" type="Sprite2D" parent="Bedroom/Boxer_Dead"]
+position = Vector2(1124, 785)
+rotation = -1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("3_6ede5")
+hframes = 4
+frame = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Bedroom/Boxer_Dead"]
+position = Vector2(625, 822)
+scale = Vector2(4, 4)
+texture = ExtResource("3_6ede5")
+hframes = 4
+frame = 1
+
+[node name="Shelf" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,6 +98,7 @@ grow_vertical = 2
 texture = ExtResource("1_a6c0f")
 
 [node name="All Figurines" type="Node2D" parent="."]
+visible = false
 
 [node name="Red Dead" type="Sprite2D" parent="All Figurines"]
 position = Vector2(231, 518)
@@ -73,6 +137,18 @@ position = Vector2(2.34667, 11.1484)
 shape = SubResource("RectangleShape2D_f5qur")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Black_Panel" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 1, 1, 0.705882)
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vuorx")
 
 [node name="Audio" type="Node" parent="."]
 

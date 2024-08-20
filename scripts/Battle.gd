@@ -142,6 +142,20 @@ func _end_battle_player_win():
 	_tween.tween_property(body_selector, "position", Vector2(0,0), 0.2).from_current()
 
 func _fade_to_black_back_to_bedroom():
+	Global_Player_Information.battle_counter += 1
+	match battle_id:
+		0:
+			pass
+		1:
+			Global_Player_Information.characters_available["Box-er"] = false
+		2:
+			Global_Player_Information.characters_available["Red Dead"] = false
+		3:
+			Global_Player_Information.characters_available["Sentry Flash"] = false
+		4:
+			Global_Player_Information.characters_available["Spark Striker"] = false
+		5:
+			Global_Player_Information.characters_available["Knightmare"] = false
 	body_selector.hide()
 	var _tween = create_tween()
 	_tween.set_ease(Tween.EASE_OUT)

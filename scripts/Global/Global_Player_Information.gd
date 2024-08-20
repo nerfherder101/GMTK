@@ -5,10 +5,10 @@ extends Node
 
 @onready var characters_available = {
 	"Box-er" : true,
-	"Red Dead" : false,
-	"Sentry Flash" : false,
-	"Spark Striker" : false,
-	"Knightmare" : false
+	"Red Dead" : true,
+	"Sentry Flash" : true,
+	"Spark Striker" : true,
+	"Knightmare" : true
 }
 @onready var battle_counter: int = 0
 
