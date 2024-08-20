@@ -53,6 +53,8 @@ func _ready() -> void:
 	body_images[0].texture = texture
 	
 	head_button.pressed.connect(head_selected)
+	
+	
 	chest_button.pressed.connect(chest_selected)
 	arms_button.pressed.connect(arms_selected)
 	legs_button.pressed.connect(legs_selected)
@@ -77,33 +79,43 @@ func _ready() -> void:
 	
 func fill_label(part: Body_Part, label: Label):
 	
-	var text = "str: " + str(part.strength) + "\n" 
-	text += "def: " + str(part.defense) + "\n" 
-	text +=  "agil: " + str(part.agility) + "\n"
-	text += "crit chance: "+ str(part.crit_chance) + "\n" 
+	var text = ""
 	
 	if Global_Player_Information.character_body_parts[get_part_name(part.body_part_id)] != 0:
-		text += "[PART TAKEN, CAN CHOOSE TO REPLACE]"
-
+		text += "[PART TAKEN]"
+	else:
+		text += "str: " + str(part.strength) + "\n" 
+		text += "def: " + str(part.defense) + "\n" 
+		text +=  "agil: " + str(part.agility) + "\n"
+		text += "crit chance: "+ str(part.crit_chance) + "\n" 
 	label.text = text
 
 
 func head_selected():
+	if Global_Player_Information.character_body_parts["Head"] != 0:
+		return
+
 	Global_Player_Information.character_body_parts["Head"] = last_combat
 	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
 
 
 func chest_selected():
+	if Global_Player_Information.character_body_parts["Torso"] != 0:
+		return
 	Global_Player_Information.character_body_parts["Torso"] = last_combat
 	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
 
 
 func arms_selected():
+	if Global_Player_Information.character_body_parts["Left Arm"] != 0:
+		return
 	Global_Player_Information.character_body_parts["Left Arm"] = last_combat
 	Global_Player_Information.character_body_parts["Right Arm"] = last_combat
 	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
 
 func legs_selected():
+	if Global_Player_Information.character_body_parts["Legs"] != 0:
+		return
 	Global_Player_Information.character_body_parts["Legs"] = last_combat
 	get_tree().change_scene_to_file("res://Scenes/bedroom.tscn")
 
