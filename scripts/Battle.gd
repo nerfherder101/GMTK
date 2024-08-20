@@ -18,7 +18,7 @@ extends Control
 @onready var music_c = %Music_ContinuousLoop
 
 #passive
-@onready var passive_charges_total: int = 0
+@onready var passive_charges_total: int = -1
 @onready var current_passive_charges: int = 0
 
 func _ready() -> void:
@@ -26,14 +26,13 @@ func _ready() -> void:
 	player_passive_bar.value = 0
 	match Global_Player_Information.character_body_parts["Head"]:
 		0:
-			pass
+			player_passive_bar.modulate = Color(Color.WHITE, 0.0)
 		1:
 			passive_charges_total = 1
 		2:
 			passive_charges_total = 2
 		3:
-			passive_charges_total = 1
-			current_passive_charges = 1
+			passive_charges_total = 0 #DONT NEED TO BE CHARGED
 		4:
 			passive_charges_total = 1
 	player_passive_bar.max_value = passive_charges_total
