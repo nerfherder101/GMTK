@@ -1,16 +1,21 @@
 extends Node
 
 signal dialogue_finished
+
+var resource = load("res://dialogue/intro_banter.dialogue")
+var dialogue_line = await DialogueManager.get_next_dialogue_line(resource, "start")
+@onready var dialogue_label = $DialogueLabel
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	DialogManager.start_dialog(Vector2(360.0, 400.0), ["Hello", "Hi"])
+	
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/intro_banter.dialogue"), "start")
-		return
+
 
 func _on_dialogue_ended(_resource: DialogueResource):
 	# Emit the signal when the dialogue ends

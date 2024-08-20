@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhdkjas0as6pn"]
+
+[ext_resource type="Texture2D" uid="uid://2rkg3evlllbo" path="res://art/background art/main_menu_brothers_banter.webp" id="1_xbiah"]
+[ext_resource type="Script" path="res://scripts/1st scene/start.gd" id="2_f5gp5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ac7c6"]
+
+[node name="Start" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="MainMenuBrothersBanter" type="Sprite2D" parent="."]
+position = Vector2(956, 544)
+scale = Vector2(1.22564, 1.22096)
+texture = ExtResource("1_xbiah")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 656.0
+offset_top = 264.0
+offset_right = 1240.0
+offset_bottom = 488.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ac7c6")
+text = "START"
+script = ExtResource("2_f5gp5")
+
+[node name="Options" type="Button" parent="."]
+offset_left = 632.0
+offset_top = 480.0
+offset_right = 1291.0
+offset_bottom = 704.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ac7c6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ac7c6")
+text = "OPTIONS"
+
+[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
