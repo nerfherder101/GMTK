@@ -12,4 +12,5 @@ visible = true
 strength = 0
 defense = 1
 agility = 0
-crit_chance = 0.0
+crit_chance = 0.05
+passive_charges = -1

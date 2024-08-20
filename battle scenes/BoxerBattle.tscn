@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://btq8hrfu88qnb"]
+[gd_scene load_steps=38 format=3 uid="uid://btq8hrfu88qnb"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_iojeg"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_j1tj8"]
@@ -16,7 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="14_6anp5"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="15_2iq31"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="16_u8yjq"]
+[ext_resource type="Texture2D" uid="uid://xdmek8natl7w" path="res://art/character art/Individual Pieces/MODBoxer.png" id="17_l4qxe"]
 [ext_resource type="PackedScene" path="res://player_change_clothes.tscn" id="17_vn8cd"]
+[ext_resource type="Theme" uid="uid://cbb0wom6iyb8v" path="res://themes/label_theme_battle.tres" id="18_4ps43"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="18_ewwkl"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_mi7u1"]
 [ext_resource type="PackedScene" uid="uid://dwcsaqqo58xcb" path="res://enemy scenes/boxer.tscn" id="20_4p2dg"]
@@ -39,7 +41,26 @@ bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k26r"]
 bg_color = Color(0, 0, 0, 0.717647)
 
-[node name="RobotBattle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame", "speech_bubble_player", "speech_bubble_opponent", "player_bar", "player_passive_bar")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7o3si"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0lah"]
+atlas = ExtResource("17_l4qxe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1fxf"]
+atlas = ExtResource("17_l4qxe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k38ly"]
+atlas = ExtResource("17_l4qxe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhsnb"]
+atlas = ExtResource("17_l4qxe")
+region = Rect2(98, 0, 32, 32)
+
+[node name="BoxBattle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame", "speech_bubble_player", "speech_bubble_opponent", "player_bar", "player_passive_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iojeg")
+battle_id = 1
 enemy = NodePath("Opponent")
 player_body = NodePath("Player_Body")
 player_control = NodePath("UI/ControlContainer/ControlPanel")
@@ -380,6 +402,145 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 size_flags_horizontal = 8
 
+[node name="Black_Panel" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 1, 1, 0.705882)
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7o3si")
+
+[node name="BodyPartSelector" type="MarginContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BodyPartSelector"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Part_Container" type="HBoxContainer" parent="UI/BodyPartSelector/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Head" type="TextureButton" parent="UI/BodyPartSelector/VBoxContainer/Part_Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_m0lah")
+stretch_mode = 4
+
+[node name="Torso" type="TextureButton" parent="UI/BodyPartSelector/VBoxContainer/Part_Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_f1fxf")
+stretch_mode = 4
+
+[node name="Arms" type="TextureButton" parent="UI/BodyPartSelector/VBoxContainer/Part_Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_k38ly")
+stretch_mode = 4
+
+[node name="Legs" type="TextureButton" parent="UI/BodyPartSelector/VBoxContainer/Part_Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_xhsnb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="UI/BodyPartSelector/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("18_4ps43")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "CLICK ON THE BODY PART TO CHOOSE ONE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="What_Gives" type="HBoxContainer" parent="UI/BodyPartSelector/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="1" type="VBoxContainer" parent="UI/BodyPartSelector/VBoxContainer/What_Gives"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/BodyPartSelector/VBoxContainer/What_Gives/1"]
+layout_mode = 2
+theme = ExtResource("18_4ps43")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "PASSIVE!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/BodyPartSelector/VBoxContainer/What_Gives/1"]
+layout_mode = 2
+theme = ExtResource("18_4ps43")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "DMG BOOST +1
+1 PARRY CHARGE"
+horizontal_alignment = 1
+
+[node name="2" type="VBoxContainer" parent="UI/BodyPartSelector/VBoxContainer/What_Gives"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/BodyPartSelector/VBoxContainer/What_Gives/2"]
+layout_mode = 2
+theme = ExtResource("18_4ps43")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "DEFENSE +1"
+horizontal_alignment = 1
+
+[node name="3" type="VBoxContainer" parent="UI/BodyPartSelector/VBoxContainer/What_Gives"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/BodyPartSelector/VBoxContainer/What_Gives/3"]
+layout_mode = 2
+theme = ExtResource("18_4ps43")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "ATTACK + 1"
+horizontal_alignment = 1
+
+[node name="4" type="VBoxContainer" parent="UI/BodyPartSelector/VBoxContainer/What_Gives"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/BodyPartSelector/VBoxContainer/What_Gives/4"]
+layout_mode = 2
+theme = ExtResource("18_4ps43")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "AGILITY + 1"
+horizontal_alignment = 1
+
 [node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("17_vn8cd")]
 position = Vector2(630, 700)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer/Player Health")
@@ -440,3 +601,15 @@ bus = &"UI"
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Special" to="UI/ControlContainer/ControlPanel" method="_on_special_mouse_entered"]
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_mouse_entered"]
 [connection signal="pressed" from="UI/ControlContainer/ControlPanel/Parry" to="UI/ControlContainer/ControlPanel" method="_on_parry_pressed"]
+[connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Head" to="." method="_on_head_mouse_entered"]
+[connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Head" to="." method="_on_head_mouse_exited"]
+[connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Head" to="." method="_on_head_pressed"]
+[connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Torso" to="." method="_on_torso_mouse_entered"]
+[connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Torso" to="." method="_on_torso_mouse_exited"]
+[connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Torso" to="." method="_on_torso_pressed"]
+[connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Arms" to="." method="_on_arms_mouse_entered"]
+[connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Arms" to="." method="_on_arms_mouse_exited"]
+[connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Arms" to="." method="_on_arms_pressed"]
+[connection signal="mouse_entered" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_mouse_entered"]
+[connection signal="mouse_exited" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_mouse_exited"]
+[connection signal="pressed" from="UI/BodyPartSelector/VBoxContainer/Part_Container/Legs" to="." method="_on_legs_pressed"]

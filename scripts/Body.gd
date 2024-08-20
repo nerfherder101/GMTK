@@ -2,7 +2,7 @@ extends Node2D
 class_name Body
 
 @export var max_health := 10
-@export var health = 0
+@export var health = 10
 
 @export var health_bar : ProgressBar = null
 @export var control: PlayerControl = null
@@ -32,7 +32,6 @@ enum state_anim {idle, attacking, wait, on_hit, explode}
 
 func _ready() -> void:
 	await get_tree().physics_frame
-	health = max_health
 	health_bar.max_value = max_health
 	update_healthbar()
 
@@ -46,19 +45,17 @@ func _process(delta: float) -> void:
 			animation_player.play("Attack")
 			current_state_anim = state_anim.wait
 		state_anim.explode:
+			current_state_anim = state_anim.wait
 			animation_player.clear_queue()
 			sprite.hide()
 			head_particle.emitting = true
 			torso_particle.emitting = true
 			arms_particle.emitting = true
 			legs_particle.emitting = true
-			#current_state_anim = state_anim.wait
-			
 			print("timer initiated")
 			await get_tree().create_timer(1.5).timeout
 			print("timer passed")
-			Global_Player_Information.last_combat = enemey_id
-			get_tree().change_scene_to_file("res://Scenes/customization.tscn")
+			battle_screen._end_battle_player_win()
 			
 		state_anim.wait:
 			pass

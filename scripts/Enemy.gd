@@ -30,7 +30,6 @@ func do_damage(dmg: int):
 	
 
 func execute_ability(): 
-	
 	var rng = RandomNumberGenerator.new()
 	var anim = body.sprite
 	var _color1: Color = Color.YELLOW
