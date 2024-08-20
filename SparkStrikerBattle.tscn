@@ -382,7 +382,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("16_lf7x7")]
-position = Vector2(537, 740)
+position = Vector2(630, 700)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("..")

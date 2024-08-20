@@ -25,7 +25,6 @@ extends Control
 func _ready() -> void:
 	player_control.toggle_selection()
 	player_passive_bar.value = 0
-	Global_Player_Information.character_body_parts["Head"] = 4
 	match Global_Player_Information.character_body_parts["Head"]:
 		0:
 			player_passive_bar.modulate = Color(Color.WHITE, 0.0)
