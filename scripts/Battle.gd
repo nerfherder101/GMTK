@@ -20,6 +20,7 @@ extends Control
 #passive
 @onready var passive_charges_total: int = -1
 @onready var current_passive_charges: int = 0
+@onready var enemy_is_stunned: bool = false
 
 func _ready() -> void:
 	player_control.toggle_selection()
@@ -39,6 +40,13 @@ func _ready() -> void:
 	player_passive_bar.value = current_passive_charges
 
 func player_turn_end():
+	if enemy_is_stunned:
+		player_control.toggle_selection()
+		enemy_is_stunned = false
+		return
+	if passive_charges_total > 0 and (current_passive_charges >= passive_charges_total):
+		current_passive_charges = 0
+		player_body._remove_passive_ability()
 	enemy.execute_ability()
 	player_control._enter_defense() #THIS IS SO THE PLAYER CAN HAVE THE BUTTON TO PARRY AVAILABLE TO THEM
 	#only for spawning a speech bubble

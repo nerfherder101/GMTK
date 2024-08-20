@@ -64,4 +64,3 @@ func _physics_process(delta: float) -> void:
 			if pointer.position.x < x_min:
 				pointer.position = Vector2(x_min, pointer.position.y)
 				forward = true
-	

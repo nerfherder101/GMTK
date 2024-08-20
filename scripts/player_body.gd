@@ -78,3 +78,55 @@ func do_damage(dmg: int):
 		sfx_explode.play()
 		current_state_anim = state_anim.explode
 	update_healthbar()
+
+func _do_passive_ability():
+	match Global_Player_Information.character_body_parts["Head"]:
+		0:
+			pass
+		1:
+			strength += 1
+			Global_Player_Information.character_attributes["strength"] = strength
+		2:
+			critical_chance += 1.0
+			Global_Player_Information.character_attributes["critical chance"] = critical_chance
+		3:
+			battle_screen.enemy_is_stunned = true
+		4:
+			pass
+	
+
+func _remove_passive_ability():
+	match Global_Player_Information.character_body_parts["Head"]:
+		0:
+			pass
+		1:
+			strength -= 1
+			Global_Player_Information.character_attributes["strength"] = strength
+		2:
+			critical_chance -= 1.0
+			Global_Player_Information.character_attributes["critical chance"] = critical_chance
+		3:
+			pass
+		4:
+			pass
+
+
+#PLAYER BODY SPEECH
+func _not_parry():
+	battle_screen._simple_speech(2, 0, true)
+
+@onready var passive_charges_total: int = -1
+@onready var current_passive_charges: int = 0
+
+func _success_parry():
+	var _head = Global_Player_Information.character_body_parts["Head"]
+	if hp > 0:
+		if _head != 0 or _head != 2: 
+			if current_passive_charges < passive_charges_total:
+				current_passive_charges += 1
+			if current_passive_charges >= passive_charges_total:
+				_do_passive_ability()
+		elif _head == 2:
+			battle_screen.enemy._do_true_damage(1)
+			pass
+		battle_screen._simple_speech(0, 0, true)

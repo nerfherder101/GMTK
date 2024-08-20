@@ -65,6 +65,17 @@ func _process(delta: float) -> void:
 	pass
 
 func do_damage(dmg: int):
+	var _total_damage = dmg - defense
+	if _total_damage < 0:
+		_total_damage == 0
+	health -= _total_damage
+	sfx_hurt.play()
+	if health <= 0:
+		sfx_explode.play()
+		current_state_anim = state_anim.explode
+	update_healthbar()
+
+func _do_true_damage(dmg: int):
 	health -= dmg
 	sfx_hurt.play()
 	if health <= 0:
@@ -82,12 +93,7 @@ func _animation_finished():
 
 
 #FOLLOWING FUNCTIONS JUST TO CONTROL SPEECH BUBBLE
-#PLAYER BODY
-func _not_parry():
-	battle_screen._simple_speech(2, 0, true)
 
-func _success_parry():
-	battle_screen._simple_speech(0, 0, true)
 #ENEMY BODY
 func _missed():
 	battle_screen._simple_speech(3, 0, false)

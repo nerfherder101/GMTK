@@ -49,7 +49,7 @@ func attack():
 		#Three functions below are to call for speech bubbles, only aesthetic functions
 		battle_screen._simple_speech(1, 0, true)
 		battle_screen._simple_speech(2, 0, false)
-		battle_screen._call_damage(dmg, 0)
+		battle_screen._call_damage(dmg, 0) #BUBBLES
 	else:
 		_play_sfx(2)
 		battle_screen._simple_speech(3, 0, true)
