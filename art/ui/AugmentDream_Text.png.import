@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnwmysv8q30n4"
-path="res://.godot/imported/Western.png-3b16412d7b3d82fe235ba8719335ac6d.ctex"
+uid="uid://dkls7vk8stvc3"
+path="res://.godot/imported/AugmentDream_Text.png-0cb2067d0380e1f43b1a870d7b669b93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/background art/Western.png"
-dest_files=["res://.godot/imported/Western.png-3b16412d7b3d82fe235ba8719335ac6d.ctex"]
+source_file="res://art/ui/AugmentDream_Text.png"
+dest_files=["res://.godot/imported/AugmentDream_Text.png-0cb2067d0380e1f43b1a870d7b669b93.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

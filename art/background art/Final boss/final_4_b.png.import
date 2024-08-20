@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnwmysv8q30n4"
-path="res://.godot/imported/Western.png-3b16412d7b3d82fe235ba8719335ac6d.ctex"
+uid="uid://dcdwegy8gv7xi"
+path="res://.godot/imported/final_4_b.png-f978f983dcbc52960f6dee39c5864a96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/background art/Western.png"
-dest_files=["res://.godot/imported/Western.png-3b16412d7b3d82fe235ba8719335ac6d.ctex"]
+source_file="res://art/background art/Final boss/final_4_b.png"
+dest_files=["res://.godot/imported/final_4_b.png-f978f983dcbc52960f6dee39c5864a96.ctex"]
 
 [params]
 

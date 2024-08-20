@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_yt4f7"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_dbtnu"]
-[ext_resource type="Texture2D" uid="uid://l8ar3a1k5j7h" path="res://art/background art/SCI-FI.png" id="3_qdgn7"]
+[ext_resource type="Texture2D" uid="uid://dj0r03qswqrho" path="res://art/background art/ring.png" id="3_fw8kd"]
 [ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="4_7mens"]
 [ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="5_g7h6d"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="6_nb3yp"]
@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="13_lse28"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="14_wfovp"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="15_o2npn"]
-[ext_resource type="PackedScene" uid="uid://crbmlsguc8y8s" path="res://player_change_clothes.tscn" id="16_kj25b"]
+[ext_resource type="PackedScene" path="res://player_change_clothes.tscn" id="16_kj25b"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_t2qls"]
 [ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="18_s7n5c"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_nonau"]
-[ext_resource type="PackedScene" uid="uid://c6121cxptcd5c" path="res://enemy scenes/boxer.tscn" id="20_eh5t7"]
+[ext_resource type="PackedScene" path="res://enemy scenes/boxer.tscn" id="20_eh5t7"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="21_503dh"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="22_5hk6o"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="23_ot41t"]
@@ -58,7 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_qdgn7")
+texture = ExtResource("3_fw8kd")
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
