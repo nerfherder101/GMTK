@@ -32,9 +32,6 @@ func _ready() -> void:
 
 
 func _update_appearance():
-	
-	
-	
 	for n in current_body_parts.size():
 		var _location_in_array = all_profiles[current_body_parts[n].body_part_id + (5 * current_body_parts[n].character_base)]
 		var _bodypart_sprite = null

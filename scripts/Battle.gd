@@ -8,6 +8,8 @@ extends Control
 @export var timing_minigame: TimingGame = null
 @export var speech_bubble_player: MarginContainer
 @export var speech_bubble_opponent: MarginContainer
+@export var player_bar: MarginContainer
+@export var player_passive_bar: ProgressBar
 @export_group("UI")
 @export var speech_bubble: Resource
 
@@ -15,9 +17,27 @@ extends Control
 @onready var music_i = %Music_InitialLoop
 @onready var music_c = %Music_ContinuousLoop
 
+#passive
+@onready var passive_charges_total: int = 0
+@onready var current_passive_charges: int = 0
+
 func _ready() -> void:
 	player_control.toggle_selection()
-	pass
+	player_passive_bar.value = 0
+	match Global_Player_Information.character_body_parts["Head"]:
+		0:
+			pass
+		1:
+			passive_charges_total = 1
+		2:
+			passive_charges_total = 2
+		3:
+			passive_charges_total = 1
+			current_passive_charges = 1
+		4:
+			passive_charges_total = 1
+	player_passive_bar.max_value = passive_charges_total
+	player_passive_bar.value = current_passive_charges
 
 func player_turn_end():
 	enemy.execute_ability()

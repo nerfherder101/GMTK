@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bi1hvelu6fe1s"]
+[gd_scene load_steps=29 format=3 uid="uid://rjbbjdu7dmuv"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_uq2c3"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_c5t1g"]
@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_gh0p5"]
 [ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="18_7fxv0"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_22b6y"]
-[ext_resource type="PackedScene" uid="uid://dmedmxjl183w2" path="res://enemy scenes/spark_striker.tscn" id="20_l1cs6"]
+[ext_resource type="PackedScene" path="res://enemy scenes/spark_striker.tscn" id="20_l1cs6"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="21_10eqc"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="22_xo6ss"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="23_pfm7c"]
