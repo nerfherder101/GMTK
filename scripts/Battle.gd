@@ -1,4 +1,5 @@
 extends Control
+class_name Battle_Screen
 
 @export_category("Load Resources")
 @export_group("Local Nodes")

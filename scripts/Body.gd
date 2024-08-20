@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 			#current_state_anim = state_anim.wait
 			
 			print("timer initiated")
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(1.5).timeout
 			print("timer passed")
 			Global_Player_Information.last_combat = enemey_id
 			get_tree().change_scene_to_file("res://Scenes/customization.tscn")

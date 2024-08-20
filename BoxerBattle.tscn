@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_t2qls"]
 [ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="18_s7n5c"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_nonau"]
-[ext_resource type="PackedScene" path="res://enemy scenes/boxer.tscn" id="20_eh5t7"]
+[ext_resource type="PackedScene" uid="uid://dwcsaqqo58xcb" path="res://enemy scenes/boxer.tscn" id="20_eh5t7"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="21_503dh"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="22_5hk6o"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="23_ot41t"]
@@ -392,11 +392,13 @@ position = Vector2(1290, 700)
 script = ExtResource("17_t2qls")
 body = NodePath("Enemy_Body")
 texture = ExtResource("18_s7n5c")
-base_attack_timer = 3.0
-base_strength = 2
+base_health = 6
+base_attack_timer = 1.0
+base_defense = 0
 vfx = ExtResource("19_nonau")
 
 [node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("20_eh5t7")]
+position = Vector2(0, -58)
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
 control = NodePath("../../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("../..")

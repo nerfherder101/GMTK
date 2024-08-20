@@ -1,16 +1,20 @@
-[gd_scene load_steps=35 format=3 uid="uid://cpfyqvbgnxkb8"]
+[gd_scene load_steps=42 format=3 uid="uid://cpfyqvbgnxkb8"]
 
-[ext_resource type="Script" path="res://scripts/Battle.gd" id="1_7twxe"]
+[ext_resource type="Script" path="res://scripts/battle_specific/Knight_Battle.gd" id="1_hmuvr"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_kvfab"]
 [ext_resource type="Texture2D" uid="uid://emhs63ohsw3t" path="res://art/background art/Final boss/final_1.png" id="3_24d18"]
 [ext_resource type="Texture2D" uid="uid://b4lgl441024lc" path="res://art/background art/Final boss/final_2.png" id="4_sgcl1"]
 [ext_resource type="Texture2D" uid="uid://bigrdn1ob07ik" path="res://art/ui/placeholders/ui_bar_player_with_passive_layer1.png" id="4_x7wjg"]
+[ext_resource type="Texture2D" uid="uid://chqg8g3ffcepx" path="res://art/background art/Final boss/eye_2.png" id="5_ilitc"]
 [ext_resource type="Texture2D" uid="uid://55ufvkggr7jm" path="res://art/background art/Final boss/final_3.png" id="5_t11lh"]
 [ext_resource type="Texture2D" uid="uid://bx8hfg0d7gegs" path="res://art/ui/placeholders/ui_bar_layer2.png" id="5_wcm88"]
+[ext_resource type="Texture2D" uid="uid://5e0exxi7t0j1" path="res://art/background art/Final boss/eye_3.png" id="6_0p4c8"]
 [ext_resource type="Texture2D" uid="uid://paoi54757a51" path="res://art/ui/placeholders/ui_bar_layer1.png" id="6_jow7y"]
 [ext_resource type="Texture2D" uid="uid://bnylcalywtxr0" path="res://art/background art/Final boss/eye_1.png" id="6_ouuu6"]
+[ext_resource type="Texture2D" uid="uid://btts8werdhfyn" path="res://art/background art/Final boss/final_4_a.png" id="7_1wnme"]
 [ext_resource type="Script" path="res://scripts/PlayerControl.gd" id="7_v0fp4"]
 [ext_resource type="Resource" uid="uid://c7m75poinxlcf" path="res://scripts/PlayerData.tres" id="8_0nrhf"]
+[ext_resource type="Texture2D" uid="uid://dcdwegy8gv7xi" path="res://art/background art/Final boss/final_4_b.png" id="8_62pea"]
 [ext_resource type="Texture2D" uid="uid://bi4r0wc8l5xg4" path="res://art/ui/placeholders/thoughtbubble_regular.png" id="9_pycso"]
 [ext_resource type="Texture2D" uid="uid://cgvjb2ecromk3" path="res://art/ui/placeholders/thoughtbubble_pressed.png" id="10_h3sp1"]
 [ext_resource type="Texture2D" uid="uid://7a5y0jx11sbo" path="res://art/ui/placeholders/thoughtbubble_hover.png" id="11_hbbn5"]
@@ -43,6 +47,69 @@ bg_color = Color(0.941176, 0.121569, 0.360784, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k26r"]
 bg_color = Color(0, 0, 0, 0.717647)
 
+[sub_resource type="Animation" id="Animation_pi44u"]
+resource_name = "Rocks_Idle"
+length = 2.4
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/Rocks_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 40), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Rocks_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -70), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qgg71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/Rocks_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 81)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Rocks_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -70)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kdp12"]
+_data = {
+"RESET": SubResource("Animation_qgg71"),
+"Rocks_Idle": SubResource("Animation_pi44u")
+}
+
 [node name="KnightBattle" type="Control" node_paths=PackedStringArray("enemy", "player_body", "player_control", "timing_minigame", "speech_bubble_player", "speech_bubble_opponent", "player_bar", "player_passive_bar")]
 layout_mode = 3
 anchors_preset = 15
@@ -50,7 +117,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7twxe")
+script = ExtResource("1_hmuvr")
 enemy = NodePath("Opponent")
 player_body = NodePath("Player_Body")
 player_control = NodePath("UI/ControlContainer/ControlPanel")
@@ -72,25 +139,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_24d18")
 
-[node name="Rocks_1" type="TextureRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_sgcl1")
-
-[node name="Rocks_2" type="TextureRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_t11lh")
-
 [node name="Eye" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+clip_children = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,6 +149,95 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_ouuu6")
+
+[node name="Eye_2" type="TextureRect" parent="Background/Eye"]
+unique_name_in_owner = true
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -429.0
+offset_right = 110.0
+offset_bottom = -222.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ilitc")
+stretch_mode = 2
+
+[node name="Eye_3" type="TextureRect" parent="Background/Eye"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -399.0
+offset_right = 83.0
+offset_bottom = -267.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_0p4c8")
+stretch_mode = 2
+
+[node name="Lid_bottom" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = 213.0
+offset_right = -97.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1wnme")
+
+[node name="Lid_top" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 171.0
+offset_top = -255.0
+offset_right = 171.0
+offset_bottom = -255.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_62pea")
+
+[node name="Rocks_1" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 81.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_sgcl1")
+
+[node name="Rocks_2" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_t11lh")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -411,18 +551,18 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("17_vh7ql")]
-position = Vector2(630, 700)
+position = Vector2(630, 680)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/VBoxContainer/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("..")
 
 [node name="Opponent" type="Node2D" parent="." node_paths=PackedStringArray("body")]
-position = Vector2(1290, 700)
+position = Vector2(1290, 600)
 script = ExtResource("18_c7gre")
-body = NodePath("")
+body = NodePath("Enemy_Body")
 texture = ExtResource("19_b3bic")
 base_attack_timer = 3.0
-base_strength = 2
+base_strength = 3
 vfx = ExtResource("20_iwxow")
 
 [node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("21_14xg2")]
@@ -463,6 +603,12 @@ unique_name_in_owner = true
 position = Vector2(710, 535)
 stream = ExtResource("27_06o8a")
 bus = &"UI"
+
+[node name="AnimationPlayer_Rocks" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kdp12")
+}
+autoplay = "Rocks_Idle"
 
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Attack" to="UI/ControlContainer/ControlPanel" method="_on_attack_mouse_entered"]
 [connection signal="mouse_entered" from="UI/ControlContainer/ControlPanel/HBoxContainer/Special" to="UI/ControlContainer/ControlPanel" method="_on_special_mouse_entered"]
