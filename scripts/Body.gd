@@ -2,7 +2,7 @@ extends Node2D
 class_name Body
 
 @export var max_health := 10
-var health = 0
+@export var health = 0
 
 @export var health_bar : ProgressBar = null
 @export var control: PlayerControl = null
@@ -11,7 +11,6 @@ var health = 0
 @export var strength: int = 0
 @export var defense: int = 0
 @export var agility: int = 0
-@export var hp: int = 0
 @export var critical_chance: int = 0
 @export var enemey_id = -1
 
@@ -56,7 +55,7 @@ func _process(delta: float) -> void:
 			#current_state_anim = state_anim.wait
 			
 			print("timer initiated")
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(1.5).timeout
 			print("timer passed")
 			Global_Player_Information.last_combat = enemey_id
 			get_tree().change_scene_to_file("res://Scenes/customization.tscn")
@@ -66,7 +65,7 @@ func _process(delta: float) -> void:
 	pass
 
 func do_damage(dmg: int):
-	var _total_damage = dmg - defense
+	var _total_damage = dmg - (get_parent().base_defense + defense)
 	if _total_damage < 0:
 		_total_damage == 0
 	health -= _total_damage

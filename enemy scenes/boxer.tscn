@@ -1,41 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6121cxptcd5c"]
+[gd_scene load_steps=15 format=3 uid="uid://dwcsaqqo58xcb"]
 
 [ext_resource type="Script" path="res://scripts/Body.gd" id="1_h6514"]
-[ext_resource type="Texture2D" uid="uid://d1uyriytgcge8" path="res://art/character art/boxer.png" id="2_ho8im"]
+[ext_resource type="Texture2D" uid="uid://rd3tm5rsrppx" path="res://art/character art/Individual Pieces/BoxerIdleSheet.png" id="2_02pqg"]
 [ext_resource type="Texture2D" uid="uid://xdmek8natl7w" path="res://art/character art/Individual Pieces/MODBoxer.png" id="3_k0y2d"]
 [ext_resource type="AudioStream" uid="uid://bpy3ruvu0e5yn" path="res://art/sound/general sfx/explode_2.wav" id="4_dcfca"]
 [ext_resource type="AudioStream" uid="uid://b4ahpjq7pop6y" path="res://art/sound/general sfx/hurt.wav" id="5_afv6t"]
-
-[sub_resource type="Animation" id="Animation_mr5px"]
-resource_name = "Attack"
-length = 1.2
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy_Body/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [4, 5, 6, 7, 8, 9, 10, 11]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Enemy_Body")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.14286),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_animation_finished"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_df8s8"]
 resource_name = "Idle"
@@ -70,9 +39,26 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_rvx3k"]
+resource_name = "Attack"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy_Body/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a5tf8"]
 _data = {
-"Attack": SubResource("Animation_mr5px"),
+"Attack": SubResource("Animation_rvx3k"),
 "Idle": SubResource("Animation_df8s8"),
 "RESET": SubResource("Animation_geoxr")
 }
@@ -103,7 +89,8 @@ script = ExtResource("1_h6514")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
 scale = Vector2(5, 5)
-texture = ExtResource("2_ho8im")
+texture = ExtResource("2_02pqg")
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
