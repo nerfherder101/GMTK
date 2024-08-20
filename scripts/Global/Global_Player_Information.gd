@@ -11,6 +11,9 @@ extends Node
 	"Knightmare" : false
 }
 
+#assign after a combat finish for customization screen
+@onready var last_combat: int = 1
+
 @onready var character_attributes = {
 		"strength" : 0,
 		"defense" : 0,

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://rjbbjdu7dmuv"]
+[gd_scene load_steps=29 format=3 uid="uid://bi1hvelu6fe1s"]
 
 [ext_resource type="Script" path="res://scripts/Battle.gd" id="1_uq2c3"]
 [ext_resource type="PackedScene" uid="uid://cy3a3ksjynjmy" path="res://scripts/UI Elements/speech_bubble_in_battle.tscn" id="2_c5t1g"]
@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://bn48ml7qku8e3" path="res://art/ui/placeholders/shield.png" id="13_xis1t"]
 [ext_resource type="Texture2D" uid="uid://b4jiihqy0loce" path="res://programmer art/white.png" id="14_ga2ni"]
 [ext_resource type="Script" path="res://scripts/TimingGame.gd" id="15_c1ywa"]
-[ext_resource type="PackedScene" uid="uid://coabno8t3hu8h" path="res://player_modular.tscn" id="16_r5bax"]
+[ext_resource type="PackedScene" path="res://player_change_clothes.tscn" id="16_lf7x7"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="17_gh0p5"]
 [ext_resource type="Texture2D" uid="uid://rqoaeuv5vo5d" path="res://art/character art/Individual Pieces/RedDeadSpritesheet.png" id="18_7fxv0"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="19_22b6y"]
-[ext_resource type="PackedScene" path="res://enemy scenes/spark_striker.tscn" id="20_l1cs6"]
+[ext_resource type="PackedScene" uid="uid://dmedmxjl183w2" path="res://enemy scenes/spark_striker.tscn" id="20_l1cs6"]
 [ext_resource type="AudioStream" uid="uid://df0u3f27yl354" path="res://art/sound/music/wild west initial loop.wav" id="21_10eqc"]
 [ext_resource type="AudioStream" uid="uid://c4ftq7sidavmp" path="res://art/sound/music/wild west continuous loop.wav" id="22_xo6ss"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="23_pfm7c"]
@@ -347,7 +347,7 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("16_r5bax")]
+[node name="Player_Body" parent="." node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("16_lf7x7")]
 position = Vector2(537, 740)
 health_bar = NodePath("../UI/BarContainer/BarHbox/PlayerBar/Layer1/MarginContainer/Player Health")
 control = NodePath("../UI/ControlContainer/ControlPanel")

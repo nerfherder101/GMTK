@@ -13,6 +13,7 @@ var health = 0
 @export var agility: int = 0
 @export var hp: int = 0
 @export var critical_chance: int = 0
+@export var enemey_id = -1
 
 
 #get resources
@@ -53,6 +54,12 @@ func _process(delta: float) -> void:
 			arms_particle.emitting = true
 			legs_particle.emitting = true
 			current_state_anim = state_anim.wait
+			
+			await get_tree().create_timer(2).timeout
+				
+			Global_Player_Information.last_combat = enemey_id
+			#get_tree().change_scene_to_file()
+			
 		state_anim.wait:
 			pass
 	pass

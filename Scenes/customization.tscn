@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj72pbkw2clcy"]
+
+[ext_resource type="Script" path="res://Scenes/Customization.gd" id="1_dydr3"]
+[ext_resource type="Texture2D" uid="uid://c6ophymw7rbhb" path="res://art/character art/Individual Pieces/MODRedDead.png" id="2_mivsb"]
+[ext_resource type="FontFile" uid="uid://buuplwb7wk55" path="res://art/ui/Jersey10-Regular.ttf" id="3_3a0ge"]
+
+[node name="Customization" type="Control" node_paths=PackedStringArray("body_images", "head_button", "chest_button", "arms_button", "legs_button", "head_label", "chest_label", "arms_label", "legs_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dydr3")
+body_images = [NodePath("TextureRect")]
+head_button = NodePath("TextureRect/Head Button")
+chest_button = NodePath("TextureRect/Chest Button")
+arms_button = NodePath("TextureRect/Arm Button")
+legs_button = NodePath("TextureRect/Leg Button")
+head_label = NodePath("TextureRect/Head Button/Head Label")
+chest_label = NodePath("TextureRect/Chest Button/Chest Label")
+arms_label = NodePath("TextureRect/Arm Button/Arm Label")
+legs_label = NodePath("TextureRect/Leg Button/Leg Label")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 216.0
+offset_right = 1699.0
+offset_bottom = 760.0
+texture = ExtResource("2_mivsb")
+
+[node name="Head Button" type="Button" parent="TextureRect"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 8.0
+offset_top = 110.0
+offset_right = 356.0
+offset_bottom = 528.0
+
+[node name="Head Label" type="Label" parent="TextureRect/Head Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.163
+anchor_right = 0.862
+anchor_bottom = 1.593
+offset_left = 28.0
+offset_top = -22.134
+offset_right = -11.976
+offset_bottom = 37.126
+theme_override_fonts/font = ExtResource("3_3a0ge")
+theme_override_font_sizes/font_size = 40
+
+[node name="Chest Button" type="Button" parent="TextureRect"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 369.0
+offset_top = 65.0
+offset_right = 717.0
+offset_bottom = 483.0
+
+[node name="Chest Label" type="Label" parent="TextureRect/Chest Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.163
+anchor_right = 0.862
+anchor_bottom = 1.593
+offset_left = 20.0
+offset_top = 13.866
+offset_right = -19.976
+offset_bottom = 73.126
+theme_override_fonts/font = ExtResource("3_3a0ge")
+theme_override_font_sizes/font_size = 40
+
+[node name="Arm Button" type="Button" parent="TextureRect"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 725.0
+offset_top = 97.0
+offset_right = 1073.0
+offset_bottom = 515.0
+
+[node name="Arm Label" type="Label" parent="TextureRect/Arm Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.163
+anchor_right = 0.862
+anchor_bottom = 1.593
+offset_left = 28.0
+offset_top = -22.134
+offset_right = -11.976
+offset_bottom = 37.126
+theme_override_fonts/font = ExtResource("3_3a0ge")
+theme_override_font_sizes/font_size = 40
+
+[node name="Leg Button" type="Button" parent="TextureRect"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1091.0
+offset_top = 112.0
+offset_right = 1439.0
+offset_bottom = 530.0
+
+[node name="Leg Label" type="Label" parent="TextureRect/Leg Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.163
+anchor_right = 0.862
+anchor_bottom = 1.593
+offset_left = 28.0
+offset_top = -22.134
+offset_right = -11.976
+offset_bottom = 37.126
+theme_override_fonts/font = ExtResource("3_3a0ge")
+theme_override_font_sizes/font_size = 40
