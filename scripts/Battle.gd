@@ -22,6 +22,7 @@ class_name Battle_Screen
 @onready var passive_charges_total: int = -1
 @onready var current_passive_charges: int = 0
 @onready var enemy_is_stunned: bool = false
+@onready var player_is_stunned: bool = false
 
 func _ready() -> void:
 	player_control.toggle_selection()
@@ -56,6 +57,12 @@ func player_turn_end():
 	speech_bubble_opponent.get_child(0).add_child(_node)
 
 func enemy_turn_end():
+	await get_tree().create_timer(0.5).timeout
+	if player_is_stunned:
+		enemy.execute_ability()
+		player_control._enter_defense() #THIS IS SO THE PLAYER CAN HAVE THE BUTTON TO PARRY AVAILABLE TO THEM
+		player_is_stunned = false
+		return
 	player_control.toggle_selection()
 	pass
 

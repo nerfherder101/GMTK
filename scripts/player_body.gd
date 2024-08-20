@@ -91,6 +91,14 @@ func do_damage(dmg: int):
 		current_state_anim = state_anim.explode
 	update_healthbar()
 
+func _do_true_damage(dmg: int):
+	health -= dmg
+	sfx_hurt.play()
+	if health <= 0:
+		sfx_explode.play()
+		current_state_anim = state_anim.explode
+	update_healthbar()
+
 func _do_passive_ability():
 	print(Global_Player_Information.character_body_parts["Head"])
 	match Global_Player_Information.character_body_parts["Head"]:

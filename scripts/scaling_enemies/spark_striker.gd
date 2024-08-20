@@ -12,3 +12,7 @@ func _ready() -> void:
 			health = 10
 			defense = 0
 			strength = 2
+
+func _successful_attack():
+	super()
+	battle_screen.player_is_stunned = true

@@ -10,3 +10,8 @@ func _ready() -> void:
 		3:
 			health = 10
 			strength = 1
+
+
+func do_damage(dmg: int):
+	super(dmg)
+	battle_screen.player_body._do_true_damage(1)
