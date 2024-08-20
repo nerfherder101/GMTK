@@ -25,10 +25,10 @@
 [ext_resource type="PackedScene" path="res://player_change_clothes.tscn" id="24_i4r56"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="25_2x3si"]
 [ext_resource type="PackedScene" uid="uid://cissqpdxlejjw" path="res://scripts/VFX/small_smoke.tscn" id="26_p5h7k"]
-[ext_resource type="PackedScene" uid="uid://cy2k3y1qq8tc4" path="res://enemy scenes/knight.tscn" id="27_ah1k7"]
+[ext_resource type="PackedScene" uid="uid://dmj6hxif6n2k8" path="res://enemy scenes/knight.tscn" id="27_ah1k7"]
+[ext_resource type="AudioStream" uid="uid://cmqubg5i7j8tl" path="res://art/sound/music/final boss temp initial loop.wav" id="28_laxp5"]
 [ext_resource type="Script" path="res://scripts/scaling_enemies/knight.gd" id="28_plpox"]
-[ext_resource type="AudioStream" uid="uid://dt7u3bwsiir0u" path="res://art/sound/music/boxing ring initial loop.wav" id="28_ts7xv"]
-[ext_resource type="AudioStream" uid="uid://bauflwia5lpmb" path="res://art/sound/music/boxing ring continuous loop.wav" id="29_4i1fh"]
+[ext_resource type="AudioStream" uid="uid://c30kt52pfeg0c" path="res://art/sound/music/final boss temp continuous loop.wav" id="29_krdd8"]
 [ext_resource type="AudioStream" uid="uid://oleeo87x7vg1" path="res://art/sound/ui sfx/UI_Select.wav" id="30_1v0k0"]
 [ext_resource type="AudioStream" uid="uid://njxn4destsfl" path="res://art/sound/ui sfx/UI Accept.wav" id="31_lst2k"]
 [ext_resource type="AudioStream" uid="uid://cixpcaxvxqja6" path="res://art/sound/ui sfx/UI Cannot perform.wav" id="32_2kp2a"]
@@ -556,6 +556,7 @@ vfx = ExtResource("26_p5h7k")
 
 [node name="Enemy_Body" parent="Opponent" node_paths=PackedStringArray("health_bar", "control", "battle_screen") instance=ExtResource("27_ah1k7")]
 script = ExtResource("28_plpox")
+health = 1
 health_bar = NodePath("../../UI/BarContainer/BarHbox/EnemyBar/Layer1/MarginContainer/EnemyHealth")
 control = NodePath("../../UI/ControlContainer/ControlPanel")
 battle_screen = NodePath("../..")
@@ -564,13 +565,13 @@ battle_screen = NodePath("../..")
 
 [node name="Music_InitialLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("28_ts7xv")
+stream = ExtResource("28_laxp5")
 autoplay = true
 bus = &"Music"
 
 [node name="Music_ContinuousLoop" type="AudioStreamPlayer2D" parent="Audio"]
 unique_name_in_owner = true
-stream = ExtResource("29_4i1fh")
+stream = ExtResource("29_krdd8")
 bus = &"Music"
 
 [node name="SFX_Hover" type="AudioStreamPlayer2D" parent="Audio"]

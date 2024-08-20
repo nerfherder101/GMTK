@@ -55,7 +55,10 @@ func _process(delta: float) -> void:
 			print("timer initiated")
 			await get_tree().create_timer(1.5).timeout
 			print("timer passed")
-			battle_screen._end_battle_player_win()
+			if get_parent().final_boss:
+				battle_screen._fade_to_black_back_to_bedroom()
+			else:
+				battle_screen._end_battle_player_win()
 			
 		state_anim.wait:
 			pass

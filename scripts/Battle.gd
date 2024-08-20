@@ -155,6 +155,7 @@ func _fade_to_black_back_to_bedroom():
 		4:
 			Global_Player_Information.characters_available["Spark Striker"] = false
 		5:
+			black_panel.show()
 			Global_Player_Information.characters_available["Knightmare"] = false
 	body_selector.hide()
 	var _tween = create_tween()
